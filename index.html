@@ -17,19 +17,20 @@ body, html {height: 100%}
 </style>
 <body>
     
-<div class="w3-sidebar w3-bar-block" style="width:7%">
-    <div class="w3-display-topleft w3-padding-large w3-xlarge">
-    Logo
-  </div>
+
+
+    
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+  <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
   <a href="#" class="w3-bar-item w3-button">Link 1</a>
   <a href="#" class="w3-bar-item w3-button">Link 2</a>
   <a href="#" class="w3-bar-item w3-button">Link 3</a>
 </div>
 
     
-<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-  <div class="w3-display-topleft w3-padding-large w3-xlarge">
-    Logo
+    <div class="w3-display-topleft w3-padding-large w3-xlarge"><div class="" onclick="w3_open()">
+    ☰</div>
   </div>
   <div class="w3-display-middle">
     <h1 class="w3-jumbo w3-animate-top">COMING SOON</h1>
@@ -39,4 +40,14 @@ body, html {height: 100%}
     
 
 
-  
+  <script>
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+     
+
