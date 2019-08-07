@@ -54,6 +54,7 @@ h1 {
   -webkit-text-stroke: 0.5px #8AFF85;
    color: black !important;
    font-size: 30px;
+   text-shadow: 1px 1px 5px black;
 }
 
 .crazygreen {
@@ -88,7 +89,6 @@ overflow:hidden;
 top:0;
 left:0;
 opacity:0;
-background-color:rgba(0,0,0,0.5);
 -webkit-transition:all .4s ease-in-out;
 transition:all .4s ease-in-out
 }
@@ -98,6 +98,8 @@ display:block;
 position:relative;
 -webkit-transition:all .4s linear;
 transition:all .4s linear;
+-webkit-filter: grayscale(100%); /* Ch 23+, Saf 6.0+, BB 10.0+ */
+filter: grayscale(100%); /* FF 35+ */
 }
 
 .hovereffect a.info {
@@ -117,6 +119,8 @@ margin-bottom: 25%;
 -ms-transform:scale(1.2);
 -webkit-transform:scale(1.2);
 transform:scale(1.2);
+-webkit-filter: grayscale(0%); /* Ch 23+, Saf 6.0+, BB 10.0+ */
+filter: grayscale(0%); /* FF 35+ */
 }
 
 .hovereffect:hover .overlay {
