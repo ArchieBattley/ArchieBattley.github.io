@@ -9,7 +9,9 @@ body {
   color: #ffffff;
 }
 
-body, html {height: 100%;
+body, html {
+  background-color: black;
+  height: 100%;
 }
 
 .backgroundimage1 {
