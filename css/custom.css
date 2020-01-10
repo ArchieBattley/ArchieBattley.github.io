@@ -39,6 +39,15 @@ body, html {
   height: 1080px;
 }
 
+.backgroundimage3 {
+  background: url('../img/background2.jpg') top center;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+background-size: cover;
+-o-background-size: cover;
+height: 1080px;
+}
+
 h1 {
   font-family: "Creepster";
   font-size: 70px;
