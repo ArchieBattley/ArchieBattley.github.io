@@ -3,7 +3,15 @@
  * Copyright 2013-2019 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-the-big-picture/blob/master/LICENSE)
  */
-body {
+ html {
+  overflow: scroll;
+  overflow-x: hidden;
+  }
+  ::-webkit-scrollbar {
+  width: 0px;
+  }
+
+ body {
   background-color: black;
   font-family: "Special Elite";
   color: #ffffff;
@@ -42,6 +50,10 @@ h1 {
 
 .text-shadowed {
 	text-shadow: 1px 1px 5px black;
+}
+
+.text-black {
+  color: black;
 }
 
 .navgradblack {
@@ -225,3 +237,25 @@ transition-delay:.2s;
 }
 
 /* Hover Effect Finish */
+
+/* LightBox */
+
+@media all {
+  .lightbox { display: none; }
+}
+
+.featherlight-content {
+  border-bottom: 0px !important;
+  padding: 0px !important;
+  -moz-box-shadow:   0px 0px 50px 30px rgb(0, 0, 0);
+  -webkit-box-shadow: 0px 0px 50px 30px rgb(0, 0, 0);
+  box-shadow:        0px 0px 50px 30px rgb(0, 0, 0);
+}
+
+.featherlight-close-icon {
+  color: #8AFF85 !important;
+  background: #000000 !important;
+  font-size: 20px !important;
+}
+
+/* LightBox Finish */
