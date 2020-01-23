@@ -274,4 +274,29 @@ transition-delay:.2s;
 
 /* LightBox Finish */
 
+/* Featherlight Gallery */
 
+.featherlight-previous {
+  left: 0px;
+  top: 0px;
+}
+
+.featherlight-previous:hover {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.190) 35%, rgba(255,255,255,0) 100%);
+}
+
+.featherlight-next {
+  right: 0px;
+  top: 0px;
+}
+
+.featherlight-next:hover {
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.190) 35%, rgba(255,255,255,0) 100%);
+}
+
+.featherlight-next span, .featherlight-previous span {
+  font-size: 40px;
+  color: #ffff;
+  text-shadow: 0 0 20px #000000;
+}
+/* Gallery Finish */
