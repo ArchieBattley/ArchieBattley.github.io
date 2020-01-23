@@ -20,8 +20,8 @@
   <!-- Featherlight Lightbox Plugin -->
   <link href="css/featherlight.min.css" rel="stylesheet" />
 
-  <!-- Swiper Slider CSS -->
-  <link href="css/swiper.css" rel="stylesheet">
+  <!-- Featherlight img/gallery Plugin -->
+  <link href="css/featherlight.img/gallery.min.css" rel="stylesheet" />
 
   <!-- Font Awesome Core  CSS -->
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -254,41 +254,154 @@
    </div>
  </div>
 
+<!-- FeatherLight img/gallery Test -->
+<!-- Styles -->
+<style type="text/css">
+  @media all {
+    .lightbox { display: none; }
+    .fl-page h1,
+    .fl-page h3,
+    .fl-page h4 {
+      font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      font-weight: 100;
+      letter-spacing: 1px;
+    }
+    .fl-page h1 { font-size: 110px; margin-bottom: 0.5em; }
+    .fl-page h1 i { font-style: normal; color: #ddd; }
+    .fl-page h1 span { font-size: 30px; color: #333;}
+    .fl-page h3 { text-align: right; }
+    .fl-page h3 { font-size: 15px; }
+    .fl-page h4 { font-size: 2em; }
+    .fl-page .jumbotron { margin-top: 2em; }
+    .fl-page .btn-download { float: right; margin-top: -40px; }
+    .fl-page .btn-default { vertical-align: bottom; }
 
-<!-- Slider main container -->
-<div class="swiper-container gallery-top">
-   <div class="swiper-wrapper">
-     <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/1.jpg);"></div>
-     <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/2.jpg);"></div>
-     <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/3.jpg);"></div>
-     <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/4.jpg);"></div>
-     <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/5.jpg);"></div>
-     <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/6.jpg);"></div>
-     <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/7.jpg);"></div>
-     <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/8.jpg);"></div>
-     <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/9.jpg);"></div>
-     <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/10.jpg);"></div>
-   </div>
-   <!-- Add Arrows -->
-   <div class="swiper-button-next swiper-button-white"></div>
-   <div class="swiper-button-prev swiper-button-white"></div>
- </div>
- <div class="swiper-container gallery-thumbs">
-   <div class="swiper-wrapper">
-      <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/1.jpg);"></div>
-      <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/2.jpg);"></div>
-      <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/3.jpg);"></div>
-      <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/4.jpg);"></div>
-      <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/5.jpg);"></div>
-      <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/6.jpg);"></div>
-      <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/7.jpg);"></div>
-      <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/8.jpg);"></div>
-      <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/9.jpg);"></div>
-      <div class="swiper-slide" style="background-image: url(img/photos/thumbnails/shapecraft/10.jpg);"></div>
-   </div>
- </div>
+    .fl-page .row { margin-top: 2em;}
 
-<!-- container -->
+    .fl-page .btn-lg span { font-size: 0.7em; }
+    .fl-page .footer { margin-top: 3em; color: #aaa; font-size: 0.9em;}
+    .fl-page .footer a { color: #999; text-decoration: none; margin-right: 0.75em;}
+    .fl-page .github { margin: 2em 0; }
+    .fl-page .github a { vertical-align: top; }
+
+    /* customized img/gallery */
+
+    .featherlight-img/gallery2 {
+      background: rgba(100,100,100,0.5);
+    }
+    .featherlight-img/gallery2 .featherlight-content {
+      background: #000;
+    }
+    .featherlight-img/gallery2 .featherlight-next:hover,
+    .featherlight-img/gallery2 .featherlight-previous:hover {
+      background: rgba(0,0,0,0.5);
+    }
+    .featherlight-img/gallery2 .featherlight-next:hover span,
+    .featherlight-img/gallery2 .featherlight-previous:hover span {
+      font-size: 25px;
+      line-height: 25px;
+      margin-top: -12.5px;
+      color: #fff;
+    }
+    .featherlight-img/gallery2  .featherlight-close {
+      background: transparent;
+      color: #fff;
+      font-size: 1.2em;
+    }
+    .featherlight-img/gallery2.featherlight-last-slide .featherlight-next,
+    .featherlight-img/gallery2.featherlight-first-slide .featherlight-previous {
+      display: none;
+    }
+
+    /* text slide */
+    .thumbnail a { text-decoration: none; }
+    .blurb {
+      display: inline-block;
+      width: 150px;
+      height: 150px;
+    }
+    .blurb h2 { text-align: center;}
+    .blurb .detail { display: none;}
+    .blurb .teaser {
+      font-style: italic;
+      text-align: center;
+    }
+    .featherlight .blurb {
+      display: inline-block;
+      width: 500px;
+      height: 300px;
+      color: #99f;
+    }
+    .featherlight .blurb .detail {
+      color: #ddf;
+      font-size: large;
+      display: inherit;
+    }
+    .featherlight .blurb .teaser { display: none;}
+
+  }
+  @media(max-width: 768px){
+    .fl-page h1 span { display: block; }
+    .fl-page .btn-download { float: none; margin-bottom: 1em; }
+  }
+</style>
+<!-- Styles -->
+
+			<div class="row">
+				<div class="col-lg-12">
+					<h2>Example Gallery</h2>
+				</div>
+				<div class="col-lg-2">
+					<a class="thumbnail img/gallery" href="img/gallery/two_birds.jpg"><img src="img/gallery/two_birds.thumb.jpg" /></a>
+				</div>
+				<div class="col-lg-2">
+					<a class="thumbnail img/gallery" href="img/gallery/droplets.jpg"><img src="img/gallery/droplets.thumb.jpg" /></a>
+				</div>
+				<div class="col-lg-2">
+					<a class="thumbnail img/gallery" href="img/gallery/blue.jpg"><img src="img/gallery/blue.thumb.jpg" /></a>
+				</div>
+				<div class="col-lg-2">
+					<a class="thumbnail img/gallery" href="img/gallery/feed.jpg"><img src="img/gallery/feed.thumb.jpg" /></a>
+				</div>
+				<div class="col-lg-2">
+					<a class="thumbnail img/gallery" href="img/gallery/black.jpg"><img src="img/gallery/black.thumb.jpg" /></a>
+				</div>
+				<div class="col-lg-2">
+					<a class="thumbnail img/gallery" href="img/gallery/red_and_yellow.jpg"><img src="img/gallery/red_and_yellow.thumb.jpg" /></a>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-2">
+					<a class="thumbnail img/gallery2" href=".blurb">
+						<div class="blurb">
+							<h2>A different example</h2>
+							<p class="teaser">click me!</p>
+							<span class="detail">
+								<p>Featherlight img/gallery inherit all the goodies of Featherlight.</p>
+								<p>In particular, the different content filters are available and a img/gallery can have mixed content. For example, this slide that is not an image.</p>
+								<p>This img/gallery also demonstrates the use of a css variant.</p>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-2">
+					<a class="thumbnail img/gallery2" href="img/gallery/droplets.jpg"><img src="img/gallery/droplets.thumb.jpg" /></a>
+				</div>
+				<div class="col-lg-2">
+					<a class="thumbnail img/gallery2" href="img/gallery/blue.jpg"><img src="img/gallery/blue.thumb.jpg" /></a>
+				</div>
+				<div class="col-lg-2">
+					<a class="thumbnail img/gallery2" href="img/gallery/feed.jpg"><img src="img/gallery/feed.thumb.jpg" /></a>
+				</div>
+				<div class="col-lg-2">
+					<a class="thumbnail img/gallery2" href="img/gallery/black.jpg"><img src="img/gallery/black.thumb.jpg" /></a>
+				</div>
+				<div class="col-lg-2">
+					<a class="thumbnail img/gallery2" href="img/gallery/red_and_yellow.jpg"><img src="img/gallery/red_and_yellow.thumb.jpg" /></a>
+				</div>
+			</div>
+
+
 
   </section>
 
@@ -300,37 +413,33 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<!-- Swiper Slider JavaScript -->
-<script src="js/swiper.js"></script>
-
 <!-- Featherlight Lightbox JavaScript -->
 <script src="js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
-<!-- Initialize Swiper -->
+<!-- Featherlight img/gallery JavaScript -->
+<script src="js/featherlight.img/gallery.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Initialize Featherlight img/gallery -->
 <script>
-   var galleryThumbs = new Swiper('.gallery-thumbs', {
-     spaceBetween: 10,
-     slidesPerView: 4,
-     loop: true,
-     freeMode: true,
-     loopedSlides: 5, //looped slides should be the same
-     watchSlidesVisibility: true,
-     watchSlidesProgress: true,
-   });
-   var galleryTop = new Swiper('.gallery-top', {
-     spaceBetween: 10,
-     loop:true,
-     loopedSlides: 5, //looped slides should be the same
-     navigation: {
-       nextEl: '.swiper-button-next',
-       prevEl: '.swiper-button-prev',
-     },
-     thumbs: {
-       swiper: galleryThumbs,
-     },
-   });
- </script>
-   
+  $(document).ready(function(){
+    $('.gallery').featherlightGallery({
+      gallery: {
+        fadeIn: 300,
+        fadeOut: 300
+      },
+      openSpeed:    300,
+      closeSpeed:   300
+    });
+    $('.gallery2').featherlightGallery({
+      gallery: {
+        next: 'next »',
+        previous: '« previous'
+      },
+      variant: 'featherlight-gallery2'
+    });
+  });
+</script>
+
 </body>
 
 </html>
