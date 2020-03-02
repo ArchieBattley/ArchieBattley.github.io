@@ -62,9 +62,23 @@ background-size: cover;
 height: 1080px;
 }
 
+.backgroundimage5 {
+  background: url('../img/background1.jpg') top center;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+background-size: cover;
+-o-background-size: cover;
+height: 1080px;
+}
+
 h1 {
   font-family: "Creepster";
   font-size: 70px;
+}
+
+h3 {
+  font-family: "Creepster";
+  font-size: 30px;
 }
 
 .navtitle {
@@ -111,6 +125,18 @@ h1 {
   	padding: 15px;
   	background-color: white;
   	box-shadow: 5px 5px 15px black;
+}
+
+.btn-primary {
+  color: #8AFF85;
+  background-color: #000000;
+  border-color: #000000ff;
+}
+
+.btn-primary:hover {
+  color: #000000;
+  background-color: #8AFF85;
+  border-color: #8AFF85;
 }
 
 /* Hover Effect */
