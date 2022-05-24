@@ -11,6 +11,9 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
   <title>Home - Archie Battley</title>
 
+  <!-- Google Model Viewer -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -21,20 +24,39 @@
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
   <!-- Custom Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite">
-
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Creepster">
-
-
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+ 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
 
 </head>
     
-<body class="backgroundimage1">
+<body>
+  <div class="carbackground">
+    <model-viewer bounds="tight" enable-pan src="https://archiebattley.com/caroutline.glb" camera-controls shadow-intensity="1.33" exposure="0.57" shadow-softness="1" camera-orbit="30deg 80deg 3m" camera-target="-5m 3m 0m">
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+    </model-viewer>  
+    <script src="script.js"></script>
+  </div>
+
+  <div class="carforeground verticalcenter"> 
+  <div class="row">
+<div class="col-12 text-center crazystroke">
+  <h1 class="noselect">ARCHIE BATTLEY</h1>
+</div>
+  </div>
+</div>
+
+  
+
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-bottom text-shadowed navgradblack">
     <div class="container">
-      <a class="navtitle navbar-brand crazystroke" href="#" style="color: black;">Archie Battley</a>
+      <a class="navtitle navbar-brand crazystrokesmall" href="#" style="color: black;">ARCHIE BATTLEY</a>
       <a class="navbar-toggler crazygreen" type="" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars crazygreen"></i>
       </a>
@@ -62,67 +84,14 @@
     </div>
   </nav>
 
-  <!-- Page Content -->
-  <section class="pb-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <h1 class="mt-5 crazystroke pb-3 text-center">My Portfolio</h1>
-          <p class="textboxshadowed">This website showcases my portfolio of designs that I have produced for school, college and work. Feel Free to Browse...</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container pb-5">
-    <div class="row pb-5">
-      <div class="col-lg-6">
-
-
-<div class="textboxshadowed pt-0">  
-    <div class="row">
-        <div class="col p-0 hovereffect">
-        <img class="img-fluid" src="img/homepage/thumbnails/moebius.jpg" alt="">
-        <div class="overlay">
-           <a class="info crazystrokesmall" href="designs#moebius">Moebius<br> Style</a>
-        </div>
-    </div>
-<div class="col p-0 hovereffect">
-        <img class="img-fluid" src="img/homepage/thumbnails/frankmiller.jpg" alt="">
-        <div class="overlay">
-           <a class="info crazystrokesmall" href="designs#frank-miller">Frank Miller Recreations</a>
-        </div>
-    </div>
-  </div>
-    <div class="row">
-        <div class="col p-0 hovereffect">
-        <img class="img-fluid" src="img/photos/thumbnails/davidpiper/25.jpg" alt="David Piper's 330 P4">
-        <div class="overlay">
-           <a class="info crazystrokesmall" href="photos#davidpiper">David Piper's<br> Cars</a>
-        </div>
-    </div>
-<div class="col p-0 hovereffect">
-        <img class="img-fluid" src="img/designs/thumbnails/steven smith/10.jpg" alt="Steven Smith Inspired Artwork">
-        <div class="overlay">
-           <a class="info crazystrokesmall" href="designs#nccstudio">Steven Smith<br> Style</a>
-        </div>
-    </div>
-  </div>
-
-<p class="pt-4 mb-0 text-center">The images above are selection of my designs and artist inspirations, click them to find out more.</p>
-
-</div>
-
-
-        </div>
-      </div>
-    </div>
-
-  </section>
+ 
 
   <!-- Bootstrap core JavaScript -->
  <script src="js/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
 
 </body>
 

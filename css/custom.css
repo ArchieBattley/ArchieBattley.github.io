@@ -13,13 +13,13 @@ html {
   }
 
  body {
-  background-color: black;
-  font-family: "Special Elite";
+  background-color: #161616;
+  font-family: "Poppins";
   color: #ffffff;
 }
 
 body, html {
-  background-color: black;
+  background-color: #161616;
   height: 100% !important;
 }
 
@@ -28,7 +28,7 @@ section {
 }
 
 .backgroundimage1 {
-	  background: url('../img/background4.jpg') no-repeat center center;
+	  background: url('../img/backgrounds/background1.jpg') no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -36,7 +36,7 @@ section {
 }
 
 .backgroundimage2 {
-    background: url('../img/background5.jpg') top center;
+    background: url('../img/backgrounds/background2.jpg') top center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -45,25 +45,31 @@ section {
 }
 
 .backgroundimage3 {
-  background: url('../img/background2.jpg') top center;
--webkit-background-size: cover;
--moz-background-size: cover;
-background-size: cover;
--o-background-size: cover;
-height: 1080px;
+  background: url('../img/backgrounds/background3.jpg');
+  /* Set a specific height */
+  min-height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .backgroundimage4 {
-  background: url('../img/background3.jpg') top center;
--webkit-background-size: cover;
--moz-background-size: cover;
-background-size: cover;
--o-background-size: cover;
-height: 1080px;
+  background: url('../img/backgrounds/background4.jpg');
+  /* Set a specific height */
+  min-height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .backgroundimage5 {
-  background: url('../img/background1.jpg') top center;
+  background: url('../img/backgrounds/background5.jpg') top center;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 background-size: cover;
@@ -71,18 +77,92 @@ background-size: cover;
 height: 1080px;
 }
 
+.backgroundimage404 {
+  background: url('../img/backgrounds/background404.jpg');
+  /* Set a specific height */
+  min-height: 10px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* ModelViewer */
+model-viewer{
+
+  width:100%;
+  height: 100% !important;
+  margin: 0 auto;
+  --poster-color: "rgba(0, 0, 0, 0)";
+}
+
+.carbackground{
+z-index: -3;
+background-color: rgb(22, 22, 22);
+width:100%;
+  height: 100% !important;
+}
+
+.designbackground{
+  z-index: -3;
+  background-color: rgb(22, 22, 22);
+  width:100%;
+    height: 100% !important;
+   /* Set a specific height */
+   min-height: 10px; 
+
+   /* Create the parallax scrolling effect */
+   background-attachment: fixed;
+   background-position: bottom center;
+   background-repeat: no-repeat;
+   background-size: cover;
+  }
+
+  .designforeground{
+    z-index: 1;
+    position: relative;
+    bottom: 100%;
+    }
+
+.carforeground{
+z-index: 1;
+position: relative;
+bottom: 70%;
+}
+
+.contactforeground{
+  z-index: 1;
+  position: relative;
+  bottom: 100%;
+  }
+
+.noselect {
+-webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+
+
+
 h1 {
-  font-family: "Creepster";
+  font-family: "Orbitron";
+  font-weight: 900;
   font-size: 70px;
 }
 
 h3 {
-  font-family: "Creepster";
+  font-family: "Orbitron";
   font-size: 30px;
 }
 
 .navtitle {
-	font-family: "Creepster";
+	font-family: "Orbitron";
 }
 
 .text-shadowed {
@@ -98,26 +178,26 @@ h3 {
 }
 
 .crazystroke {
-	-webkit-text-stroke: 1px #8AFF85;
-   color: black;
+	-webkit-text-stroke: 3px #000000;
+   color: white;
    text-shadow:
-       3px 3px 0 #8AFF85,
-     -1px -1px 0 #8AFF85,  
-      1px -1px 0 #8AFF85,
-      -1px 1px 0 #8AFF85,
-       1px 1px 0 #8AFF85;
+   3px 3px 0 #ffffff, 
+   -2px -1px 0 #ff0018, 
+   1px -2px 0 #007bff, 
+   -2px 2px 0 #28a745, 
+   1px 3px 0 #ffc107
 }
 
 .crazystrokesmall {
-  -webkit-text-stroke: 0.2px #8AFF85;
+  -webkit-text-stroke: 0.2px #d1d1d1;
    color: white !important;
    font-size: 20px;
    text-shadow: 1px 1px 5px black;
 }
 
 .crazygreen {
-	color: #8aff85;
-	border-color: #8aff8500 !important;
+	color: #d1d1d1;
+	border-color: #d1d1d100 !important;
 }
 
 .textboxshadowed {
@@ -128,15 +208,15 @@ h3 {
 }
 
 .btn-primary {
-  color: #8AFF85;
+  color: #d1d1d1;
   background-color: #000000;
   border-color: #000000ff;
 }
 
 .btn-primary:hover {
   color: #000000;
-  background-color: #8AFF85;
-  border-color: #8AFF85;
+  background-color: #d1d1d1;
+  border-color: #d1d1d1;
 }
 
 /* Hover Effect */
@@ -169,7 +249,7 @@ position:relative;
 -webkit-transition:all .4s linear;
 transition:all .4s linear;
 -webkit-filter: grayscale(100%); /* Ch 23+, Saf 6.0+, BB 10.0+ */
-filter: grayscale(100%); /* FF 35+ */
+filter: blur(0px) grayscale(100%); /* FF 35+ */
 }
 
 .hovereffect a.info {
@@ -190,7 +270,7 @@ margin-bottom: 25%;
 -webkit-transform:scale(1.2);
 transform:scale(1.2);
 -webkit-filter: grayscale(0%); /* Ch 23+, Saf 6.0+, BB 10.0+ */
-filter: grayscale(0%); /* FF 35+ */
+filter: blur(1px) grayscale(0%); /* FF 35+ */
 }
 
 .hovereffect:hover .overlay {
@@ -238,6 +318,7 @@ transition:all .4s ease-in-out
 }
 
 .hovereffect2 img {
+width: 100%;
 display:block;
 position:relative;
 -webkit-transition:all .4s linear;
@@ -287,6 +368,16 @@ transition-delay:.2s;
 
 /* Hover Effect Finish */
 
+/* Vertical Text Center */
+
+.verticalcenter {
+  display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+}
+
+/* Vertical Text Center Finish */
+
 /* LightBox */
 
 @media all {
@@ -302,7 +393,7 @@ transition-delay:.2s;
 }
 
 .featherlight-close-icon {
-  color: #8AFF85 !important;
+  color: #d1d1d1 !important;
   background: #000000 !important;
   font-size: 20px !important;
 }

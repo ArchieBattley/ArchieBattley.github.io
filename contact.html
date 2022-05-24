@@ -11,6 +11,9 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
   <title>Contact - Archie Battley</title>
 
+  <!-- Google Model Viewer -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -20,21 +23,71 @@
   <!-- Font Awesome Core  CSS -->
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-  <!-- Custom Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Special+Elite">
-
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Creepster">
-
-
+<!-- Custom Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
 
 </head>
     
-<body class="backgroundimage5">
+<body>
+  <div class="carbackground">
+    <model-viewer bounds="tight" enable-pan src="https://archiebattley.com/computeroutline.glb" camera-controls shadow-intensity="1.33" exposure="0.57" shadow-softness="1" camera-orbit="30deg 80deg 3m" camera-target="-5m 3m 0m">
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+    </model-viewer>  
+    <script src="script.js"></script>
+  </div>
+
+  <div class="contactforeground"> 
+  <div class="row">
+    <div class="container">
+      
+      <div class="row">
+        <div class="col-lg-6">
+          <h1 class="mt-5 crazystroke pb-3 text-center">CONTACT ME</h1>
+          <p class="textboxshadowed">Feel free to get in touch to ask any questions about what I have done or for commisions/photos. I dont bite!</p>
+        </div>
+      </div>
+
+      <div class="row pb-5">
+        <div class="col-lg-6">
+  
+        <div class="textboxshadowed">
+              <form class="form pt-3" 
+              action="https://formspree.io/mpzryovp"
+              method="POST">
+                <div class="form-label-group">
+                  <label for="inputEmail">Email address</label>
+                  <input type="text" name="_replyto" id="inputEmail" class="form-control rounded-0" placeholder="Email address" required autofocus>
+                  
+                </div>
+  
+                <div class="form-label-group pt-4 pb-4">
+                  <label for="inputMessage">Message</label>
+                  <textarea name="message" type="message" id="inputMessage" class="form-control rounded-0" placeholder="Message" required></textarea>
+             
+                </div>
+  
+                <button class="btn btn-lg btn-primary btn-block text-uppercase rounded-0" type="submit"><h3 class="mb-1 mt-1">Send</h3></button>
+                <hr class="">
+              </form>
+        </div>
+  
+  
+          </div>
+        </div>
+
+    </div>
+  </div>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-bottom text-shadowed navgradblack">
     <div class="container">
-      <a class="navtitle navbar-brand crazystroke" href="/" style="color: black;">Archie Battley</a>
+      <a class="navtitle navbar-brand crazystrokesmall" href="/" style="color: black;">ARCHIE BATTLEY</a>
       <a class="navbar-toggler crazygreen" type="" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars crazygreen"></i>
       </a>
@@ -61,49 +114,6 @@
       </div>
     </div>
   </nav>
-
-  <!-- Page Content -->
-  <section class="pb-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <h1 class="mt-5 crazystroke pb-3 text-center">Contact Me</h1>
-          <p class="textboxshadowed">Feel free to get in touch to ask any questions about what I have done or for commisions/photos. I dont bite!</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container pb-5">
-    <div class="row pb-5">
-      <div class="col-lg-6">
-
-      <div class="textboxshadowed">
-            <form class="form pt-3" 
-            action="https://formspree.io/mpzryovp"
-            method="POST">
-              <div class="form-label-group">
-                <label for="inputEmail">Email address</label>
-                <input type="text" name="_replyto" id="inputEmail" class="form-control rounded-0" placeholder="Email address" required autofocus>
-                
-              </div>
-
-              <div class="form-label-group pt-4 pb-4">
-                <label for="inputMessage">Message</label>
-                <textarea name="message" type="message" id="inputMessage" class="form-control rounded-0" placeholder="Message" required></textarea>
-           
-              </div>
-
-              <button class="btn btn-lg btn-primary btn-block text-uppercase rounded-0" type="submit"><h3 class="mb-1 mt-1">Send</h3></button>
-              <hr class="">
-            </form>
-      </div>
-
-
-        </div>
-      </div>
-    </div>
-
-  </section>
 
   <!-- Bootstrap core JavaScript -->
  <script src="js/jquery-3.4.1.min.js"></script>
