@@ -24,6 +24,16 @@ body {
   color: #ffffff;
 }
 
+@font-face {
+  font-family: 'yagiza';
+  src: url('fonts/Yagiza.woff2') format('woff2'),
+      url('fonts/Yagiza.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+.Yagiza {font-family: Yagiza; font-size: 4.2em; }
+
 section {
   height: 100%;
 }
@@ -144,9 +154,6 @@ bottom: 70%;
           user-select: none; /* Non-prefixed version, currently
                                 supported by Chrome, Edge, Opera and Firefox */
 }
-
-@font-face { font-family: Yagiza; src: url('fonts/yagiza.ttf'); } 
-.Yagiza { font-family: Yagiza; font-size: 4.2em; }
 
 .homepagetitle {
   font-family: "Yagiza" !important;
