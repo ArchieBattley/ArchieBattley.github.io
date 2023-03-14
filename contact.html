@@ -21,7 +21,7 @@
   <link href="css/custom.css" rel="stylesheet">
 
   <!-- Font Awesome Core  CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/b5231a70fd.js" crossorigin="anonymous"></script>
 
 <!-- Custom Fonts -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
@@ -34,7 +34,7 @@
     
 <body>
   <div class="carbackground">
-    <model-viewer bounds="tight" enable-pan src="https://archiebattley.com/computeroutline.glb" camera-controls shadow-intensity="1.33" exposure="0.57" shadow-softness="1" camera-orbit="30deg 80deg 3m" camera-target="-5m 3m 0m">
+    <model-viewer bounds="tight" enable-pan src="https://archiebattley.com/glb/computer.glb" camera-controls shadow-intensity="1.33" exposure="0.57" shadow-softness="1" camera-orbit="30deg 80deg 3m" camera-target="-5m 3m 0m">
       <div class="progress-bar hide" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
@@ -48,7 +48,7 @@
       
       <div class="row">
         <div class="col-lg-6">
-          <h1 class="mt-5 crazystroke pb-3 text-center">CONTACT ME</h1>
+          <h1 class="mt-5 y2kstroke pb-3 text-center">CONTACT ME</h1>
           <p class="textboxshadowed">Feel free to get in touch to ask any questions about what I have done or for commisions/photos. I dont bite!</p>
         </div>
       </div>
@@ -87,26 +87,30 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-bottom text-shadowed navgradblack">
     <div class="container">
-      <a class="navtitle navbar-brand crazystrokesmall" href="/" style="color: black;">ARCHIE BATTLEY</a>
+      <div class="navbar-brand">
+        <a href="https://www.artstation.com/arch13" target="_blank" class="fab fa-artstation y2kstrokesmall"></a>
+        <a href="https://www.linkedin.com/in/archie-battley-7bb058221/" target="_blank" class="fab fa-linkedin y2kstrokesmall"></a>
+      </div>
+     
       <a class="navbar-toggler crazygreen" type="" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars crazygreen"></i>
       </a>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/">Home
+            <a class="nav-link navtitle y2kstrokesmall" href="/">HOME
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/designs">Designs
+            <a class="nav-link navtitle y2kstrokesmall" href="/designs">DESIGNS
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/photos">Photos
+            <a class="nav-link navtitle y2kstrokesmall" href="/photos">PHOTOS
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/contact">Contact
+            <a class="nav-link navtitle y2kstrokesmall" href="/contact">CONTACT
               <span class="sr-only">(current)</span>
             </a>
           </li>

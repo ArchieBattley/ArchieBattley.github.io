@@ -21,7 +21,7 @@
   <link href="css/custom.css" rel="stylesheet">
 
   <!-- Font Awesome Core  CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/b5231a70fd.js" crossorigin="anonymous"></script>
 
   <!-- Featherlight Lightbox Plugin -->
   <link href="css/featherlight.min.css" rel="stylesheet" />
@@ -42,9 +42,9 @@
   }
 </style>
 
-<body>
+<body class="gridbackground">
   <div class="designbackground">
-    <model-viewer bounds="tight" enable-pan src="https://archiebattley.com/robot.glb" shadow-intensity="1.33" exposure="0.57" shadow-softness="1" camera-orbit="calc(-1.5rad + env(window-scroll-y) * 4rad) calc(60deg + env(window-scroll-y) * 180deg) calc(3m - env(window-scroll-y) * 1.5m)"  camera-target="5m 5m 10m">
+    <model-viewer bounds="tight" enable-pan src="https://archiebattley.com/glb/flyingrobot.glb" shadow-intensity="0.5" exposure="0.57" shadow-softness="1" camera-orbit="calc(-1.5rad + env(window-scroll-y) * 4rad) calc(60deg + env(window-scroll-y) * 180deg) calc(3m - env(window-scroll-y) * 1.5m)"  camera-target="5m 5m 10m">
       <div class="progress-bar hide" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
@@ -55,26 +55,30 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-bottom text-shadowed navgradblack">
     <div class="container">
-      <a class="navtitle navbar-brand crazystrokesmall" href="/" style="color: black;">ARCHIE BATTLEY</a>
+      <div class="navbar-brand">
+        <a href="https://www.artstation.com/arch13" target="_blank" class="fab fa-artstation y2kstrokesmall"></a>
+        <a href="https://www.linkedin.com/in/archie-battley-7bb058221/" target="_blank" class="fab fa-linkedin y2kstrokesmall"></a>
+      </div>
+      
       <a class="navbar-toggler crazygreen" type="" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars crazygreen"></i>
       </a>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/">Home
+            <a class="nav-link navtitle y2kstrokesmall" href="/">HOME
             </a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/designs">Designs
+            <a class="nav-link navtitle y2kstrokesmall" href="/designs">DESIGNS
             <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/photos">Photos
+            <a class="nav-link navtitle y2kstrokesmall" href="/photos">PHOTOS
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/contact">Contact
+            <a class="nav-link navtitle y2kstrokesmall" href="/contact">CONTACT
             </a>
           </li>
         </ul>
@@ -87,10 +91,10 @@
   <section>
     <div class="container">
 
- <h1 class="pt-5 crazystroke pb-5 p-2 text-center">DESIGN GALLERY</h1>
+ <h1 class="pt-5 y2kstroke pb-5 p-2 text-center">DESIGN GALLERY</h1>
 
  <div class="section pt-5 pb-5" id="abonetopick">
-  <h2 class="pb-2">"A Bone to Pick" Collaboration Project</h2>
+  <h2 class="pb-2 text-shadowed">"A Bone to Pick" Collaboration Project</h2>
   <p class="text-shadowed">I produced an in-game asset for an upcoming indie PC game "A Bone to Pick"</p>
    <div class="row text-center">
 
@@ -260,7 +264,7 @@
   </div>
 
   <div class="section pt-5 pb-5" id="retrodevices">
-    <h2 class="pb-2">Personal Blender Lighting Tests</h2>
+    <h2 class="pb-2 text-shadowed">Personal Blender Lighting Tests</h2>
     <p class="text-shadowed">I practiced creating volumetric lighting effects and using displacement maps for terrain in Blender's Eevee renderer</p>
      <div class="row text-center">
   
@@ -280,7 +284,7 @@
           <div class="pt-4 pl-3 pr-3 pb-1">
             <h2>Quick Blender Project</h2>
             <p>
-              I decided to practice creating environments quickly in blender so that I am more familiar with it in order to produce faster and better results. I started with a photoscan from Texture Haven of mossy rocks using a displacement modifier. The texture comes with a height map that I plugged into the displacement modifier using subdivision to produce uneven ground. I also added and alpha map so that the edges of the texture would fade out helping it to blend into the background better. Then I added an HDRI of a forest from Polyhaven along with a diffuse volume cube and some spotlights to create some interesting light shafts. Because I am using Eevee which is more like a game engine than a renderer and there are not many reflections on the stones, the HDRI is not doing much in the way of lighting I am simply using it as a background
+              I decided to practice creating environments quickly in blender so that I am more familiar with it in order to produce faster and better results. I started with a photoscan from Texture Haven of mossy rocks using a displacement modifier. The texture comes with a height map that I plugged into the displacement modifier using subdivision to produce uneven ground. I also added an alpha map so that the edges of the texture would fade out helping it to blend into the background better. Then I added an HDRI of a forest from Polyhaven along with a diffuse volume cube and some spotlights to create some interesting light shafts. Because I am using Eevee which is more like a game engine than a renderer and there are not many reflections on the stones, the HDRI is not doing much in the way of lighting, I am simply using it as a background
             </p>
         </div>
         <div class="row">
@@ -328,7 +332,7 @@
    </div>
 
  <div class="section pt-5 pb-5" id="retrodevices">
-  <h2 class="pb-2">3D Retro Devices Project</h2>
+  <h2 class="pb-2 text-shadowed">3D Retro Devices Project</h2>
   <p class="text-shadowed">We were asked to recreate a modern device using old technology. I decided to make an electric roadster for the 1930s</p>
    <div class="row text-center text-lg-left">
 
@@ -441,7 +445,7 @@
   </div>
 
  <div class="section pt-5 pb-5" id="robot">
- <h2 class="pb-2">Robot Sculpting Project</h2>
+ <h2 class="pb-2 text-shadowed">Robot Sculpting Project</h2>
  <p class="text-shadowed">I joined an extracurricular sculpting toolkit where I was introduced to making 3D mechs and robots...</p>
   <div class="row text-center text-lg-left">
 
@@ -563,7 +567,7 @@
 <div class="collapse" id="extraDesigns">
 
   <div class="section pt-5 pb-5" id="moebius">
-    <h2 class="pb-2">Moebius Case Study</h2>
+    <h2 class="pb-2 text-shadowed">Moebius Case Study</h2>
      <div class="row text-center text-lg-left">
    
        <div class="col-lg-3 col-md-4 col-6 p-0 hovereffect2">
@@ -677,7 +681,7 @@
     </div>
 
 <div class="section pt-5 pb-5" id="mark-riddick">
-   <h2 class="pb-2">Mark Riddick Case Study</h2>
+   <h2 class="pb-2 text-shadowed">Mark Riddick Case Study</h2>
     <div class="row text-center text-lg-left">
   
  <div class="col-lg-3 col-md-4 col-6 p-0 hovereffect2">
@@ -788,7 +792,7 @@
         </div>
 
         <div class="section pt-5 pb-5" id="frank-miller">
-          <h2 class="pb-2">Frank Miller Case Study</h2>
+          <h2 class="pb-2 text-shadowed">Frank Miller Case Study</h2>
            <div class="row text-center text-lg-left">
          
          
@@ -908,7 +912,7 @@
                </div>
 
                <div class="section pt-5 pb-5" id="nccstudio">
-                <h2 class="pb-2">Stephen Smith (NCC Studio) Case Study</h2>
+                <h2 class="pb-2 text-shadowed">Stephen Smith (NCC Studio) Case Study</h2>
                  <div class="row text-center text-lg-left">
                
                   

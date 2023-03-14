@@ -21,7 +21,7 @@
   <link href="css/custom.css" rel="stylesheet">
 
   <!-- Font Awesome Core  CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/b5231a70fd.js" crossorigin="anonymous"></script>
 
   <!-- Custom Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
@@ -34,7 +34,7 @@
     
 <body>
   <div class="carbackground">
-    <model-viewer bounds="tight" enable-pan src="https://archiebattley.com/caroutline.glb" camera-controls shadow-intensity="1.33" exposure="0.57" shadow-softness="1" camera-orbit="30deg 80deg 3m" camera-target="-5m 3m 0m">
+    <model-viewer bounds="tight" enable-pan src="https://archiebattley.com/glb/agship.glb" camera-controls="" shadow-intensity="1.33" exposure="0.57" shadow-softness="1" camera-orbit="50deg 30deg 0m" camera-target="-1.5m -2m -1m">
       <div class="progress-bar hide" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
@@ -44,8 +44,9 @@
 
   <div class="carforeground verticalcenter"> 
   <div class="row">
-<div class="col-12 text-center crazystroke p-2">
-  <h1 class="noselect">ARCHIE BATTLEY</h1>
+<div class="col-12 text-center y2kstroke p-2">
+  <h1 class="homepagetitle noselect">ARCHIE <br>BATTLEY</h1>
+
 </div>
   </div>
 </div>
@@ -56,27 +57,32 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-bottom text-shadowed navgradblack">
     <div class="container">
-      <a class="navtitle navbar-brand crazystrokesmall" href="#" style="color: black;">ARCHIE BATTLEY</a>
+      <div class="navbar-brand">
+        <a href="https://www.artstation.com/arch13" target="_blank" class="fab fa-artstation y2kstrokesmall socialiconhover"></a>
+        <a href="https://www.linkedin.com/in/archie-battley-7bb058221/" target="_blank" class="fab fa-linkedin y2kstrokesmall"></a>
+      </div>
+
+      <!--<a class="navtitle navbar-brand crazystrokesmall" href="#" style="color: black;">ARCHIE BATTLEY</a>-->
       <a class="navbar-toggler crazygreen" type="" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fa fa-bars crazygreen"></i>
+        <i class="fa fa-bars y2kstrokesmall"></i>
       </a>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link nav-link navtitle y2kstrokesmall" href="#">HOME
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/designs">Designs
+            <a class="nav-link nav-link navtitle y2kstrokesmall" href="/designs">DESIGNS
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/photos">Photos
+            <a class="nav-link nav-link navtitle y2kstrokesmall" href="/photos">PHOTOS
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/contact">Contact
+            <a class="nav-linkn nav-link navtitle y2kstrokesmall" href="/contact">CONTACT
             </a>
           </li>
         </ul>

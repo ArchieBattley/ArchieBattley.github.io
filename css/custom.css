@@ -12,15 +12,16 @@ html {
   width: 0px;
   }
 
- body {
-  background-color: #161616;
-  font-family: "Poppins";
-  color: #ffffff;
+body, html {
+  background-color: rgb(207 207 207);
+  background-size: 100px 100px;
+  background-image: linear-gradient(to right, #0c2e4d1f 2px, transparent 4px), linear-gradient(to bottom, #0c2e4d1f 2px, transparent 4px);
+  height: 100% !important;
 }
 
-body, html {
-  background-color: #161616;
-  height: 100% !important;
+body {
+  font-family: "Poppins";
+  color: #ffffff;
 }
 
 section {
@@ -78,15 +79,10 @@ height: 1080px;
 }
 
 .backgroundimage404 {
-  background: url('../img/backgrounds/background404.jpg');
-  /* Set a specific height */
-  min-height: 10px; 
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
+  background: url('../img/backgrounds/background404.png');
   background-position: bottom center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto;
 }
 
 /* ModelViewer */
@@ -98,20 +94,21 @@ model-viewer{
   --poster-color: "rgba(0, 0, 0, 0)";
 }
 
-.carbackground{
-z-index: -3;
-background-color: rgb(22, 22, 22);
-width:100%;
+.carbackground {
+  z-index: -3;
+  background-color: rgb(207 207 207);
+  width: 100%;
   height: 100% !important;
+  background-size: 100px 100px;
+  background-image: linear-gradient(to right, #0c2e4d3d 2px, transparent 4px), linear-gradient(to bottom, #0c2e4d3d 2px, transparent 4px);
 }
 
 .designbackground{
   z-index: -3;
-  background-color: rgb(22, 22, 22);
   width:100%;
     height: 100% !important;
    /* Set a specific height */
-   min-height: 10px; 
+   min-height: 0px; 
 
    /* Create the parallax scrolling effect */
    background-attachment: fixed;
@@ -148,12 +145,43 @@ bottom: 70%;
                                 supported by Chrome, Edge, Opera and Firefox */
 }
 
+@font-face { font-family: Yagiza; src: url('fonts/yagiza.ttf'); } 
+.Yagiza { font-family: Yagiza; font-size: 4.2em; }
 
+.homepagetitle {
+  font-family: "Yagiza" !important;
+}
+
+/* If the screen size is 2000px wide or more, set the font-size of <div> to 3vw */
+@media screen and (min-width: 2000px) {
+  .homepagetitle {
+    font-size: 3vw !important;
+  }
+}
+
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 5vw */
+@media screen and (min-width: 601px) {
+  .homepagetitle {
+    font-size: 6vw;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 10vw */
+@media screen and (max-width: 600px) {
+  .homepagetitle {
+    font-size: 10vw;
+  }
+}
 
 h1 {
   font-family: "Orbitron";
   font-weight: 900;
   font-size: 3em;
+}
+
+h2 {
+  font-family: "Orbitron";
 }
 
 h3 {
@@ -175,6 +203,23 @@ h3 {
 
 .navgradblack {
 	background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(0,0,0,255));
+}
+
+.navgradgrey {
+  background-image: linear-gradient(to bottom, rgba(255,0,0,0), #3f4c58);
+}
+
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+  color: #788a99;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+
+a:hover {
+  color: #788a99;
+  text-decoration: underline;
 }
 
 .crazystroke {
@@ -200,6 +245,26 @@ h3 {
 	border-color: #d1d1d100 !important;
 }
 
+.y2kstroke {
+  -webkit-text-stroke: 1px #0c2e4d;
+   color: white;
+   text-shadow: 
+   -2px -2px 0 #0c2e4d, 
+   2px -2px 0 #0c2e4d, 
+   -2px 2px 0 #0c2e4d, 
+   2px 2px 0 #0c2e4d;
+}
+
+.y2kstrokesmall {
+  -webkit-text-stroke: 0.2px #0c2e4d;
+   color: white;
+   text-shadow: 
+   -1px -1px 0 #0c2e4d, 
+   1px -1px 0 #0c2e4d, 
+   -1px 1px 0 #0c2e4d, 
+   1px 1px 0 #0c2e4d;;
+}
+
 .textboxshadowed {
 	color: black;
   	padding: 15px;
@@ -209,14 +274,16 @@ h3 {
 
 .btn-primary {
   color: #d1d1d1;
-  background-color: #000000;
-  border-color: #000000ff;
+  background-color: #0c2e4d;
+  border-color: #ffffff;
+  border-width: 2px;
 }
 
 .btn-primary:hover {
-  color: #000000;
+  color: #0c2e4d;
   background-color: #d1d1d1;
-  border-color: #d1d1d1;
+  border-color: #0c2e4d;
+  border-width: 2px;
 }
 
 /* Hover Effect */
@@ -394,7 +461,7 @@ transition-delay:.2s;
 
 .featherlight-close-icon {
   color: #d1d1d1 !important;
-  background: #000000 !important;
+  background: #0c2e4d !important;
   font-size: 20px !important;
 }
 

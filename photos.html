@@ -34,8 +34,8 @@
   <link href="css/custom.css" rel="stylesheet">
 
   <!-- Font Awesome Core  CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        
+  <script src="https://kit.fontawesome.com/b5231a70fd.js" crossorigin="anonymous"></script>
+     
   <!-- Featherlight Local Styling -->      
     </head>
 
@@ -47,7 +47,7 @@
 		  
 		  <body>
 			<div class="designbackground">
-			  <model-viewer bounds="tight" enable-pan src="https://archiebattley.com/camera.glb" shadow-intensity="1.33" exposure="0.57" shadow-softness="1" camera-orbit="calc(-1.5rad + env(window-scroll-y) * 4rad) calc(20deg + env(window-scroll-y) * 180deg) calc(3m - env(window-scroll-y) * 1.5m)"  camera-target="0m -1m 3m">
+			  <model-viewer bounds="tight" enable-pan src="https://archiebattley.com/glb/camera.glb" shadow-intensity="1.33" exposure="0.57" shadow-softness="1" camera-orbit="calc(-1.5rad + env(window-scroll-y) * 4rad) calc(20deg + env(window-scroll-y) * 180deg) calc(3m - env(window-scroll-y) * 1.5m)"  camera-target="0m -1m 3m">
 				<div class="progress-bar hide" slot="progress-bar">
 					<div class="update-bar"></div>
 				</div>
@@ -58,25 +58,29 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-bottom text-shadowed navgradblack" style="z-index: 4;">
 	<div class="container">
-	  <a class="navtitle navbar-brand crazystrokesmall" href="/" style="color: black;">ARCHIE BATTLEY</a>
+		<div class="navbar-brand">
+			<a href="https://www.artstation.com/arch13" target="_blank" class="fab fa-artstation y2kstrokesmall"></a>
+			<a href="https://www.linkedin.com/in/archie-battley-7bb058221/" target="_blank" class="fab fa-linkedin y2kstrokesmall"></a>
+		  </div>
+
 	  <a class="navbar-toggler crazygreen" type="" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 		<i class="fa fa-bars crazygreen"></i>
 	  </a>
 	  <div class="collapse navbar-collapse" id="navbarResponsive">
 		<ul class="navbar-nav ml-auto">
 		  <li class="nav-item">
-			<a class="nav-link" href="/">Home
+			<a class="nav-link navtitle y2kstrokesmall" href="/">HOME
 			</a>
 		  </li>
 		  <li class="nav-item">
-			<a class="nav-link" href="/designs">Designs</a>
+			<a class="nav-link navtitle y2kstrokesmall" href="/designs">DESIGNS</a>
 		  </li>
 		  <li class="nav-item active">
-			<a class="nav-link" href="/photos">Photos
+			<a class="nav-link navtitle y2kstrokesmall" href="/photos">PHOTOS
 			 <span class="sr-only">(current)</span></a></a>
 		  </li>
           <li class="nav-item">
-            <a class="nav-link" href="/contact">Contact
+            <a class="nav-link navtitle y2kstrokesmall" href="/contact">CONTACT
             </a>
           </li>
 		</ul>
@@ -89,7 +93,7 @@
    <section class="pb-5">
 	 <div class="container pb-5">
  
-  <h1 class="pt-5 crazystroke pb-5 p-2 text-center">PHOTOS</h1>
+  <h1 class="pt-5 y2kstroke pb-5 p-2 text-center">PHOTOS</h1>
  
 
   <div class="section pt-5 pb-5" id="cranleighcarshow">
