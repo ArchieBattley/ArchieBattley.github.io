@@ -4,6 +4,16 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-the-big-picture/blob/master/LICENSE)
  */
 
+ @font-face {
+  font-family: 'yagiza';
+  src: url('fonts/Yagiza.woff2') format('woff2'),
+      url('fonts/Yagiza.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+.Yagiza {font-family: Yagiza; font-size: 4.2em; }
+
 html {
   overflow: scroll;
   overflow-x: hidden;
@@ -23,16 +33,6 @@ body {
   font-family: "Poppins";
   color: #ffffff;
 }
-
-@font-face {
-  font-family: 'yagiza';
-  src: url('fonts/Yagiza.woff2') format('woff2'),
-      url('fonts/Yagiza.woff') format('woff');
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-.Yagiza {font-family: Yagiza; font-size: 4.2em; }
 
 section {
   height: 100%;
