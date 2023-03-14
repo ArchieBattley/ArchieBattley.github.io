@@ -4,19 +4,6 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-the-big-picture/blob/master/LICENSE)
  */
 
- @font-face {
-  font-family: 'Yagiza';
-  font-style: italic;
-  font-weight: normal;
-  
-  src: url(https://archiebattley.com/fonts/Yagiza.eot);
-  src: url(https://archiebattley.com/fonts/Yagiza.eot?#iefix) format('embedded-opentype'),
-      url(https://archiebattley.com/fonts/Yagiza.woff2) format('woff2'),
-      url(https://archiebattley.com/fonts/Yagiza.woff) format('woff'),
-      url(https://archiebattley.com/fonts/Yagiza.ttf) format('truetype'),
-      url(https://archiebattley.com/fonts/Yagiza.svg) format('svg');
-  
-}
 .Yagiza {
   font-family: 'Yagiza', 'Orbitron' !important;
   font-style: italic;
