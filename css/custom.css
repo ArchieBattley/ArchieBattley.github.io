@@ -16,7 +16,7 @@
   font-style: italic;
   font-display: swap;
 }
-.Yagiza {font-family: Yagiza; font-size: 4.2em; }
+.Yagiza {font-family: 'Yagiza', Fallback, sans-serif; font-size: 4.2em; }
 
 html {
   overflow: scroll;
