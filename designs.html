@@ -37,21 +37,21 @@
 </head>
     
 <style>
-  model-viewer{
+  .designpagemodelviewer{
     position:fixed !important;
   }
 </style>
 
 <body class="gridbackground">
   <div class="designbackground">
-    <model-viewer bounds="tight" enable-pan src="https://archiebattley.com/glb/flyingrobot.glb" autoplay scale="5x 5y 5z" shadow-intensity="0.5" exposure="0.57" shadow-softness="1" camera-orbit="calc(-1.5rad + env(window-scroll-y) * 4rad) calc(60deg + env(window-scroll-y) * 180deg) calc(3m - env(window-scroll-y) * 1.5m)"  camera-target="5m 5m 10m">
+    <model-viewer class="designpagemodelviewer" bounds="tight" enable-pan src="https://archiebattley.com/glb/flyingrobot.glb" autoplay scale="5x 5y 5z" shadow-intensity="0.5" exposure="0.57" shadow-softness="1" camera-orbit="calc(-1.5rad + env(window-scroll-y) * 4rad) calc(60deg + env(window-scroll-y) * 180deg) calc(3m - env(window-scroll-y) * 1.5m)"  camera-target="5m 5m 10m">
       <div class="progress-bar hide" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
-    </model-viewer>  
+    </model-viewer>
     <script src="script.js"></script>
   </div>
-
+</div>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-bottom text-shadowed navgradgrey">
     <div class="container">
@@ -95,43 +95,43 @@
 
  <!-- NEW SECTION -->
  <div class="section pt-5 pb-5" id="stylisedrobot">
-  <h2 class="pb-2 text-shadowed">Stylised Robot Character</h2>
-  <p class="text-shadowed">I created a robot for a music video. I used NPR rendering styles and cartoon-inspired design when creating it</p>
+  <h2 class="pb-2 text-shadowed">Music Video</h2>
+  <p class="text-shadowed">I served as art director along with the artist on a collaborative project to create a music video for his upcoming single. The visual style was influenced by cartoons so we decided to implement toon shading and NPR render techniques to achieve a stylised look</p>
    <div class="row text-center">
 
      <div class="col-lg-6 col-md-6 col-6 p-0 hovereffect2">
-       <a href="#" data-featherlight="#image1">
-         <img class="img-fluid" src="img/designs/thumbnails/bonetopick/1.jpg" alt="">
+       <a href="#" data-featherlight="#image37">
+         <img class="img-fluid" src="img/designs/thumbnails/musicvideo/1.jpg" alt="">
          <div class="overlay info crazystrokesmall m-0 verticalcenter">
             <i class="fa fa-search-plus"></i>
          </div>
          </a>
      </div>
  
-     <div class="lightbox text-black" id="image1">
+     <div class="lightbox text-black" id="image37">
  
       <div style="display:grid; max-width:1024px;">
  
         <div class="pt-4 pl-3 pr-3 pb-1">
-          <h2>Initial Ideas</h2>
+          <h2>Vehicles</h2>
           <p>
-          I was originally going to model a non-player character for the game but after consideration I decided to help make an RC car to be controlled in-game due to my prior experience modelling a car. I started by drawing insportation to use as a basis for the model. I was lead to more realistic Tamiya style 70s and 80s RC cars for inspiration. After not managing to create an accurate suspension system in my last car I took on the challenge and created a double wishbone suspension setup that should work properly once rigged.
+            Set in a world where robots are sentient, I made sure to create futuristic vehicles that reflect the world we wished to convey. My inspirations for the vehicles included: Neon Genesis Evangelion, WipEout, Back to the Future and Akira.  
           </p>
       </div>
       <div class="row">
         <div class="col-4 p-0">
-         <img class="img-fluid" src="img/designs/large/bonetopick/thumb1.jpg" width="100%" height="auto">
+         <img class="img-fluid" src="img/designs/large/musicvideo/thumb1.jpg" width="100%" height="auto">
         </div>
         <div class="col-4 p-0">
-         <img class="img-fluid" src="img/designs/large/bonetopick/thumb2.jpg" width="100%" height="auto">
+         <img class="img-fluid" src="img/designs/large/musicvideo/thumb2.jpg" width="100%" height="auto">
         </div>
         <div class="col-4 p-0">
-         <img class="img-fluid" src="img/designs/large/bonetopick/thumb3.jpg" width="100%" height="auto">
+         <img class="img-fluid" src="img/designs/large/musicvideo/thumb3.jpg" width="100%" height="auto">
         </div>
       </div>
         <div class="row">
           <div class="col-12">
-           <img class="img-fluid" src="img/designs/large/bonetopick/1.jpg" width="100%" height="auto">
+           <img class="img-fluid" src="img/designs/large/musicvideo/1.jpg" width="100%" height="auto">
           </div>
         </div>
         
@@ -139,39 +139,40 @@
      </div>
 
   <div class="col-lg-6 col-md-6 col-6 p-0 hovereffect2">
-     <a href="#" data-featherlight="#image2">
-         <img class="img-fluid" src="img/designs/thumbnails/bonetopick/2.jpg" alt="">
+     <a href="#" data-featherlight="#image38">
+         <img class="img-fluid" src="img/designs/thumbnails/musicvideo/2.jpg" alt="">
          <div class="overlay info crazystrokesmall m-0 verticalcenter">
             <i class="fa fa-search-plus"></i>
          </div>
          </a>
      </div>
  
-     <div class="lightbox text-black" id="image2">
+     <div class="lightbox text-black" id="image38">
      
       <div style="display:grid;max-width:1024px;">
  
         <div class="pt-4 pl-3 pr-3 pb-1">
-          <h2>Rough Bodywork and Wheels</h2>
+          <h2>Alleyway Scene</h2>
           <p>
-            I roughed out the plastic body fairings using primitive shapes before subdividing them for a smooth finish. After feedback from the client I re-modelled the wheels with a higher detail rim and tyre tread pattern.</p>
+          A pivotal point in the story is when our protagonist enters an alleyway. I paid close attention to show that it was a neglected part of the city however still implemented the bright cartoon style. I modelled every asset in the scene down to the weeds and utilised textures from texturehaven along with Blender's shader editor.
+          </p>
       </div>
       
       <div class="row">
         <div class="col-4 p-0">
-         <img class="img-fluid" src="img/designs/large/bonetopick/thumb4.jpg" width="100%" height="auto">
+         <img class="img-fluid" src="img/designs/large/musicvideo/thumb4.jpg" width="100%" height="auto">
         </div>
         <div class="col-4 p-0">
-         <img class="img-fluid" src="img/designs/large/bonetopick/thumb5.jpg" width="100%" height="auto">
+         <img class="img-fluid" src="img/designs/large/musicvideo/thumb5.jpg" width="100%" height="auto">
         </div>
         <div class="col-4 p-0">
-         <img class="img-fluid" src="img/designs/large/bonetopick/thumb6.jpg" width="100%" height="auto">
+         <img class="img-fluid" src="img/designs/large/musicvideo/thumb6.jpg" width="100%" height="auto">
         </div>
       </div>
       
       <div class="row">
         <div class="col-12">
-         <img class="img-fluid" src="img/designs/large/bonetopick/2.jpg" width="100%" height="auto">
+         <img class="img-fluid" src="img/designs/large/musicvideo/2.jpg" width="100%" height="auto">
         </div>
       </div>  
 
@@ -183,39 +184,40 @@
 <div class="row text-center text-lg-left">
 
      <div class="col-lg-6 col-md-6 col-6 p-0 hovereffect2">
-       <a href="#" data-featherlight="#image3">
-         <img class="img-fluid" src="img/designs/thumbnails/bonetopick/3.jpg" alt="">
+       <a href="#" data-featherlight="#image39">
+         <img class="img-fluid" src="img/designs/thumbnails/musicvideo/3.jpg" alt="">
              <div class="overlay">
                 <p class="info crazystrokesmall"><br><br><i class="fa fa-search-plus"></i></p>
              </div>
              </a>
          </div>
      
-         <div class="lightbox text-black" id="image3">
+         <div class="lightbox text-black" id="image39">
      
           <div style="display:grid;max-width:1024px;padding-bottom: 0% !important;">
  
             <div class="pt-4 pl-3 pr-3 pb-1">
-              <h2>Extras and Tweaks</h2>
+              <h2>The City</h2>
               <p>
-                I created a bucket racing-style seat to put int he car. Modelled a steering wheel and lights.</p>
+                I created the backdrop to support the world in which the robots live. Huge inspirations that I drew from were: Blade Runner, Jet Set Radio and Ratchet and Clank. 
+              </p>
           </div>
 
           <div class="row">
             <div class="col-4 p-0">
-             <img class="img-fluid" src="img/designs/large/bonetopick/thumb7.jpg" width="100%" height="auto">
+             <img class="img-fluid" src="img/designs/large/musicvideo/thumb7.jpg" width="100%" height="auto">
             </div>
             <div class="col-4 p-0">
-             <img class="img-fluid" src="img/designs/large/bonetopick/thumb8.jpg" width="100%" height="auto">
+             <img class="img-fluid" src="img/designs/large/musicvideo/thumb8.jpg" width="100%" height="auto">
             </div>
             <div class="col-4 p-0">
-             <img class="img-fluid" src="img/designs/large/bonetopick/thumb9.jpg" width="100%" height="auto">
+             <img class="img-fluid" src="img/designs/large/musicvideo/thumb9.jpg" width="100%" height="auto">
             </div>
           </div>
 
             <div class="row">
               <div class="col-12">
-               <img class="img-fluid" src="img/designs/large/bonetopick/3.jpg" width="100%" height="auto">
+               <img class="img-fluid" src="img/designs/large/musicvideo/3.jpg" width="100%" height="auto">
               </div>
             </div>
             
@@ -223,38 +225,42 @@
          </div>
 
   <div class="col-lg-6 col-md-6 col-6 p-0 hovereffect2">
-   <a href="#" data-featherlight="#image4">
-     <img class="img-fluid" src="img/designs/thumbnails/bonetopick/4.jpg" alt="">
+   <a href="#" data-featherlight="#image40">
+     <img class="img-fluid" src="img/designs/thumbnails/musicvideo/4.jpg" alt="">
          <div class="overlay info crazystrokesmall m-0 verticalcenter">
             <i class="fa fa-search-plus"></i>
          </div>
          </a>
      </div>
  
-     <div class="lightbox text-black" id="image4">
+     <div class="lightbox text-black" id="image40">
  
        <div style="display:grid;max-width:1024px;">
  
          <div class="pt-4 pl-3 pr-3 pb-1">
-           <h2>Texturing & Shading</h2>
-           <p>I textured the car using Substance Painter and exported them as 4k channel packed maps ready for use in-game. Below is the final car ready to be rigged and driven.</p>
+           <h2>Stylised Robot Characters</h2>
+           <p>
+            I created many robots for the video. I used NPR rendering styles and cartoon-inspired design when creating them. My approach drew inspiration from RyseUp's Roboquest and Pixar's WALL-E among other refrences.
+           </p>
        </div>
 
        <div class="row">
         <div class="col-4 p-0">
-         <img class="img-fluid" src="img/designs/large/bonetopick/thumb10.jpg" width="100%" height="auto">
+         <img class="img-fluid" src="img/designs/large/musicvideo/thumb10.jpg" width="100%" height="auto">
         </div>
         <div class="col-4 p-0">
-         <img class="img-fluid" src="img/designs/large/bonetopick/thumb11.jpg" width="100%" height="auto">
+         <img class="img-fluid" src="img/designs/large/musicvideo/thumb11.jpg" width="100%" height="auto">
         </div>
         <div class="col-4 p-0">
-         <img class="img-fluid" src="img/designs/large/bonetopick/thumb12.gif" width="100%" height="auto">
+         <img class="img-fluid" src="img/designs/large/musicvideo/thumb12.jpg" width="100%" height="auto">
         </div>
       </div>
 
          <div class="row">
            <div class="col-12">
-            <img class="img-fluid" src="img/designs/large/bonetopick/4.jpg" width="100%" height="auto">
+            <model-viewer style="background: rgb(19,186,255);
+            background: linear-gradient(0deg, rgba(19,186,255,1) 0%, rgba(146,231,224,1) 100%); height: 70vh !important;" alt="A 3D model of a robot sitting on a rock looking at a butterfly" src="https://archiebattley.com/glb/robotposed.glb" poster="" shadow-intensity="1" exposure="0.1" shadow-softness="1" camera-orbit="62.01deg 80.03deg 12.29m" field-of-view="30deg" camera-target="0m 1m 0m" camera-controls touch-action="pan-y"></model-viewer>
+            
            </div>
          </div>
 
