@@ -23,6 +23,9 @@
   <!-- Font Awesome Core  CSS -->
   <script src="https://kit.fontawesome.com/b5231a70fd.js" crossorigin="anonymous"></script>
 
+  <!-- Featherlight Lightbox Plugin -->
+  <link href="css/featherlight.min.css" rel="stylesheet" />
+
   <!-- Custom Fonts -->
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,14 +49,51 @@
   <div class="row">
 <div class="col-12 text-center y2kstroke p-2">
   <h1 class="homepagetitle noselect">ARCHIE <br>BATTLEY</h1>
-  <h1 class="pt-5"><a href="/designs#showreel" target="_blank" class="fab fa-youtube y2kstrokesmall"></a> <p class="crazystrokesmall noselect">Showreel</p></h1>
+
+
+<!-- Showreel Button -->
+<h1 class="pt-5">
+<a href="#" data-featherlight="#showreel">
+  <p class="fab fa-youtube y2kstrokesmall"></p> 
+  
+
+  <p class="crazystrokesmall noselect">Showreel</p>
+
+</a>
+</h1>
+<!-- Showreel Button-->
+
+ 
+         <!-- Showreel Lightbox -->
+     <div class="lightbox text-black" id="showreel">
+ 
+      <div style="display:grid; max-width:1024px;">
+ 
+        <div class="pt-4 pl-3 pr-3 pb-1">
+          <h2>My Showreel</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 p-0">
+          <iframe class="img-fluid" width="1024" style="height: 575px !important;" src="https://www.youtube.com/embed/4YgxSxv3eHg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+        </div>
+      </div>
+        
+      </div>
+     </div>
+<!-- Showreel Lightbox -->
+ 
+
+
+
+
+  
       
 </div>
   </div>
 </div>
 
   
-
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-bottom text-shadowed navgradgrey">
@@ -98,6 +138,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+<!-- Featherlight Lightbox JavaScript -->
+<script src="js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
 
 </body>
