@@ -8,3 +8,51 @@
     background-repeat: no-repeat;
     background-image: url('../kingsley/img/kingsley.svg');
   }
+
+  .btn-circle{
+    width: 4vh;
+    height: 4vh;
+    border-color: white;
+    box-shadow: inset 0 0 10px #0000006b;
+    border-width: 0.2vh;
+    border-radius: 100%;
+    font-size: 0.5rem;
+    padding: 1px 1px;
+    margin: auto;
+    text-align: center;
+    color: transparent;
+  }
+  .btn-circle:hover{
+    color: #ffff;
+    text-decoration: none;
+    text-shadow:1px 1px 10px #000000, 1px 1px 10px #000000;
+  }
+  .btn-circle:focus{
+    color: #ffff;
+    text-decoration: none;
+    text-shadow:1px 1px 10px #000000, 1px 1px 10px #000000;
+  }
+  .tuscanblue{ 
+    background-color: #005b6d;
+  }
+    .masaired{
+    background-color: #8A210C;
+  }
+  .warwickgreen{
+    background-color: #4B6413;
+  }
+  .lincolngreen{
+    background-color: #3E4428;
+  }
+  .arcticwhite{
+    background-color: #DEE7E4;
+  }
+  .sandglow{
+    background-color: #BC8236;
+  }
+  .russetbrown{
+    background-color: #442719;
+  }
+  .saharadust{
+    background-color: #A19A86;
+  }
