@@ -14,9 +14,6 @@
   <!-- Google Model Viewer -->
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-  <!-- Popper -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" crossorigin="anonymous">
-
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -42,37 +39,60 @@
 <body>
   <div class="kingsleybackground">
 
-    <model-viewer id="color" bounds="tight" enable-pan src="https://archiebattley.com/kingsley/models/ViewOnWeb.glb" camera-controls="" shadow-intensity="1.33" exposure="1" shadow-softness="1" tone-mapping="AgX" camera-orbit="-40deg 85deg 20m" >
+<style>
+
+
+</style>
+
+    <model-viewer id="color" id="hotspot-camera-view-demo" bounds="tight" enable-pan src="https://archiebattley.com/kingsley/models/ViewOnWeb.glb" camera-controls touch-action="none" interpolation-decay="200" shadow-intensity="1.33" exposure="1" shadow-softness="1" tone-mapping="AgX" camera-orbit="-40deg 85deg 20m" >
       <div class="progress-bar hide" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
       
+      <div class="text-center" slot="hotspot-wheel" data-position="-1.7 0.715 2.903" data-normal="-0.73 0.05 0.69">
+        <button class="btn btn-icons fas fa-spray-can" data-toggle="collapse" href="#WheelPaint" role="button" aria-expanded="false" aria-controls="WheelPaint">
+         
+        </button>
+        <div class="collapse" id="WheelPaint">
+          <div class="annotation controls2" id="color-controls2">
+            <button data-color="#919191" class="btn btn-squared gunmetalgrey"></button>
+            <button data-color="#ffffff" class="btn btn-squared deepsilver"></button>
+            <button data-color="#464646" class="btn btn-squared darkestblack"></button>
+          </div>
+   
+      
+        </div>
+      </div>
+     
+
+      
     </model-viewer>  
 
-
+    
 
   <nav class="navbar navbar-expand-lg navbar-dark fixed-bottom text-shadowed">
-    <div class="container">
+    <div class="container pb-3">
       
 
       <a class="navbar-toggler crazygreen" type="" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-bars y2kstrokesmall"></i>
       </a>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <div class="navbar-brand">
-          <p class="h4">Body Colour</p>
+     
+        <div class="text-center y2kstrokesmall p-2">Body Colour
         </div>
         <ul class="navbar-nav ml-auto">
+
           <li class="nav-item">
-            <div class="controls" id="color-controls">
-              <button data-color="#005b6d" class="btn btn-circle tuscanblue ml-2 mr-2">Tuscan Blue</button>
-              <button data-color="#8A210C" class="btn btn-circle masaired ml-2 mr-2">Masai Red</button>
-              <button data-color="#4B6413" class="btn btn-circle warwickgreen ml-2 mr-2">Warwick Green</button>
-              <button data-color="#3E4428" class="btn btn-circle lincolngreen ml-2 mr-2">Lincoln Green</button>
-              <button data-color="#DEE7E4" class="btn btn-circle arcticwhite ml-2 mr-2">Arctic White</button>
-              <button data-color="#BC8236" class="btn btn-circle sandglow ml-2 mr-2">Sandglow</button>
-              <button data-color="#442719" class="btn btn-circle russetbrown ml-2 mr-2">Russet Brown</button>
-              <button data-color="#A19A86" class="btn btn-circle saharadust ml-2 mr-2">Sahara Dust</button>
+            <div class="col-lg-12 col-md-12 col-sm-12 text-center controls" id="color-controls">
+              <button data-color="#005b6d" class="btn btn-squared tuscanblue">Tuscan Blue</button>
+              <button data-color="#8A210C" class="btn btn-squared masaired">Masai Red</button>
+              <button data-color="#4B6413" class="btn btn-squared warwickgreen">Warwick Green</button>
+              <button data-color="#3E4428" class="btn btn-squared lincolngreen">Lincoln Green</button>
+              <button data-color="#DEE7E4" class="btn btn-squared arcticwhite">Arctic White</button>
+              <button data-color="#BC8236" class="btn btn-squared sandglow">Sandglow</button>
+              <button data-color="#442719" class="btn btn-squared russetbrown">Russet Brown</button>
+              <button data-color="#A19A86" class="btn btn-squared saharadust">Sahara Dust</button>
               
             </div>
 
@@ -80,27 +100,16 @@
           
         
         </ul>
+      
+      
       </div>
     </div>
   </nav>
-
-
   
-      <script>
-        const modelViewerColor = document.querySelector("model-viewer#color");
-        
-        document.querySelector('#color-controls').addEventListener('click', (event) => {
-          const colorString = event.target.dataset.color;
-          const material = modelViewerColor.model.materials[2]; // added the index of the material that I see in the editor page
-          material.pbrMetallicRoughness.setBaseColorFactor(colorString);
-        });
-        </script>
-  
-      <script src="script.js"></script>
+     
     </div>
-  
  
- 
+    <script src="script.js"></script>
 
   <!-- Bootstrap core JavaScript -->
  <script src="js/jquery-3.4.1.min.js"></script>
