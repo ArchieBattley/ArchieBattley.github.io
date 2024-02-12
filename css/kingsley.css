@@ -118,6 +118,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#212121",endCo
   height: 20px;
   border-radius: 10px;
   border: none;
+  --min-hotspot-opacity: 0;
   background-color: rgb(255, 255, 255);
   box-sizing: border-box;
 }
