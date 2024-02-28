@@ -12,7 +12,18 @@
   <title>Kingsley Cars - Configurator</title>
 
   <!-- Google Model Viewer -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script async src="https://ga.jspm.io/npm:es-module-shims@1.7.1/dist/es-module-shims.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@^0.160.0/build/three.module.min.js"
+    }
+    }
+  </script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer-module.min.js"></script>
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer-effects/dist/model-viewer-effects.min.js"></script>
+
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -39,10 +50,6 @@
 <body>
   <div class="kingsleybackground">
 
-<style>
-
-
-</style>
 
     <model-viewer id="color" id="hotspot-camera-view-demo" bounds="tight" enable-pan src="https://archiebattley.com/kingsley/models/KingsleyVersion1.glb" camera-controls touch-action="none" interpolation-decay="200" shadow-intensity="1.33" exposure="1" shadow-softness="1" tone-mapping="AgX" camera-orbit="-40deg 85deg 20m" >
       <div class="progress-bar hide" slot="progress-bar">
@@ -65,7 +72,11 @@
       </div>
      
 
-      
+      <effect-composer render-mode="quality">
+        <ssao-effect blend-mode="DEFAULT" opacity="1" strength="6"></ssao-effect>
+      <bloom-effect strength="0.1" radius="0.1" threshold="0.7"></bloom-effect>
+        <color-grade-effect></color-grade-effect>
+      </effect-composer>
     </model-viewer>  
 
     
