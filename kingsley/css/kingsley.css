@@ -13,8 +13,10 @@
     background-size: 90%;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url('../kingsley/img/kingsley.svg');
+    background-image: url('../img/kingsley.svg');
   }
+
+
 
 /* Squared Buttons */
   .btn-squared{
@@ -142,7 +144,8 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#212121",endCo
   position: relative;
   border-radius: 10px;
   padding: 10px;
-  margin:20px
+  margin:20px;
+  font-size: .8rem;
 }
 /* This keeps child nodes hidden while the element loads */
 :not(:defined) > * {
