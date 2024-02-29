@@ -75,7 +75,7 @@
     background-color: #442719;
   }
   .saharadust{
-    background-color: #A19A86;
+    background-color: #a1987e;
   }
 
   .deepsilver{ 
@@ -103,8 +103,10 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#212121",endCo
   /* Button Icons */
 .btn-icons{
   color: white;
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: .75rem;
+  padding: 0 !important;
   border-width: 0.2vh;
   border-radius: 100%;
   border-color: rgba(255, 255, 255, 0.432);
