@@ -1,4 +1,10 @@
 // Disables Zoom on Mobile
+
+// Prevent pinch to zoom
+document.addEventListener('gesturestart', function (e) {
+    e.preventDefault();
+});
+
 document.addEventListener('gesturestart', function(e) {
     e.preventDefault();
     // special hack to prevent zoom-to-tabs gesture in safari
