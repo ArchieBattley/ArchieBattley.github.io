@@ -1,3 +1,98 @@
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+  }
+  ::-webkit-scrollbar {
+  width: 0px;
+  }
+
+body, html {
+  background-color: rgb(44, 44, 44);
+  height: 100% !important;
+}
+
+.kingsleybackground {
+  z-index: -3;
+  background-color: #22292f; 
+  width: 100%;
+  height: 100% !important;
+  background-size: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('../img/kingsley.svg');
+}
+
+
+
+.h1 {
+  font-family: "Metropolis-ExtraBold" !important;
+}
+
+body {
+  font-family: "Poppins";
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.text-shadowed {
+	text-shadow: 1px 1px 5px black;
+}
+
+section {
+  height: 100%;
+}
+
+/* ModelViewer */
+model-viewer{
+
+  width:100%;
+  height: 100% !important;
+  margin: 0 auto;
+  --poster-color: "rgba(0, 0, 0, 0)";
+}
+
+.noselect {
+-webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+
+/* If the screen size is 2000px wide or more, set the font-size of <div> to 3vw */
+@media screen and (min-width: 2000px) {
+  .homepagetitle {
+    font-size: 3vw !important;
+  }
+}
+
+
+/* If the screen size is 601px wide or more, set the font-size of <div> to 5vw */
+@media screen and (min-width: 601px) {
+  .homepagetitle {
+    font-size: 6vw;
+  }
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 10vw */
+@media screen and (max-width: 600px) {
+  .homepagetitle {
+    font-size: 10vw;
+  }
+}
+
+/* Vertical Text Center */
+
+.verticalcenter {
+  display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+}
+
+/* Vertical Text Center Finish */
+
 .noselect {-webkit-touch-callout: none; /* Safari */
 -webkit-user-select: none; /* Chrome */     
    -moz-user-select: none; /* Firefox */
@@ -5,18 +100,10 @@
         user-select: none; 
 }
 
-.kingsleybackground {
-    z-index: -3;
-    background-color: #22292f; 
-    width: 100%;
-    height: 100% !important;
-    background-size: 90%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url('../img/kingsley.svg');
-  }
-
-
+/* Navbar Syles */
+.navbar-toggler {
+  font-size: 2rem !important;
+}
 
 /* Squared Buttons */
   .btn-squared{
@@ -150,4 +237,16 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#212121",endCo
 /* This keeps child nodes hidden while the element loads */
 :not(:defined) > * {
   display: none;
+}
+
+/* Custom Fonts */
+@font-face {
+  font-family: 'Metropolis-ExtraBold';
+  src:url('https://archiebattley.com/kingsley/fonts/Metropolis-ExtraBold.ttf.woff') format('woff'),
+      url('https://archiebattley.com/kingsley/fonts/Metropolis-ExtraBold.ttf.svg#Metropolis-ExtraBold') format('svg'),
+      url('https://archiebattley.com/kingsley/fonts/Metropolis-ExtraBold.ttf.eot'),
+      url('https://archiebattley.com/kingsley/fonts/Metropolis-ExtraBold.ttf.eot?#iefix') format('embedded-opentype'); 
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
 }

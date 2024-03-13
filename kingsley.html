@@ -29,21 +29,15 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <!-- Custom styles for this template -->
-  <link href="css/custom.css" rel="stylesheet">
   <link href="kingsley/css/kingsley.css" rel="stylesheet">
   <link href="kingsley/css/coloris.css" rel="stylesheet">
 
   <!-- Font Awesome Core  CSS -->
   <script src="https://kit.fontawesome.com/b5231a70fd.js" crossorigin="anonymous"></script>
 
-  <!-- Featherlight Lightbox Plugin -->
-  <link href="css/featherlight.min.css" rel="stylesheet" />
-
   <!-- Custom Fonts -->
-  <link rel="stylesheet" href="css/fonts.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 
 </head>
@@ -53,7 +47,7 @@
   <div class="kingsleybackground">
       
 
-    <model-viewer loading="eager" id="color" id="hotspot-camera-view-demo" bounds="tight" enable-pan poster="kingsley/img/loader.gif" src="https://archiebattley.com/kingsley/models/KingsleyVersion2.3.glb" skybox-image="https://archiebattley.com/kingsley/img/hdri/eveningfield.jpg" skybox-height="6m" camera-controls touch-action="none" interpolation-decay="130" shadow-intensity="1.33" exposure="2.5" shadow-softness="1" tone-mapping="AgX" camera-orbit="-40deg 85deg 20m" minCameraOrbit="auto auto 0m">
+    <model-viewer loading="eager" id="color" id="hotspot-camera-view-demo" bounds="tight" enable-pan poster="kingsley/img/loader.gif" src="https://archiebattley.com/kingsley/models/KingsleyVersion2.3.glb" skybox-image="https://archiebattley.com/kingsley/img/hdri/eveningfield.jpg" skybox-height="10m" camera-controls touch-action="none" interpolation-decay="130" shadow-intensity="3" exposure="2.75" shadow-softness="1" tone-mapping="AgX" camera-orbit="-40deg 85deg 20m" minCameraOrbit="auto auto 0m">
 
      
     
@@ -93,29 +87,30 @@
      
 
       <effect-composer render-mode="quality">
-        <ssao-effect blend-mode="DEFAULT" opacity="1" strength="6"></ssao-effect>
- <bloom-effect strength="0.1" radius="0.1" threshold="0.7"></bloom-effect>
+        <ssao-effect blend-mode="DEFAULT" opacity="0.5" strength="10"></ssao-effect>
+ <bloom-effect strength="0.5" radius="0.1" threshold="0.8"></bloom-effect>
         <color-grade-effect></color-grade-effect>
       </effect-composer>
     </model-viewer>  
-
+    
     
 
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-bottom text-shadowed">
+  <nav class="navbar navbar-expand-lg fixed-bottom">
     <div class="container pb-3">
       
 
-      <a class="navbar-toggler crazygreen" type="" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fa fa-bars"></i>
+      <a class="navbar-toggler" type="" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-angle-up"></i>
       </a>
       <div class="collapse navbar-collapse" id="navbarResponsive">
      
-        <div class="text-center p-2" inert>Body Colour
+        <div class="text-center p-2 text-shadowed" inert><h1>KINGSLEY KR SERIES</h1>
         </div>
 
         <ul class="navbar-nav ml-auto">
 
           <li class="nav-item annotation">
+           <p class="font-weight-bold text-dark text-center p-2 m-0" inert>Body Colour</p>
             <div class="p-0 text-center controls" id="color-controls">
               <div class="row pl-3 pr-3">
                 <div class="col p-1">
@@ -251,10 +246,6 @@
  <script src="js/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-<!-- Featherlight Lightbox JavaScript -->
-<script src="js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
 
 </body>
 
