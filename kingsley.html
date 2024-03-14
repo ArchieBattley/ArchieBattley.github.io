@@ -47,14 +47,14 @@
   <div class="kingsleybackground">
       
 
-    <model-viewer loading="eager" id="color" id="hotspot-camera-view-demo" bounds="tight" enable-pan poster="kingsley/img/loader.gif" src="https://archiebattley.com/kingsley/models/KingsleyVersion2.3.glb" skybox-image="https://archiebattley.com/kingsley/img/hdri/eveningfield.jpg" skybox-height="10m" camera-controls touch-action="none" interpolation-decay="130" shadow-intensity="3" exposure="2.75" shadow-softness="1" tone-mapping="AgX" camera-orbit="-40deg 85deg 20m" minCameraOrbit="auto auto 0m">
+    <model-viewer loading="eager" id="color" id="hotspot-camera-view-demo" bounds="tight" enable-pan poster="kingsley/img/loader.gif" src="https://archiebattley.com/kingsley/models/KingsleyVersion2.4.glb" skybox-image="https://archiebattley.com/kingsley/img/hdri/eveningfield.jpg" skybox-height="10m" camera-controls touch-action="none" interpolation-decay="130" shadow-intensity="3" exposure="2" shadow-softness="1" tone-mapping="commerce" camera-orbit="-40deg 85deg 20m" minCameraOrbit="auto auto 0m">
 
      
     
 
  
       
-      <div class="text-center" slot="hotspot-wheel" data-position="-1.7 0.715 2.903" data-normal="-0.73 0.05 0.69">
+      <div class="text-center" slot="hotspot-wheel" data-position="-1.657174348831175m 0.704767189287746m -2.063101221949054m" data-normal="-1m 0m 0m" data-visibility-attribute="visible">
         <button class="btn btn-icons fas fa-paint-roller" data-toggle="collapse" href="#WheelPaint" role="button" aria-expanded="false" aria-controls="WheelPaint">
         </button>
         <div class="collapse" id="WheelPaint">
@@ -71,7 +71,7 @@
 
 
 
-      <div class="text-center" slot="hotspot-bumper" data-position="1.4981056834778304m 1.1982358079826851m 4.24517041669373m" data-normal="0.14302189100836446m -0.5458146858435995m 0.8256095126691823m">
+      <div class="text-center" slot="hotspot-bumper" data-position="1.4981056834778304m 1.1982358079826851m 4.24517041669373m" data-normal="0.14302189100836446m -0.5458146858435995m 0.8256095126691823m" data-visibility-attribute="visible">
         <button class="btn btn-icons fas fa-spray-can" data-toggle="collapse" href="#BumperPaint" role="button" aria-expanded="false" aria-controls="BumperPaint">
         </button>
         <div class="collapse" id="BumperPaint">
@@ -89,8 +89,8 @@
       <effect-composer render-mode="quality">
         <ssao-effect blend-mode="DEFAULT" opacity="0.5" strength="10"></ssao-effect>
  <bloom-effect strength="0.5" radius="0.1" threshold="0.8"></bloom-effect>
-        <color-grade-effect></color-grade-effect>
-      </effect-composer>
+ <color-grade-effect blend-mode="add" opacity="0.2" tonemapping="optimized_cineon" brightness="0.1" contrast="0.4" saturation="-0.1" hue="6"></color-grade-effect>
+</effect-composer>
     </model-viewer>  
     
     
@@ -105,6 +105,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
      
         <div class="text-center p-2 text-shadowed" inert><h1>KINGSLEY KR SERIES</h1>
+          <p>(Range Rover Classic 2 Door)</p>
         </div>
 
         <ul class="navbar-nav ml-auto">
