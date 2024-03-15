@@ -56,7 +56,7 @@ function getRandomColor() {
 
   // Wait for a short delay after the page has loaded, then apply a random color
   window.addEventListener('load', () => {
-    setTimeout(randomizeColor, 500); // Adjust the delay as needed
+    setTimeout(randomizeColor, 725); // Adjust the delay as needed
   });
 
 // Body Color Selector
