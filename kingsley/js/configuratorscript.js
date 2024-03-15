@@ -37,6 +37,32 @@ document.addEventListener('gestureend', function(e) {
 
 // CONFIGURATOR 
 
+// Get the model viewer element
+const modelViewer = document.querySelector('model-viewer');
+
+// Skybox Functionality
+
+ // Array of skybox image URLs
+ const skyboxImages = [
+  "https://archiebattley.com/kingsley/img/hdri/eveningfield.jpg",
+  "https://archiebattley.com/kingsley/img/hdri/mountainlake.jpg",
+  "https://archiebattley.com/kingsley/img/hdri/university.jpg",
+  "https://archiebattley.com/kingsley/img/hdri/dirtroad.jpg",
+  "https://archiebattley.com/kingsley/img/hdri/eveningroad.jpg",
+  // Add more skybox image URLs here...
+];
+
+// Function to choose a random skybox image URL
+function getRandomSkyboxImage() {
+  return skyboxImages[Math.floor(Math.random() * skyboxImages.length)];
+}
+
+// Set a random skybox image on page load
+modelViewer.skyboxImage = getRandomSkyboxImage();
+
+// Skybox Functionality End
+
+
 // Enables Color Picker Functionality
 const modelViewerColor = document.querySelector("model-viewer#color");
 

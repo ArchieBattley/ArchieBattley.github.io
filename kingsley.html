@@ -47,10 +47,10 @@
 <body class="kingsleybackground noselect" style="height: 100%;
     overflow: hidden;">
       
-
-    <model-viewer loading="eager" id="color" id="hotspot-camera-view-demo" bounds="tight" enable-pan poster="kingsley/img/loader.gif" src="https://archiebattley.com/kingsley/models/KingsleyVersion2.4.glb" skybox-image="https://archiebattley.com/kingsley/img/hdri/eveningfield.jpg" skybox-height="10m" camera-controls touch-action="none" interpolation-decay="130" shadow-intensity="3" exposure="2" shadow-softness="1" tone-mapping="commerce" camera-orbit="-40deg 85deg 20m" min-camera-orbit="auto auto 3m" max-camera-orbit="auto 90deg auto">
-
       
+      <model-viewer loading="eager" id="color" id="hotspot-camera-view-demo" bounds="tight" enable-pan poster="kingsley/img/loader.gif" src="https://archiebattley.com/kingsley/models/KingsleyVersion2.4.glb" skybox-height="10m" turntable-rotation="0deg 0deg 180" camera-controls touch-action="none" interpolation-decay="130" shadow-intensity="2.8" exposure="1" shadow-softness="0.7" tone-mapping="commerce" camera-orbit="-40deg 85deg 20m" min-camera-orbit="auto auto 3m" max-camera-orbit="auto 90deg auto">
+
+        
       <div class="text-center" slot="hotspot-wheel" data-position="-1.657174348831175m 0.704767189287746m -2.063101221949054m" data-normal="-1m 0m 0m" data-visibility-attribute="visible">
         <button class="btn btn-icons fas fa-paint-roller" data-toggle="collapse" href="#WheelPaint" role="button" aria-expanded="false" aria-controls="WheelPaint">
         </button>
@@ -86,7 +86,7 @@
       <effect-composer render-mode="quality" id="customComposer">
         <ssao-effect blend-mode="DEFAULT" opacity="0.5" strength="10"></ssao-effect>
  <bloom-effect strength="0.5" radius="0.1" threshold="0.8"></bloom-effect>
- <color-grade-effect blend-mode="add" opacity="0.2" tonemapping="optimized_cineon" brightness="0.1" contrast="0.4" saturation="-0.1" hue="6"></color-grade-effect>
+ <color-grade-effect blend-mode="add" opacity="0.2" tonemapping="optimized_cineon" brightness="0" contrast="0.4" saturation="-0.1" hue="6"></color-grade-effect>
 
 </effect-composer>
     </model-viewer>  
@@ -113,7 +113,6 @@
   <nav class="navbar navbar-expand-lg fixed-bottom">
     <div class="container pb-3">
       
-
       <a class="navbar-toggler" type="" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa fa-angle-up"></i>
       </a>
@@ -123,12 +122,12 @@
           <p class="text-small text-shadowed">(Range Rover Classic 2 Door)</p>
         </div>
 
-
         <ul class="navbar-nav ml-auto">
 
-          <li class="nav-item annotation">
+          <li class="nav-item annotation shadow-lg">
            <p class="font-weight-bold text-dark text-center p-2 m-0" inert>Body Colour</p>
             <div class="p-0 controls" id="color-controls">
+
               <div class="row text-center m-0">
                 <div class="col p-xl-1 p-lg-1 p-md-1 p-sm-1 p-0">
                   <button data-color="#005b6d" class="btn btn-squared tuscanblue">Tuscan Blue</button>
@@ -154,24 +153,15 @@
                 <div class="col p-xl-1 p-lg-1 p-md-1 p-sm-1 p-0">
                   <button data-color="#a1987e" class="btn btn-squared saharadust">Sahara Dust</button>
                 </div>
-
               </div>
-        
-              
-             <!-- Responsive Button Classes "col-xl col-lg col-md col-sm-3 col-3 p-xl-1 p-lg-1 p-md-3 p-sm-3 p-3" -->
-              
-              
-              
-              
+    
             </div>
-
-        </li>
+          </li>
           
-        
         </ul>
       
-      
       </div>
+
     </div>
   </nav>
   
@@ -262,7 +252,6 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
 
 </body>
 
