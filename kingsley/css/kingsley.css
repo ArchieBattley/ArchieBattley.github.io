@@ -1,3 +1,16 @@
+/* Custom Fonts */
+@font-face {
+  font-family: 'Metropolis-ExtraBold';
+  src:url('https://archiebattley.com/kingsley/fonts/Metropolis-ExtraBold.ttf.woff') format('woff'),
+      url('https://archiebattley.com/kingsley/fonts/Metropolis-ExtraBold.ttf.svg#Metropolis-ExtraBold') format('svg'),
+      url('https://archiebattley.com/kingsley/fonts/Metropolis-ExtraBold.ttf.eot'),
+      url('https://archiebattley.com/kingsley/fonts/Metropolis-ExtraBold.ttf.eot?#iefix') format('embedded-opentype'); 
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 html {
   overflow: scroll;
   overflow-x: hidden;
@@ -11,18 +24,31 @@ body, html {
   height: 100% !important;
 }
 
+.kingsleytopnav {
+  z-index: 1;
+  position: relative;
+  bottom: 100%;
+  background-color: #22292f;
+}
+  
+
 .kingsleybackground {
   z-index: -3;
-  background-color: #22292f; 
+  background-color: rgb(34 41 47); 
   width: 100%;
   height: 100% !important;
-  background-size: 90%;
+  background-size: 20%;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-image: url('../img/kingsley.svg');
 }
 
-
+.kingsleyforegroundtitle{
+  z-index: 1;
+  position: relative;
+  bottom: 90%;
+  }
+  
 
 .h1, h1 {
   font-size: 1.8rem;
@@ -203,6 +229,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#212121",endCo
   /* Button Icons */
 .btn-icons{
   color: #ffffff8a;
+  background-color: transparent;
   width: 1.5rem;
   height: 1.5rem;
   font-size: .6rem;
@@ -243,14 +270,3 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#212121",endCo
   display: none;
 }
 
-/* Custom Fonts */
-@font-face {
-  font-family: 'Metropolis-ExtraBold';
-  src:url('https://archiebattley.com/kingsley/fonts/Metropolis-ExtraBold.ttf.woff') format('woff'),
-      url('https://archiebattley.com/kingsley/fonts/Metropolis-ExtraBold.ttf.svg#Metropolis-ExtraBold') format('svg'),
-      url('https://archiebattley.com/kingsley/fonts/Metropolis-ExtraBold.ttf.eot'),
-      url('https://archiebattley.com/kingsley/fonts/Metropolis-ExtraBold.ttf.eot?#iefix') format('embedded-opentype'); 
-  font-display: swap;
-  font-weight: normal;
-  font-style: normal;
-}
