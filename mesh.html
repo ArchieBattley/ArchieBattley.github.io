@@ -51,42 +51,46 @@
       <model-viewer id="manifold" camera-controls touch-action="pan-y" src="https://archiebattley.com/kingsley/models/WheelsTest2.glb" ar alt="A 3D model of a Wheel2 and Wheel1">
         <div class="controls">
           <div>Mesh Variants:
-            <select id="textures">
-              <option value="Wheel1">Wheel1</option>
-              <option value="Wheel2">Wheel2</option>
-            </select>
+            <button id="wheel1Button">Wheel1</button>
+            <button id="wheel2Button">Wheel2</button>
           </div>
+        </div>
       
-
-          <script type="module">
-            const mvTextures = document.querySelector("model-viewer#manifold");
-            const textures = document.querySelector("#textures");
-          
-            mvTextures.addEventListener("model-visibility", initializeMaterialManipulation);
-          
-            function initializeMaterialManipulation() {
-              function updateMaterial(material, alpha, isOpaque) {
-                material.setAlphaMode(isOpaque ? "OPAQUE" : "MASK"); // Use MASK alpha mode for alpha clipping
-                const pbr = material.pbrMetallicRoughness;
-                const baseColor = pbr.baseColorFactor;
-                baseColor[3] = alpha; // Set alpha directly without adjusting for opaque
-                pbr.setBaseColorFactor(baseColor);
-                material.alphaCutoff = 0.5; // Set the alpha cutoff threshold (adjust as needed)
-              }
-          
-              textures.addEventListener("input", (event) => {
-                const selectedValue = event.target.value;
-                const Wheel1 = mvTextures.model.getMaterialByName("Wheel1");
-                const Wheel2 = mvTextures.model.getMaterialByName("Wheel2");
-                const selectedMaterial = selectedValue === "Wheel1" ? Wheel1 : Wheel2;
-                const otherMaterial = selectedValue === "Wheel1" ? Wheel2 : Wheel1;
-          
-                // Update materials instantly without animations
-                updateMaterial(selectedMaterial, 1, true);
-                updateMaterial(otherMaterial, 0, false);
-              });
+        <script type="module">
+          const mvTextures = document.querySelector("model-viewer#manifold");
+          const wheel1Button = document.querySelector("#wheel1Button");
+          const wheel2Button = document.querySelector("#wheel2Button");
+      
+          mvTextures.addEventListener("model-visibility", initializeMaterialManipulation);
+      
+          function initializeMaterialManipulation() {
+            function updateMaterial(material, alpha, isOpaque) {
+              material.setAlphaMode(isOpaque ? "OPAQUE" : "MASK"); // Use MASK alpha mode for alpha clipping
+              const pbr = material.pbrMetallicRoughness;
+              const baseColor = pbr.baseColorFactor;
+              baseColor[3] = alpha; // Set alpha directly without adjusting for opaque
+              pbr.setBaseColorFactor(baseColor);
+              material.alphaCutoff = 0.5; // Set the alpha cutoff threshold (adjust as needed)
             }
-          </script>
+      
+            wheel1Button.addEventListener("click", () => {
+              const Wheel1 = mvTextures.model.getMaterialByName("Wheel1");
+              const Wheel2 = mvTextures.model.getMaterialByName("Wheel2");
+              // Update materials instantly without animations
+              updateMaterial(Wheel1, 1, true);
+              updateMaterial(Wheel2, 0, false);
+            });
+      
+            wheel2Button.addEventListener("click", () => {
+              const Wheel1 = mvTextures.model.getMaterialByName("Wheel1");
+              const Wheel2 = mvTextures.model.getMaterialByName("Wheel2");
+              // Update materials instantly without animations
+              updateMaterial(Wheel1, 0, false);
+              updateMaterial(Wheel2, 1, true);
+            });
+          }
+        </script>
+      </model-viewer>
 
           <!--<script type="module">
             const mvTextures = document.querySelector("model-viewer#manifold");

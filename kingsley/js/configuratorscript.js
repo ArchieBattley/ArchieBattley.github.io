@@ -63,8 +63,9 @@ modelViewer.skyboxImage = getRandomSkyboxImage();
 // Skybox Functionality End
 
 
-// Enables Color Picker Functionality
-const modelViewerColor = document.querySelector("model-viewer#color");
+// Enables Configurator Functionality
+const modelViewerColor = document.querySelector("model-viewer#configurator");
+
 
 // Function to generate a random color
 function getRandomColor() {
@@ -74,7 +75,7 @@ function getRandomColor() {
 
   // Function to apply a random color to the model
   function randomizeColor() {
-    const modelViewerColor = document.getElementById('color');
+    const modelViewerColor = document.getElementById('configurator');
     const randomColor = getRandomColor();
     const material = modelViewerColor.model.materials[0];
     material.pbrMetallicRoughness.setBaseColorFactor(randomColor);
@@ -95,8 +96,13 @@ document.querySelector('#color-controls').addEventListener('click', (event) => {
 // Wheel Color Selector
 document.querySelector('#color-controls2').addEventListener('click', (event) => {
   const colorString = event.target.dataset.color;
-  const material = modelViewerColor.model.materials[10]; // added the index of the material that I see in the editor page
-  material.pbrMetallicRoughness.setBaseColorFactor(colorString);
+  const materialIndices = [9, 10]; // Add indices of materials you want to update
+  materialIndices.forEach(index => {
+    const material = modelViewerColor.model.materials[index];
+    if (material) {
+      material.pbrMetallicRoughness.setBaseColorFactor(colorString);
+    }
+  });
 });
     
 // Bumper Color Selector
@@ -106,4 +112,40 @@ document.querySelector('#color-controls3').addEventListener('click', (event) => 
   material.pbrMetallicRoughness.setBaseColorFactor(colorString);
 });
 
+// Options
+
+const mvTextures = document.querySelector("model-viewer#configurator");
+const wheel1Button = document.querySelector("#wheel1Button");
+const wheel2Button = document.querySelector("#wheel2Button");
+
+mvTextures.addEventListener("model-visibility", initializeMaterialManipulation);
+
+function initializeMaterialManipulation() {
+  function updateMaterial(material, alpha, isOpaque) {
+    material.setAlphaMode(isOpaque ? "OPAQUE" : "MASK"); // Use MASK alpha mode for alpha clipping
+    const pbr = material.pbrMetallicRoughness;
+    const baseColor = pbr.baseColorFactor;
+    baseColor[3] = alpha; // Set alpha directly without adjusting for opaque
+    pbr.setBaseColorFactor(baseColor);
+    material.alphaCutoff = 0.5; // Set the alpha cutoff threshold (adjust as needed)
+  }
+
+  wheel1Button.addEventListener("click", () => {
+    const Wheel1 = mvTextures.model.getMaterialByName("Wheel1");
+    const Wheel2 = mvTextures.model.getMaterialByName("Wheel2");
+    // Update materials instantly without animations
+    updateMaterial(Wheel1, 1, true);
+    updateMaterial(Wheel2, 0, false);
+  });
+
+  wheel2Button.addEventListener("click", () => {
+    const Wheel1 = mvTextures.model.getMaterialByName("Wheel1");
+    const Wheel2 = mvTextures.model.getMaterialByName("Wheel2");
+    // Update materials instantly without animations
+    updateMaterial(Wheel1, 0, false);
+    updateMaterial(Wheel2, 1, true);
+  });
+}
+
+// Options End
     
