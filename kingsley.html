@@ -48,7 +48,7 @@
     overflow: hidden;">
       
       
-      <model-viewer loading="eager" id="color" id="hotspot-camera-view-demo" bounds="tight" enable-pan poster="kingsley/img/loader.gif" src="https://archiebattley.com/kingsley/models/KingsleyVersion2.6.glb" skybox-height="9m" turntable-rotation="0deg 0deg 180" camera-controls touch-action="none" interpolation-decay="130" shadow-intensity="2.8" exposure="1" shadow-softness="0.7" tone-mapping="commerce" camera-orbit="-40deg 85deg 20m" min-camera-orbit="auto auto 3m" max-camera-orbit="auto 90deg auto">
+      <model-viewer loading="eager" id="color" id="wheeloptions" id="hotspot-camera-view-demo" bounds="tight" enable-pan poster="kingsley/img/loader.gif" src="https://archiebattley.com/kingsley/models/KingsleyVersion2.6.glb" skybox-height="9m" turntable-rotation="0deg 0deg 180" camera-controls touch-action="none" interpolation-decay="130" shadow-intensity="2.8" exposure="1" shadow-softness="0.7" tone-mapping="commerce" camera-orbit="-40deg 85deg 20m" min-camera-orbit="auto auto 3m" max-camera-orbit="auto 90deg auto">
 
         
       <div class="text-center" slot="hotspot-wheel" data-position="-1.657174348831175m 0.704767189287746m -2.063101221949054m" data-normal="-1m 0m 0m" data-visibility-attribute="visible">
@@ -157,6 +157,53 @@
     
             </div>
           </li>
+
+          <li class="nav-item annotation shadow-lg">
+            <p class="font-weight-bold text-dark text-center p-2 m-0" inert>Wheels</p>
+             <div class="p-0 controls" id="textures">
+ 
+               <div class="row text-center m-0">
+                 <div class="col p-xl-1 p-lg-1 p-md-1 p-sm-1 p-0">
+                   <button value="Wheel1" class="btn btn-squared rostylewheels">Rostyle</button>
+                 </div>
+                 <div class="col p-xl-1 p-lg-1 p-md-1 p-sm-1 p-0">
+                   <button value="Wheel2" class="btn btn-squared lsewheels">LSE</button>
+                 </div>
+                
+               </div>
+     
+             </div>
+           </li>
+
+           <script type="module">
+            const mvTextures = document.querySelector("model-viewer#wheeloptions");
+            const textures = document.querySelector("#textures");
+          
+            mvTextures.addEventListener("model-visibility", initializeMaterialManipulation);
+          
+            function initializeMaterialManipulation() {
+              function updateMaterial(material, alpha, isOpaque) {
+                material.setAlphaMode(isOpaque ? "OPAQUE" : "MASK"); // Use MASK alpha mode for alpha clipping
+                const pbr = material.pbrMetallicRoughness;
+                const baseColor = pbr.baseColorFactor;
+                baseColor[3] = alpha; // Set alpha directly without adjusting for opaque
+                pbr.setBaseColorFactor(baseColor);
+                material.alphaCutoff = 0.5; // Set the alpha cutoff threshold (adjust as needed)
+              }
+          
+              textures.addEventListener("input", (event) => {
+                const selectedValue = event.target.value;
+                const Wheel1 = mvTextures.model.getMaterialByName("Wheel1");
+                const Wheel2 = mvTextures.model.getMaterialByName("Wheel2");
+                const selectedMaterial = selectedValue === "Wheel1" ? Wheel1 : Wheel2;
+                const otherMaterial = selectedValue === "Wheel1" ? Wheel2 : Wheel1;
+          
+                // Update materials instantly without animations
+                updateMaterial(selectedMaterial, 1, true);
+                updateMaterial(otherMaterial, 0, false);
+              });
+            }
+          </script>
           
         </ul>
       

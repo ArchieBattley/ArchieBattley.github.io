@@ -226,6 +226,22 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#212121",endCo
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
   }
 
+  /* Car Option Buttons */
+  .rostylewheels {
+    background-size: 150%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../img/options/wheels/1.jpg');
+  }
+
+  .lsewheels {
+    background-size: 120%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../img/options/wheels/2.jpg');
+  }
+  
+
   /* Button Icons */
 .btn-icons{
   color: #ffffff8a;
