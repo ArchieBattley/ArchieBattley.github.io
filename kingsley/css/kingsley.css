@@ -33,7 +33,7 @@ body, html {
   background: -webkit-linear-gradient(135deg, rgba(34,41,47,1) 0%, rgba(34,41,47,1) 72%, rgba(255,255,255,0) 72%, rgba(255,255,255,0) 74%, rgba(34,41,47,1) 74%, rgba(34,41,47,1) 76%, rgba(255,255,255,0) 76%);
   background: linear-gradient(135deg, rgba(34,41,47,1) 0%, rgba(34,41,47,1) 72%, rgba(255,255,255,0) 72%, rgba(255,255,255,0) 74%, rgba(34,41,47,1) 74%, rgba(34,41,47,1) 76%, rgba(255,255,255,0) 76%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#22292f",endColorstr="#ffffff",GradientType=1);
-  background-size: 300px;
+  background-size: 16rem auto;
 background-repeat: no-repeat;
 }
   
@@ -300,9 +300,17 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#212121",endCo
   box-shadow: inset 0 0 10px #0000006b;
 }
 
-.button-icons:active
-.button-icons.active {
-  background-color: red;
+.btn-icons:active, .btn-icons.active {
+  color: #ffff;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1rem;
+  padding: 0 !important;
+  border-width: 0.3vh;
+  text-decoration: none;
+  text-shadow: 1px 1px 10px #000000, 1px 1px 10px #000000;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(82, 82, 82, 0.25);
 }
 
   /* Button Icons Dark */

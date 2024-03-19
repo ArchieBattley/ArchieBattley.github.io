@@ -1,3 +1,5 @@
+// PINCH TO ZOOM HACKS
+
 // Disables Zoom on Mobile
 
 // Prevent double tap zoom
@@ -35,13 +37,29 @@ document.addEventListener('gestureend', function(e) {
     document.body.style.zoom = 0.99;
 });
 
+// PINCH TO ZOOM HACKS
 
 // CONFIGURATOR 
 
 // Get the model viewer element
 const modelViewer = document.querySelector('model-viewer');
 
+
+
+
+
 // Skybox Functionality
+
+// Variable to store the current skybox image URL
+let currentSkyboxImageUrl = null;
+
+// Function to clean up the previous skybox image
+function cleanupPreviousSkybox() {
+  if (currentSkyboxImageUrl) {
+    URL.revokeObjectURL(currentSkyboxImageUrl);
+    currentSkyboxImageUrl = null;
+  }
+}
 
 // Get the button element
 const changeSkyboxButton = document.getElementById('changeSkyboxButton');
@@ -49,15 +67,47 @@ const changeSkyboxButton = document.getElementById('changeSkyboxButton');
 // Index to track the current skybox image
 let currentSkyboxIndex = 0;
 
-// Add click event listener to the button
-changeSkyboxButton.addEventListener('click', function() {
+// Flag to indicate whether a change is in progress
+let changeInProgress = false;
+
+// Function to handle skybox image change
+function changeSkyboxImage() {
+  // Prevent changes if a change is already in progress
+  if (changeInProgress) {
+    return;
+  }
+
+  // Set the flag to indicate a change is in progress
+  changeInProgress = true;
+
+  // Remove the previous skybox image from memory
+  if (modelViewer.skyboxImage) {
+    URL.revokeObjectURL(modelViewer.skyboxImage);
+  }
+
   // Cycle to the next skybox image
   currentSkyboxIndex = (currentSkyboxIndex + 1) % skyboxImages.length;
-  // Set the next skybox image
-  modelViewer.skyboxImage = skyboxImages[currentSkyboxIndex];
-});
 
-// Skybox Functionality
+  // Load the next skybox image into memory
+  const skyboxImageURL = skyboxImages[currentSkyboxIndex];
+  fetch(skyboxImageURL)
+    .then(response => response.blob())
+    .then(blob => {
+      // Create an object URL for the skybox image
+      const objectURL = URL.createObjectURL(blob);
+      // Set the next skybox image
+      modelViewer.skyboxImage = objectURL;
+      
+      // Reset the flag after a delay to allow next change
+      setTimeout(() => {
+        changeInProgress = false;
+      }, 1000); // Adjust the delay (in milliseconds) as needed
+    });
+}
+
+// Add click event listener to the button
+changeSkyboxButton.addEventListener('click', changeSkyboxImage);
+
 
 // Array of skybox image URLs
 const skyboxImages = [
@@ -108,8 +158,8 @@ document.addEventListener("DOMContentLoaded", function() {
     simulateButtonClick(randomButton);
   }
 
-  // Delay activation of a random button by 800ms
-  setTimeout(activateRandomButton, 800);
+  // Delay activation of a random button by 1000ms
+  setTimeout(activateRandomButton, 1000);
 });
 
 // BODY COLORS
@@ -151,43 +201,8 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-// CAMERA ANIMATIONS
 
-// Define the annotationClicked function to handle hotspot clicks
-const annotationClicked = (hotspot) => {
-  // Extract the dataset attributes from the hotspot
-  let dataset = hotspot.dataset;
-  
-  // Get the model viewer element by its ID
-  const modelViewer = document.querySelector("#configurator");
 
-  // Store the original interpolation decay value
-  const originalInterpolationDecay = modelViewer.interpolationDecay;
-
-  // Set a temporary interpolation decay for the hotspot animation
-  modelViewer.interpolationDecay = 400; // Adjust this value as needed for hotspot animations
-
-  // Set the camera target and orbit based on the hotspot's dataset attributes
-  modelViewer.cameraTarget = dataset.target;
-  modelViewer.cameraOrbit = dataset.orbit;
-
-  // Reset the interpolation decay to its original value after the animation
-  setTimeout(() => {
-    modelViewer.interpolationDecay = originalInterpolationDecay;
-  }, 100); // Adjust the delay as needed
-}
-
-// Find all the hotspot container divs and attach click event listeners to them
-document.querySelectorAll('[slot^="hotspot-"]').forEach((hotspotContainer) => {
-  hotspotContainer.addEventListener('click', (event) => {
-    // Check if the clicked target is not inside the collapse element
-    if (!event.target.closest('.collapse')) {
-      annotationClicked(hotspotContainer);
-    }
-  });
-});
-
-// CAMERA ANIMATIONS
 
 // Wheel Color Selector
 document.querySelector('#color-controls2').addEventListener('click', (event) => {

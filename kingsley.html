@@ -49,7 +49,7 @@
     overflow: hidden;">
       
       
-      <model-viewer loading="eager" id="configurator" bounds="tight" enable-pan poster="kingsley/img/loader.gif" src="https://archiebattley.com/kingsley/models/KingsleyVersion2.8.glb" skybox-height="9m" camera-controls="basic" touch-action="none" interaction-prompt="none" autoplay="false" interpolation-decay="100" shadow-intensity="2.8" exposure="1" shadow-softness="0.7" tone-mapping="commerce" camera-orbit="-40deg 85deg 20m" min-camera-orbit="auto auto 3m" max-camera-orbit="auto 90deg auto">
+      <model-viewer loading="eager" id="configurator" bounds="tight" enable-pan poster="kingsley/img/loader.gif" src="https://archiebattley.com/kingsley/models/KingsleyVersion2.8.glb" skybox-height="9m" camera-controls="basic" touch-action="none" interaction-prompt="none" autoplay="false" interpolation-decay="100" shadow-intensity="2.8" exposure="1" shadow-softness="0.7" tone-mapping="commerce" camera-orbit="-40deg 85deg 20m" min-camera-orbit="auto auto 3m" max-camera-orbit="auto 90deg auto" camera-target="0m 1.5m 0m">
 
     
 
@@ -66,11 +66,6 @@
             </div>
           </div>
         </div>
-   
-
-      
-
-
 
       <div class="text-center" slot="hotspot-1" data-position="1.4981056834778304m 1.1982358079826851m 4.24517041669373m" data-normal="0.14302189100836446m -0.5458146858435995m 0.8256095126691823m" data-orbit="49.4deg 87.76deg 10.29m" data-target="-0.25m 1.25m 3.5m" data-visibility-attribute="visible"> 
         <button class="btn btn-icons fas fa-spray-can" data-toggle="collapse" href="#BumperPaint" role="button" aria-expanded="false" aria-controls="BumperPaint">
@@ -84,22 +79,84 @@
         </div>
       </div>
 
-      
+      <script>
+
+
+        // CAMERA ANIMATIONS
+        
+        // Function to handle setting camera target and orbit based on dataset attributes
+        const setCameraFromDataset = (hotspotSlot) => {
+          // Find the corresponding hotspot container div based on slot
+          const hotspotContainer = document.querySelector(`[slot="hotspot-${hotspotSlot}"]`);
+          
+          if (hotspotContainer) {
+            // Extract the dataset attributes from the hotspot
+            const dataset = hotspotContainer.dataset;
+            
+            // Get the model viewer element by its ID
+            const modelViewer = document.querySelector("#configurator");
+        
+           
+        
+            // Set the camera target and orbit based on the hotspot's dataset attributes
+            modelViewer.cameraTarget = dataset.target;
+            modelViewer.cameraOrbit = dataset.orbit;
+        
+           
+          }
+        }
+        
+        // Function to reset camera target and orbit to default settings
+        const resetCamera = () => {
+          const modelViewer = document.querySelector("#configurator");
+          modelViewer.cameraTarget = "0m 1.5m 0m";
+          modelViewer.cameraOrbit = "-40deg 85deg 20m";
+        }
+        
+        // Find all the buttons with the class 'btn-icons'
+        document.querySelectorAll('.btn-icons').forEach((button) => {
+          // Add a click event listener to each button
+          button.addEventListener('click', () => {
+            // Toggle the 'active' class on the clicked button
+            button.classList.toggle('active');
+            
+            // Check if the button is active after toggling
+            if (button.classList.contains('active')) {
+              // If active, set camera target and orbit based on the dataset attributes of the corresponding hotspot
+              const hotspotSlot = button.parentElement.getAttribute('slot').replace('hotspot-', '');
+              setCameraFromDataset(hotspotSlot);
+              
+              // Change the button icon to the close icon
+              button.classList.toggle('fa-x');
+            } else {
+              // If inactive, reset camera to default settings
+              resetCamera();
+              
+              // Change the button icon back to its original state
+              button.classList.toggle('fa-x');
+            }
+          });
+        });
+        
+        // CAMERA ANIMATIONS
+        
+              </script>
+        
      
 
-      <effect-composer render-mode="quality" id="customComposer">
+      <effect-composer render-mode="performance">
         <ssao-effect blend-mode="DEFAULT" opacity="0.5" strength="10"></ssao-effect>
  <bloom-effect strength="0.5" radius="0.1" threshold="0.8"></bloom-effect>
  <color-grade-effect blend-mode="add" opacity="0.2" tonemapping="optimized_cineon" brightness="0" contrast="0.4" saturation="-0.1" hue="6"></color-grade-effect>
-
+ <smaa-effect blend-mode="DEFAULT" opacity="1" quality="HIGH"></smaa-effect>
 </effect-composer>
     </model-viewer>  
     
     <div class="kingsleytopnav">
-      <nav class="navbar navbar-default navbar-fixed-top">
+      <nav class="navbar navbar-default navbar-fixed-top navbar navbar-default navbar-fixed-top pt-1 pb-1 pl-3 pr-5">
        
           <div class="navbar-header">
-            <img class="img-responsive pt-1 pb-1" src="kingsley/img/svg/kingsleylogo.svg" width="200px" height="auto">  
+            <img class="img-responsive" src="kingsley/img/svg/kingsleylogo.svg" width="55%" height="auto">  
           </div>
 
           <div class="navbar-nav">
