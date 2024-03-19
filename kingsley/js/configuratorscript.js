@@ -165,7 +165,7 @@ const annotationClicked = (hotspot) => {
   const originalInterpolationDecay = modelViewer.interpolationDecay;
 
   // Set a temporary interpolation decay for the hotspot animation
-  modelViewer.interpolationDecay = 300; // Adjust this value as needed for hotspot animations
+  modelViewer.interpolationDecay = 400; // Adjust this value as needed for hotspot animations
 
   // Set the camera target and orbit based on the hotspot's dataset attributes
   modelViewer.cameraTarget = dataset.target;
@@ -174,7 +174,7 @@ const annotationClicked = (hotspot) => {
   // Reset the interpolation decay to its original value after the animation
   setTimeout(() => {
     modelViewer.interpolationDecay = originalInterpolationDecay;
-  }, 1000); // Adjust the delay as needed
+  }, 100); // Adjust the delay as needed
 }
 
 // Find all the hotspot container divs and attach click event listeners to them
