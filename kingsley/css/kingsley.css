@@ -10,10 +10,15 @@
   font-style: normal;
 }
 
+*{
+  -webkit-user-drag: none;
+}
+
 /* Body and HTML Styles */
 body, html {
   background-color: rgb(44, 44, 44);
   height: 100% !important;
+  -webkit-user-drag: none;
 }
 
 /* Navbar Styles */
