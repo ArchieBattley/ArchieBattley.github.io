@@ -39,14 +39,20 @@ document.addEventListener('gestureend', function(e) {
 
 // PINCH TO ZOOM HACKS
 
+    // Get the navbar toggler button and the icon inside it
+    const navbarToggler = document.getElementById('navbarToggler');
+    const toggleIcon = document.getElementById('toggleIcon');
+
+    // Add an event listener for the toggle button click
+    navbarToggler.addEventListener('click', () => {
+      // Toggle the rotate-180 class on the toggle icon
+      toggleIcon.classList.toggle('rotate-180');
+    });
+
 // CONFIGURATOR 
 
 // Get the model viewer element
 const modelViewer = document.querySelector('model-viewer');
-
-
-
-
 
 // Skybox Functionality
 
@@ -130,6 +136,61 @@ modelViewer.skyboxImage = getRandomSkyboxImage();
 // Skybox Functionality End
 
 
+// Define the functions for camera animations
+const setCameraFromDataset = (hotspotSlot) => {
+  // Find the corresponding hotspot container div based on slot
+  const hotspotContainer = document.querySelector(`[slot="hotspot-${hotspotSlot}"]`);
+  
+  if (hotspotContainer) {
+    // Extract the dataset attributes from the hotspot
+    const dataset = hotspotContainer.dataset;
+    
+    // Get the model viewer element by its ID
+    const modelViewer = document.querySelector("#configurator");
+
+    // Set the camera target and orbit based on the hotspot's dataset attributes
+    modelViewer.cameraTarget = dataset.target;
+    modelViewer.cameraOrbit = dataset.orbit;
+  }
+}
+
+const resetCamera = () => {
+  const modelViewer = document.querySelector("#configurator");
+  modelViewer.cameraTarget = "0m 1.5m 0m";
+  modelViewer.cameraOrbit = "-40deg 85deg 20m";
+}
+
+// Function to handle button clicks for camera animations
+const handleButtonClick = (button) => {
+  button.addEventListener('click', () => {
+    // Toggle the 'active' class on the clicked button
+    button.classList.toggle('active');
+    
+    // Check if the button is active after toggling
+    if (button.classList.contains('active')) {
+      // If active, set camera target and orbit based on the dataset attributes of the corresponding hotspot
+      const hotspotSlot = button.parentElement.getAttribute('slot').replace('hotspot-', '');
+      setCameraFromDataset(hotspotSlot);
+      
+      // Change the button icon to the close icon
+      button.classList.toggle('fa-x');
+    } else {
+      // If inactive, reset camera to default settings
+      resetCamera();
+      
+      // Change the button icon back to its original state
+      button.classList.toggle('fa-x');
+    }
+  });
+}
+
+// Find all the buttons with the class 'btn-icons' and attach event listeners
+document.querySelectorAll('.btn-icons').forEach(handleButtonClick);
+
+// Here, integrate your other JavaScript elements targeting #configurator
+// Ensure that they don't interfere with the camera animations section.
+
+
 // Enables Configurator Functionality
 const modelViewerColor = document.querySelector("model-viewer#configurator");
 
@@ -200,8 +261,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
-
-
 
 
 // Wheel Color Selector

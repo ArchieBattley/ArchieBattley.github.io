@@ -10,20 +10,13 @@
   font-style: normal;
 }
 
-
-html {
-  overflow: scroll;
-  overflow-x: hidden;
-  }
-  ::-webkit-scrollbar {
-  width: 0px;
-  }
-
+/* Body and HTML Styles */
 body, html {
   background-color: rgb(44, 44, 44);
   height: 100% !important;
 }
 
+/* Navbar Styles */
 .kingsleytopnav {
   z-index: 1;
   position: relative;
@@ -34,10 +27,10 @@ body, html {
   background: linear-gradient(135deg, rgba(34,41,47,1) 0%, rgba(34,41,47,1) 72%, rgba(255,255,255,0) 72%, rgba(255,255,255,0) 74%, rgba(34,41,47,1) 74%, rgba(34,41,47,1) 76%, rgba(255,255,255,0) 76%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#22292f",endColorstr="#ffffff",GradientType=1);
   background-size: 16rem auto;
-background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
-  
 
+/* Background Image */
 .kingsleybackground {
   z-index: -3;
   background-color: rgb(34 41 47); 
@@ -49,17 +42,20 @@ background-repeat: no-repeat;
   background-image: url('../img/kingsley.svg');
 }
 
+/* Title Position */
 .kingsleyforegroundtitle{
   z-index: 1;
   position: relative;
   bottom: 94%;
-  }
-  
-
-.h1, h1 {
-  font-size: 1.8rem;
-  font-family: "Metropolis-ExtraBold" !important;
 }
+
+/* Font Styles */
+h1, .h1 {
+  font-family: "Metropolis-ExtraBold" !important;
+  font-size: 1.5rem;
+  letter-spacing: .1rem;
+}
+
 body {
   font-family: "Poppins";
   color: #ffffff;
@@ -67,119 +63,107 @@ body {
 }
 
 .text-small {
- font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 
 .text-shadowed {
-	text-shadow: 1px 1px 5px black;
+  text-shadow: 1px 1px 5px black;
 }
 
+/* Section Styles */
 section {
   height: 100%;
 }
 
-/* ModelViewer */
-model-viewer{
-
-  width:100%;
+/* ModelViewer Styles */
+model-viewer {
+  width: 100%;
   height: 100% !important;
   margin: 0 auto;
   --poster-color: "rgba(0, 0, 0, 0)";
 }
 
+/* Disable Text Selection */
 .noselect {
--webkit-touch-callout: none; /* iOS Safari */
+  -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-     -moz-user-select: none; /* Old versions of Firefox */
-      -ms-user-select: none; /* Internet Explorer/Edge */
-          user-select: none; /* Non-prefixed version, currently
-                                supported by Chrome, Edge, Opera and Firefox */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
-/* If the screen size is 2000px wide or more, set the font-size of <div> to 3vw */
+/* Responsive Font Sizes */
 @media screen and (min-width: 2000px) {
   .homepagetitle {
     font-size: 3vw !important;
   }
 }
 
-
-/* If the screen size is 601px wide or more, set the font-size of <div> to 5vw */
 @media screen and (min-width: 601px) {
   .homepagetitle {
     font-size: 6vw;
   }
 }
 
-/* If the screen size is 600px wide or less, set the font-size of <div> to 10vw */
 @media screen and (max-width: 600px) {
   .homepagetitle {
     font-size: 10vw;
   }
 }
 
-
-/* Vertical Text Center */
-
+/* Vertical Text Centering */
 .verticalcenter {
   display: flex;
-    justify-content: center; /* align horizontal */
-    align-items: center; /* align vertical */
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
 }
 
-/* Vertical Text Center Finish */
-
-.noselect {-webkit-touch-callout: none; /* Safari */
--webkit-user-select: none; /* Chrome */     
-   -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-        user-select: none; 
+/* Nav No Wrap */
+.navnowrap {
+  flex-wrap: nowrap !important;
 }
 
-/* Navbar Syles */
+/* Navbar Toggle Button */
 .navbar-toggler {
-  font-size: 2rem !important;
+  font-size: 1.6rem !important;
 }
 
 /* Squared Buttons */
-  .btn-squared{
-    color: transparent;
-    box-shadow: inset 0 0 10px #0000006b;
-    width: 4vh;
-    height: 4vh;
-    border-width: 0.2vh;
-    border-radius: 10%;
-    border-color: white;
+.btn-squared {
+  color: transparent;
+  box-shadow: inset 0 0 10px #0000006b;
+  width: 4vh;
+  height: 4vh;
+  border-width: 0.2vh;
+  border-radius: 10%;
+  border-color: white;
+  font-size: 0.75vh;
+  padding: 1px 1px;
+  margin: auto;
+  text-align: center;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+  color: transparent;
+}
 
-    font-size: 0.75vh;
-    padding: 1px 1px;
-    margin: auto;
-    text-align: center;
-    text-wrap: balance;
-    overflow-wrap: break-word;
-    color: transparent;
-  }
-  .btn-squared:hover{
-    color: #ffff;
-    text-decoration: none;
-    text-shadow:1px 1px 10px #000000, 1px 1px 10px #000000;
-  }
+.btn-squared:hover {
+  color: #ffff;
+  text-decoration: none;
+  text-shadow: 1px 1px 10px #000000, 1px 1px 10px #000000;
+}
 
-  .btn-squared:active,
-  .btn-squared.active {
-      color: #ffff;
-      text-decoration: none;
-      text-shadow: 1px 1px 10px #000000, 1px 1px 10px #000000;
-      outline: 0;
-      box-shadow: 0 0 0 0.2rem rgba(82, 82, 82, 0.25);
-  }
-
-
-
+.btn-squared:active,
+.btn-squared.active {
+  color: #ffff;
+  text-decoration: none;
+  text-shadow: 1px 1px 10px #000000, 1px 1px 10px #000000;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(82, 82, 82, 0.25);
+}
 
 /* Round Buttons */
-.btn-circle{
+.btn-circle {
   color: transparent;
   box-shadow: inset 0 0 10px #0000006b;
   width: 1.8rem;
@@ -189,88 +173,87 @@ model-viewer{
   border-color: white;
 }
 
-
 /* Button Colors */
-  .tuscanblue{ 
-    background: rgb(0,91,109);
-    background: -moz-linear-gradient(155deg, rgba(0,91,109,1) 0%, rgba(0,141,170,1) 50%, rgba(0,91,109,1) 100%);
-    background: -webkit-linear-gradient(155deg, rgba(0,91,109,1) 0%, rgba(0,141,170,1) 50%, rgba(0,91,109,1) 100%);
-    background: linear-gradient(155deg, rgba(0,91,109,1) 0%, rgba(0,141,170,1) 50%, rgba(0,91,109,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#005b6d",endColorstr="#005b6d",GradientType=1);
-  }
-  .masaired{
-    background: rgb(138,33,12);
-    background: -moz-linear-gradient(155deg, rgba(138,33,12,1) 0%, rgba(185,44,16,1) 50%, rgba(138,33,12,1) 100%);
-    background: -webkit-linear-gradient(155deg, rgba(138,33,12,1) 0%, rgba(185,44,16,1) 50%, rgba(138,33,12,1) 100%);
-    background: linear-gradient(155deg, rgba(138,33,12,1) 0%, rgba(185,44,16,1) 50%, rgba(138,33,12,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8a210c",endColorstr="#8a210c",GradientType=1);
-  }
-  .warwickgreen{
-    background: rgb(75,100,19);
-    background: -moz-linear-gradient(155deg, rgba(75,100,19,1) 0%, rgba(105,142,24,1) 50%, rgba(75,100,19,1) 100%);
-    background: -webkit-linear-gradient(155deg, rgba(75,100,19,1) 0%, rgba(105,142,24,1) 50%, rgba(75,100,19,1) 100%);
-    background: linear-gradient(155deg, rgba(75,100,19,1) 0%, rgba(105,142,24,1) 50%, rgba(75,100,19,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4b6413",endColorstr="#4b6413",GradientType=1);
-  }
-  .lincolngreen{
-    background: rgb(62,68,40);
-    background: -moz-linear-gradient(155deg, rgba(62,68,40,1) 0%, rgba(97,106,63,1) 50%, rgba(62,68,40,1) 100%);
-    background: -webkit-linear-gradient(155deg, rgba(62,68,40,1) 0%, rgba(97,106,63,1) 50%, rgba(62,68,40,1) 100%);
-    background: linear-gradient(155deg, rgba(62,68,40,1) 0%, rgba(97,106,63,1) 50%, rgba(62,68,40,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3e4428",endColorstr="#3e4428",GradientType=1);
-  }
-  .arcticwhite{
-    background: rgb(222,231,228);
-    background: -moz-linear-gradient(155deg, rgba(222,231,228,1) 0%, rgba(255,255,255,1) 50%, rgba(222,231,228,1) 100%);
-    background: -webkit-linear-gradient(155deg, rgba(222,231,228,1) 0%, rgba(255,255,255,1) 50%, rgba(222,231,228,1) 100%);
-    background: linear-gradient(155deg, rgba(222,231,228,1) 0%, rgba(255,255,255,1) 50%, rgba(222,231,228,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#dee7e4",endColorstr="#dee7e4",GradientType=1);
-  }
-  .sandglow{
-    background: rgb(209,126,39);
-    background: -moz-linear-gradient(155deg, rgba(209,126,39,1) 0%, rgba(255,154,48,1) 50%, rgba(209,126,39,1) 100%);
-    background: -webkit-linear-gradient(155deg, rgba(209,126,39,1) 0%, rgba(255,154,48,1) 50%, rgba(209,126,39,1) 100%);
-    background: linear-gradient(155deg, rgba(209,126,39,1) 0%, rgba(255,154,48,1) 50%, rgba(209,126,39,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d17e27",endColorstr="#d17e27",GradientType=1);
-  }
-  .russetbrown{
-    background: rgb(68,39,25);
-    background: -moz-linear-gradient(155deg, rgba(68,39,25,1) 0%, rgba(116,66,42,1) 50%, rgba(68,39,25,1) 100%);
-    background: -webkit-linear-gradient(155deg, rgba(68,39,25,1) 0%, rgba(116,66,42,1) 50%, rgba(68,39,25,1) 100%);
-    background: linear-gradient(155deg, rgba(68,39,25,1) 0%, rgba(116,66,42,1) 50%, rgba(68,39,25,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#442719",endColorstr="#442719",GradientType=1);
-  }
-  .saharadust{
-    background: rgb(161,152,126);
-    background: -moz-linear-gradient(155deg, rgba(161,152,126,1) 0%, rgba(209,196,157,1) 50%, rgba(161,152,126,1) 100%);
-    background: -webkit-linear-gradient(155deg, rgba(161,152,126,1) 0%, rgba(209,196,157,1) 50%, rgba(161,152,126,1) 100%);
-    background: linear-gradient(155deg, rgba(161,152,126,1) 0%, rgba(209,196,157,1) 50%, rgba(161,152,126,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a1987e",endColorstr="#a1987e",GradientType=1);
-  }
+.tuscanblue { 
+  background: rgb(0,91,109);
+  background: -moz-linear-gradient(155deg, rgba(0,91,109,1) 0%, rgba(0,141,170,1) 50%, rgba(0,91,109,1) 100%);
+  background: -webkit-linear-gradient(155deg, rgba(0,91,109,1) 0%, rgba(0,141,170,1) 50%, rgba(0,91,109,1) 100%);
+  background: linear-gradient(155deg, rgba(0,91,109,1) 0%, rgba(0,141,170,1) 50%, rgba(0,91,109,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#005b6d",endColorstr="#005b6d",GradientType=1);
+}
+.masaired {
+  background: rgb(138,33,12);
+  background: -moz-linear-gradient(155deg, rgba(138,33,12,1) 0%, rgba(185,44,16,1) 50%, rgba(138,33,12,1) 100%);
+  background: -webkit-linear-gradient(155deg, rgba(138,33,12,1) 0%, rgba(185,44,16,1) 50%, rgba(138,33,12,1) 100%);
+  background: linear-gradient(155deg, rgba(138,33,12,1) 0%, rgba(185,44,16,1) 50%, rgba(138,33,12,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#8a210c",endColorstr="#8a210c",GradientType=1);
+}
+.warwickgreen {
+  background: rgb(75,100,19);
+  background: -moz-linear-gradient(155deg, rgba(75,100,19,1) 0%, rgba(105,142,24,1) 50%, rgba(75,100,19,1) 100%);
+  background: -webkit-linear-gradient(155deg, rgba(75,100,19,1) 0%, rgba(105,142,24,1) 50%, rgba(75,100,19,1) 100%);
+  background: linear-gradient(155deg, rgba(75,100,19,1) 0%, rgba(105,142,24,1) 50%, rgba(75,100,19,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4b6413",endColorstr="#4b6413",GradientType=1);
+}
+.lincolngreen {
+  background: rgb(62,68,40);
+  background: -moz-linear-gradient(155deg, rgba(62,68,40,1) 0%, rgba(97,106,63,1) 50%, rgba(62,68,40,1) 100%);
+  background: -webkit-linear-gradient(155deg, rgba(62,68,40,1) 0%, rgba(97,106,63,1) 50%, rgba(62,68,40,1) 100%);
+  background: linear-gradient(155deg, rgba(62,68,40,1) 0%, rgba(97,106,63,1) 50%, rgba(62,68,40,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3e4428",endColorstr="#3e4428",GradientType=1);
+}
+.arcticwhite {
+  background: rgb(222,231,228);
+  background: -moz-linear-gradient(155deg, rgba(222,231,228,1) 0%, rgba(255,255,255,1) 50%, rgba(222,231,228,1) 100%);
+  background: -webkit-linear-gradient(155deg, rgba(222,231,228,1) 0%, rgba(255,255,255,1) 50%, rgba(222,231,228,1) 100%);
+  background: linear-gradient(155deg, rgba(222,231,228,1) 0%, rgba(255,255,255,1) 50%, rgba(222,231,228,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#dee7e4",endColorstr="#dee7e4",GradientType=1);
+}
+.sandglow {
+  background: rgb(209,126,39);
+  background: -moz-linear-gradient(155deg, rgba(209,126,39,1) 0%, rgba(255,154,48,1) 50%, rgba(209,126,39,1) 100%);
+  background: -webkit-linear-gradient(155deg, rgba(209,126,39,1) 0%, rgba(255,154,48,1) 50%, rgba(209,126,39,1) 100%);
+  background: linear-gradient(155deg, rgba(209,126,39,1) 0%, rgba(255,154,48,1) 50%, rgba(209,126,39,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d17e27",endColorstr="#d17e27",GradientType=1);
+}
+.russetbrown {
+  background: rgb(68,39,25);
+  background: -moz-linear-gradient(155deg, rgba(68,39,25,1) 0%, rgba(116,66,42,1) 50%, rgba(68,39,25,1) 100%);
+  background: -webkit-linear-gradient(155deg, rgba(68,39,25,1) 0%, rgba(116,66,42,1) 50%, rgba(68,39,25,1) 100%);
+  background: linear-gradient(155deg, rgba(68,39,25,1) 0%, rgba(116,66,42,1) 50%, rgba(68,39,25,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#442719",endColorstr="#442719",GradientType=1);
+}
+.saharadust {
+  background: rgb(161,152,126);
+  background: -moz-linear-gradient(155deg, rgba(161,152,126,1) 0%, rgba(209,196,157,1) 50%, rgba(161,152,126,1) 100%);
+  background: -webkit-linear-gradient(155deg, rgba(161,152,126,1) 0%, rgba(209,196,157,1) 50%, rgba(161,152,126,1) 100%);
+  background: linear-gradient(155deg, rgba(161,152,126,1) 0%, rgba(209,196,157,1) 50%, rgba(161,152,126,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a1987e",endColorstr="#a1987e",GradientType=1);
+}
 
-  .deepsilver{ 
-    background: rgb(182,182,182);
-background: -moz-linear-gradient(155deg, rgba(182,182,182,1) 0%, rgba(255,255,255,1) 50%, rgba(115,115,115,1) 100%);
-background: -webkit-linear-gradient(155deg, rgba(182,182,182,1) 0%, rgba(255,255,255,1) 50%, rgba(115,115,115,1) 100%);
-background: linear-gradient(155deg, rgba(182,182,182,1) 0%, rgba(255,255,255,1) 50%, rgba(115,115,115,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b6b6b6",endColorstr="#737373",GradientType=1);
-  }
-  .gunmetalgrey{
-    background: rgb(33,33,33);
-background: -moz-linear-gradient(155deg, rgba(33,33,33,1) 0%, rgba(186,186,186,1) 50%, rgba(27,27,27,1) 100%);
-background: -webkit-linear-gradient(155deg, rgba(33,33,33,1) 0%, rgba(186,186,186,1) 50%, rgba(27,27,27,1) 100%);
-background: linear-gradient(155deg, rgba(33,33,33,1) 0%, rgba(186,186,186,1) 50%, rgba(27,27,27,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#212121",endColorstr="#1b1b1b",GradientType=1);
-  }
-  .darkestblack{
-    background: rgb(0,0,0);
-    background: -moz-linear-gradient(155deg, rgba(0,0,0,1) 0%, rgba(65,65,65,1) 50%, rgba(0,0,0,1) 100%);
-    background: -webkit-linear-gradient(155deg, rgba(0,0,0,1) 0%, rgba(65,65,65,1) 50%, rgba(0,0,0,1) 100%);
-    background: linear-gradient(155deg, rgba(0,0,0,1) 0%, rgba(65,65,65,1) 50%, rgba(0,0,0,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
-  }
+.deepsilver { 
+  background: rgb(182,182,182);
+  background: -moz-linear-gradient(155deg, rgba(182,182,182,1) 0%, rgba(255,255,255,1) 50%, rgba(115,115,115,1) 100%);
+  background: -webkit-linear-gradient(155deg, rgba(182,182,182,1) 0%, rgba(255,255,255,1) 50%, rgba(115,115,115,1) 100%);
+  background: linear-gradient(155deg, rgba(182,182,182,1) 0%, rgba(255,255,255,1) 50%, rgba(115,115,115,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b6b6b6",endColorstr="#737373",GradientType=1);
+}
+.gunmetalgrey {
+  background: rgb(33,33,33);
+  background: -moz-linear-gradient(155deg, rgba(33,33,33,1) 0%, rgba(186,186,186,1) 50%, rgba(27,27,27,1) 100%);
+  background: -webkit-linear-gradient(155deg, rgba(33,33,33,1) 0%, rgba(186,186,186,1) 50%, rgba(27,27,27,1) 100%);
+  background: linear-gradient(155deg, rgba(33,33,33,1) 0%, rgba(186,186,186,1) 50%, rgba(27,27,27,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#212121",endColorstr="#1b1b1b",GradientType=1);
+}
+.darkestblack {
+  background: rgb(0,0,0);
+  background: -moz-linear-gradient(155deg, rgba(0,0,0,1) 0%, rgba(65,65,65,1) 50%, rgba(0,0,0,1) 100%);
+  background: -webkit-linear-gradient(155deg, rgba(0,0,0,1) 0%, rgba(65,65,65,1) 50%, rgba(0,0,0,1) 100%);
+  background: linear-gradient(155deg, rgba(0,0,0,1) 0%, rgba(65,65,65,1) 50%, rgba(0,0,0,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+}
 
-  /* Car Option Buttons */
+/* Car Option Buttons */
   .rostylewheels {
     background-size: 150%;
     background-position: center;
@@ -284,11 +267,24 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#212121",endCo
     background-repeat: no-repeat;
     background-image: url('../img/options/wheels/2.jpg');
   }
-  
+
+/* Button Icons Dark */
+  .btn-icons-dark {
+    color: white;
+    background-color: rgb(34,41,47);
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: .6rem;
+    padding: 0 !important;
+    border-width: 0.1vh;
+    border-radius: 100%;
+    border-color: white;
+    box-shadow: 0 0 5px #0000006b;
+  }
 
   /* Button Icons */
 .btn-icons{
-  color: #ffffff8a;
+  color: #ffffffc6;
   background-color: transparent;
   width: 1.5rem;
   height: 1.5rem;
@@ -313,47 +309,38 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#212121",endCo
   box-shadow: 0 0 0 0.2rem rgba(82, 82, 82, 0.25);
 }
 
-  /* Button Icons Dark */
-  .btn-icons-dark{
-    color: white;
-    background-color: rgb(34,41,47);
-    width: 1.8rem;
-    height: 1.8rem;
-    font-size: .6rem;
-    padding: 0 !important;
-    border-width: 0.1vh;
-    border-radius: 100%;
-    border-color: white;
-    box-shadow: 0 0 5px #0000006b;
+  .rotate-180 {
+    transform: rotate(180deg);
+    transition: transform 0.5s ease;
   }
 
 /* Hotspots */
-.hotspot{
-  display: block;
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  border: none;
-  --min-hotspot-opacity: 0;
-  background-color: rgb(255, 255, 255);
-  box-sizing: border-box;
-}
+  .hotspot {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: none;
+    --min-hotspot-opacity: 0;
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+  }
 
-.hotspot[slot="hotspot-wheel"]{
-  --min-hotspot-opacity: 0;
-  background-color: rgb(255, 255, 255);
-}
+  .hotspot[slot="hotspot-wheel"] {
+    --min-hotspot-opacity: 0;
+    background-color: rgb(255, 255, 255);
+  }
 
-.annotation{
-  background-color: white;
-  position: relative;
-  border-radius: 10px;
-  padding: 10px;
-  margin:20px;
-  font-size: .8rem;
-}
-/* This keeps child nodes hidden while the element loads */
-:not(:defined) > * {
-  display: none;
-}
+  .annotation {
+    background-color: white;
+    position: relative;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    font-size: .8rem;
+  }
 
+  /* This keeps child nodes hidden while the element loads */
+  :not(:defined) > * {
+    display: none;
+  }
