@@ -266,7 +266,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // Wheel Color Selector
 document.querySelector('#color-controls2').addEventListener('click', (event) => {
   const colorString = event.target.dataset.color;
-  const materialIndices = [9, 10]; // Add indices of materials you want to update
+  const materialIndices = [10, 11, 12, 13]; // Add indices of materials you want to update
   materialIndices.forEach(index => {
     const material = modelViewerColor.model.materials[index];
     if (material) {
@@ -287,33 +287,63 @@ document.querySelector('#color-controls3').addEventListener('click', (event) => 
 const mvTextures = document.querySelector("model-viewer#configurator");
 const wheel1Button = document.querySelector("#wheel1Button");
 const wheel2Button = document.querySelector("#wheel2Button");
+const wheel3Button = document.querySelector("#wheel3Button"); // Add wheel3Button
+const wheel4Button = document.querySelector("#wheel4Button"); // Add wheel4Button
 
 mvTextures.addEventListener("model-visibility", initializeMaterialManipulation);
 
 function initializeMaterialManipulation() {
   function updateMaterial(material, alpha, isOpaque) {
-    material.setAlphaMode(isOpaque ? "OPAQUE" : "MASK"); // Use MASK alpha mode for alpha clipping
+    material.setAlphaMode(isOpaque ? "OPAQUE" : "MASK");
     const pbr = material.pbrMetallicRoughness;
     const baseColor = pbr.baseColorFactor;
-    baseColor[3] = alpha; // Set alpha directly without adjusting for opaque
+    baseColor[3] = alpha;
     pbr.setBaseColorFactor(baseColor);
-    material.alphaCutoff = 0.5; // Set the alpha cutoff threshold (adjust as needed)
+    material.alphaCutoff = 0.5;
   }
 
   wheel1Button.addEventListener("click", () => {
     const Wheel1 = mvTextures.model.getMaterialByName("Wheel1");
     const Wheel2 = mvTextures.model.getMaterialByName("Wheel2");
-    // Update materials instantly without animations
+    const Wheel3 = mvTextures.model.getMaterialByName("Wheel3");
+    const Wheel4 = mvTextures.model.getMaterialByName("Wheel4");
     updateMaterial(Wheel1, 1, true);
     updateMaterial(Wheel2, 0, false);
+    updateMaterial(Wheel3, 0, false);
+    updateMaterial(Wheel4, 0, false);
   });
 
   wheel2Button.addEventListener("click", () => {
     const Wheel1 = mvTextures.model.getMaterialByName("Wheel1");
     const Wheel2 = mvTextures.model.getMaterialByName("Wheel2");
-    // Update materials instantly without animations
+    const Wheel3 = mvTextures.model.getMaterialByName("Wheel3");
+    const Wheel4 = mvTextures.model.getMaterialByName("Wheel4");
     updateMaterial(Wheel1, 0, false);
     updateMaterial(Wheel2, 1, true);
+    updateMaterial(Wheel3, 0, false);
+    updateMaterial(Wheel4, 0, false);
+  });
+
+  wheel3Button.addEventListener("click", () => {
+    const Wheel1 = mvTextures.model.getMaterialByName("Wheel1");
+    const Wheel2 = mvTextures.model.getMaterialByName("Wheel2");
+    const Wheel3 = mvTextures.model.getMaterialByName("Wheel3");
+    const Wheel4 = mvTextures.model.getMaterialByName("Wheel4");
+    updateMaterial(Wheel1, 0, false);
+    updateMaterial(Wheel2, 0, false);
+    updateMaterial(Wheel3, 1, true);
+    updateMaterial(Wheel4, 0, false);
+  });
+
+  wheel4Button.addEventListener("click", () => {
+    const Wheel1 = mvTextures.model.getMaterialByName("Wheel1");
+    const Wheel2 = mvTextures.model.getMaterialByName("Wheel2");
+    const Wheel3 = mvTextures.model.getMaterialByName("Wheel3");
+    const Wheel4 = mvTextures.model.getMaterialByName("Wheel4");
+    updateMaterial(Wheel1, 0, false);
+    updateMaterial(Wheel2, 0, false);
+    updateMaterial(Wheel3, 0, false);
+    updateMaterial(Wheel4, 1, true);
   });
 }
 
@@ -321,8 +351,9 @@ function initializeMaterialManipulation() {
 document.addEventListener("DOMContentLoaded", function() {
   const wheel1Button = document.getElementById("wheel1Button");
   const wheel2Button = document.getElementById("wheel2Button");
+  const wheel3Button = document.getElementById("wheel3Button");
+  const wheel4Button = document.getElementById("wheel4Button");
 
-  // Function to add "active" class to clicked button and remove from siblings
   function setActiveButton(button) {
     button.classList.add("active");
     const siblings = Array.from(button.parentNode.parentNode.querySelectorAll("button"));
@@ -333,22 +364,29 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
-  // Event listener for wheel1Button
   wheel1Button.addEventListener("click", function(event) {
     setActiveButton(wheel1Button);
     event.stopPropagation(); // Prevent click event from bubbling up
   });
 
-  // Event listener for wheel2Button
   wheel2Button.addEventListener("click", function(event) {
     setActiveButton(wheel2Button);
     event.stopPropagation(); // Prevent click event from bubbling up
   });
 
-  // Event listener to keep active class on the button when clicking outside buttons
+  wheel3Button.addEventListener("click", function(event) {
+    setActiveButton(wheel3Button);
+    event.stopPropagation(); // Prevent click event from bubbling up
+  });
+
+  wheel4Button.addEventListener("click", function(event) {
+    setActiveButton(wheel4Button);
+    event.stopPropagation(); // Prevent click event from bubbling up
+  });
+
   document.body.addEventListener("click", function(event) {
-    if (!event.target.closest("#wheel1Button, #wheel2Button")) {
-      const activeButton = document.querySelector("#wheel1Button.active, #wheel2Button.active");
+    if (!event.target.closest("#wheel1Button, #wheel2Button, #wheel3Button, #wheel4Button")) {
+      const activeButton = document.querySelector("#wheel1Button.active, #wheel2Button.active, #wheel3Button.active, #wheel4Button.active");
       if (activeButton) {
         setActiveButton(activeButton);
       }
@@ -356,6 +394,33 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 //Selection Buttons End
+
+//Random Wheel Selection on Load
+document.addEventListener("DOMContentLoaded", function() {
+  const wheelControls = document.getElementById('wheel-controls');
+  const wheelButtons = wheelControls.querySelectorAll('button');
+
+  // Function to simulate a click event on a button
+  function simulateButtonClick(button) {
+    const event = new MouseEvent('click', {
+      bubbles: true,
+      cancelable: true,
+      view: window
+    });
+    button.dispatchEvent(event);
+  }
+
+  // Function to add "active" class to a random button and simulate click
+  function activateRandomButton() {
+    const randomIndex = Math.floor(Math.random() * wheelButtons.length);
+    const randomButton = wheelButtons[randomIndex];
+    randomButton.classList.add("active");
+    simulateButtonClick(randomButton); // Click the random button after selecting it
+  }
+
+  // Delay activation of a random button by 1500ms
+  setTimeout(activateRandomButton, 1500);
+});
 
 // Options End
 

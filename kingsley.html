@@ -42,7 +42,7 @@
 
 <body class="kingsleybackground noselect" style="height: 100%; overflow: hidden;">
   <!-- Model Viewer Element -->
-  <model-viewer loading="eager" id="configurator" bounds="tight" enable-pan poster="kingsley/img/loader.gif" src="https://archiebattley.com/kingsley/models/KingsleyVersion2.8.glb" skybox-height="9m" camera-controls="basic" touch-action="none" interaction-prompt="none" autoplay="false" interpolation-decay="100" shadow-intensity="2.8" exposure="1" shadow-softness="0.7" tone-mapping="commerce" camera-orbit="-40deg 85deg 20m" min-camera-orbit="auto auto 3m" max-camera-orbit="auto 90deg auto" camera-target="0m 1.5m 0m">
+  <model-viewer loading="eager" id="configurator" bounds="tight" enable-pan poster="kingsley/img/loader.gif" src="https://archiebattley.com/kingsley/models/KingsleyVersion3.glb" skybox-height="9m" camera-controls="basic" touch-action="none" interaction-prompt="none" autoplay="false" interpolation-decay="100" shadow-intensity="2.8" exposure="1" shadow-softness="0.7" tone-mapping="commerce" camera-orbit="-40deg 85deg 20m" min-camera-orbit="auto auto 3m" max-camera-orbit="auto 90deg auto" camera-target="0m 1.5m 0m">
     <!-- Hotspot for Wheel Paint -->
     <div class="text-center" slot="hotspot-0" data-position="-1.657174348831175m 0.704767189287746m -2.063101221949054m" data-normal="-1m 0m 0m" data-orbit="-19.53deg 88.61deg 20.56m" data-target="2.5m 0.60m -10m" data-visibility-attribute="visible">
       <button class="btn btn-icons fas fa-paint-roller" data-toggle="collapse" href="#WheelPaint" role="button" aria-expanded="false" aria-controls="WheelPaint"></button>
@@ -150,7 +150,7 @@
           <!-- Wheels selection -->
           <li class="nav-item annotation shadow-lg m-2 col-4 col-sm-4 col-md-6 col-lg col-xl">
             <p class="font-weight-bold text-dark text-center p-2 m-0" inert>Wheels</p>
-            <div class="p-0 controls">
+            <div class="p-0 controls" id="wheel-controls">
               <div class="row text-center m-0">
                 <!-- Wheel buttons -->
                 <div class="col p-xl-1 p-lg-1 p-md-1 p-sm-1 p-0">
@@ -158,6 +158,12 @@
                 </div>
                 <div class="col p-xl-1 p-lg-1 p-md-1 p-sm-1 p-0">
                   <button id="wheel2Button" class="btn btn-squared lsewheels">LSE</button>
+                </div>
+                <div class="col p-xl-1 p-lg-1 p-md-1 p-sm-1 p-0">
+                  <button id="wheel3Button" class="btn btn-squared trispokewheels">Tri-Spoke</button>
+                </div>
+                <div class="col p-xl-1 p-lg-1 p-md-1 p-sm-1 p-0">
+                  <button id="wheel4Button" class="btn btn-squared twrwheels">TWR<br> 5-Spoke</button>
                 </div>
                 <!-- Add more wheel buttons here -->
               </div>

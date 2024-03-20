@@ -275,6 +275,20 @@ model-viewer {
     background-image: url('../img/options/wheels/2.jpg');
   }
 
+  .trispokewheels {
+    background-size: 120%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../img/options/wheels/3.jpg');
+  }
+
+  .twrwheels {
+    background-size: 120%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('../img/options/wheels/4.jpg');
+  }
+
 /* Button Icons Dark */
   .btn-icons-dark {
     color: white;
