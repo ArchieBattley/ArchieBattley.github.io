@@ -81,42 +81,51 @@ const handleToggleButton = () => {
 // Call the function to handle the button click
 handleToggleButton();
 
-   // Variable to store the current skybox image URL
-   let currentSkyboxImageUrl = null;
+  // Variable to store the current skybox image URL
+let currentSkyboxImageUrl = null;
 
-   // Function to set the skybox image dynamically
-   function setSkyboxImage(imageUrl) {
-     const modelViewer = document.querySelector("#configurator");
-     modelViewer.setAttribute('skybox-image', imageUrl);
-     // Cleanup previous skybox image from memory
-     cleanupPreviousSkybox();
-     // Store the current skybox image URL
-     currentSkyboxImageUrl = imageUrl;
-   }
- 
-   // Function to cleanup the previous skybox image from memory
-   function cleanupPreviousSkybox() {
-     if (currentSkyboxImageUrl) {
-       URL.revokeObjectURL(currentSkyboxImageUrl);
-       currentSkyboxImageUrl = null;
-     }
-   }
- 
-   // Function to choose a random skybox image URL
-   function getRandomSkyboxImage() {
-     const skyboxImages = [
-       "https://archiebattley.com/kingsley/img/hdri/eveningfield.jpg",
-       "https://archiebattley.com/kingsley/img/hdri/mountainlake.jpg",
-       "https://archiebattley.com/kingsley/img/hdri/university.jpg",
-       "https://archiebattley.com/kingsley/img/hdri/dirtroad.jpg",
-       "https://archiebattley.com/kingsley/img/hdri/eveningroad.jpg",
-       // Add more skybox image URLs here...
-     ];
-     return skyboxImages[Math.floor(Math.random() * skyboxImages.length)];
-   }
- 
-   // Set a random skybox image on page load
-   setSkyboxImage(getRandomSkyboxImage());
+// Function to set the skybox image dynamically with query parameters
+function setSkyboxImage(imageUrl) {
+  // Generate a unique timestamp using Date.now()
+  const timestamp = Date.now();
+
+  // Append the timestamp as a query parameter to the image URL
+  const urlWithTimestamp = `${imageUrl}?timestamp=${timestamp}`;
+
+  // Cleanup previous skybox image from memory
+  cleanupPreviousSkybox();
+
+  // Store the current skybox image URL
+  currentSkyboxImageUrl = urlWithTimestamp;
+
+  // Set the skybox image with the updated URL
+  const modelViewer = document.querySelector("#configurator"); // Assuming this is your model-viewer element
+  modelViewer.setAttribute('skybox-image', urlWithTimestamp);
+}
+
+// Function to cleanup the previous skybox image from memory
+function cleanupPreviousSkybox() {
+  if (currentSkyboxImageUrl) {
+    URL.revokeObjectURL(currentSkyboxImageUrl);
+    currentSkyboxImageUrl = null;
+  }
+}
+
+// Function to choose a random skybox image URL
+function getRandomSkyboxImage() {
+  const skyboxImages = [
+    "https://archiebattley.com/kingsley/img/hdri/eveningfield.jpg",
+    "https://archiebattley.com/kingsley/img/hdri/mountainlake.jpg",
+    "https://archiebattley.com/kingsley/img/hdri/university.jpg",
+    "https://archiebattley.com/kingsley/img/hdri/dirtroad.jpg",
+    "https://archiebattley.com/kingsley/img/hdri/eveningroad.jpg",
+    // Add more skybox image URLs here...
+  ];
+  return skyboxImages[Math.floor(Math.random() * skyboxImages.length)];
+}
+
+// Set a random skybox image on page load
+setSkyboxImage(getRandomSkyboxImage());
 
 // Skybox Functionality End
 
