@@ -377,8 +377,8 @@ document.addEventListener("DOMContentLoaded", function() {
     simulateButtonClick(randomButton); // Click the random button after selecting it
   }
 
-  // Delay activation of a random button by 2500ms
-  setTimeout(activateRandomButton, 2500);
+  // Delay activation of a random button by 1800ms
+  setTimeout(activateRandomButton, 1800);
 });
 
 // Options End
