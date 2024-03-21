@@ -232,9 +232,11 @@ function applyBaseColorFactor(color) {
 
 // Body Color Selector
 document.querySelector('#color-controls').addEventListener('click', (event) => {
-  const colorString = event.target.dataset.color;
-  const material = modelViewerColor.model.materials[0]; // added the index of the material that I see in the editor page
-  material.pbrMetallicRoughness.setBaseColorFactor(colorString);
+  if (event.target.classList.contains('btn')) { // Check if the clicked element is a button
+    const colorString = event.target.dataset.color;
+    const material = modelViewerColor.model.materials[0]; // added the index of the material that I see in the editor page
+    material.pbrMetallicRoughness.setBaseColorFactor(colorString);
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -265,21 +267,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Wheel Color Selector
 document.querySelector('#color-controls2').addEventListener('click', (event) => {
-  const colorString = event.target.dataset.color;
-  const materialIndices = [10, 11, 12, 13]; // Add indices of materials you want to update
-  materialIndices.forEach(index => {
-    const material = modelViewerColor.model.materials[index];
-    if (material) {
-      material.pbrMetallicRoughness.setBaseColorFactor(colorString);
-    }
-  });
+  if (event.target.classList.contains('btn')) { // Check if the clicked element is a button
+    const colorString = event.target.dataset.color;
+    const materialIndices = [10, 11, 12, 13]; // Add indices of materials you want to update
+    materialIndices.forEach(index => {
+      const material = modelViewerColor.model.materials[index];
+      if (material) {
+        material.pbrMetallicRoughness.setBaseColorFactor(colorString);
+      }
+    });
+  }
 });
     
 // Bumper Color Selector
 document.querySelector('#color-controls3').addEventListener('click', (event) => {
-  const colorString = event.target.dataset.color;
-  const material = modelViewerColor.model.materials[5]; // added the index of the material that I see in the editor page
-  material.pbrMetallicRoughness.setBaseColorFactor(colorString);
+  if (event.target.classList.contains('btn')) { // Check if the clicked element is a button
+    const colorString = event.target.dataset.color;
+    const material = modelViewerColor.model.materials[5]; // added the index of the material that I see in the editor page
+    material.pbrMetallicRoughness.setBaseColorFactor(colorString);
+  }
 });
 
 // Options
