@@ -70,8 +70,13 @@ body {
 }
 
 .text-small {
-  font-size: 0.8rem;
+  font-size: 0.8rem !important;
 }
+
+.text-xsmall {
+  font-size: 0.6rem !important;
+}
+
 
 .text-shadowed {
   text-shadow: 1px 1px 5px black;
