@@ -56,82 +56,35 @@ const modelViewer = document.querySelector('model-viewer');
 
 // Skybox Functionality
 
-// Variable to store the current skybox image URL
-let currentSkyboxImageUrl = null;
-
-// Function to clean up the previous skybox image
-function cleanupPreviousSkybox() {
-  if (currentSkyboxImageUrl) {
-    URL.revokeObjectURL(currentSkyboxImageUrl);
-    currentSkyboxImageUrl = null;
-  }
-}
-
-// Get the button element
-const changeSkyboxButton = document.getElementById('changeSkyboxButton');
-
-// Index to track the current skybox image
-let currentSkyboxIndex = 0;
-
-// Flag to indicate whether a change is in progress
-let changeInProgress = false;
-
-// Function to handle skybox image change
-function changeSkyboxImage() {
-  // Prevent changes if a change is already in progress
-  if (changeInProgress) {
-    return;
+  // Function to set the skybox image dynamically
+  function setSkyboxImage(imageUrl) {
+    const modelViewer = document.querySelector("#configurator");
+    modelViewer.setAttribute('skybox-image', imageUrl);
   }
 
-  // Set the flag to indicate a change is in progress
-  changeInProgress = true;
-
-  // Remove the previous skybox image from memory
-  if (modelViewer.skyboxImage) {
-    URL.revokeObjectURL(modelViewer.skyboxImage);
+  // Function to choose a random skybox image URL
+  function getRandomSkyboxImage() {
+    const skyboxImages = [
+      "https://archiebattley.com/kingsley/img/hdri/eveningfield.jpg",
+      "https://archiebattley.com/kingsley/img/hdri/mountainlake.jpg",
+      "https://archiebattley.com/kingsley/img/hdri/university.jpg",
+      "https://archiebattley.com/kingsley/img/hdri/dirtroad.jpg",
+      "https://archiebattley.com/kingsley/img/hdri/eveningroad.jpg",
+      // Add more skybox image URLs here...
+    ];
+    return skyboxImages[Math.floor(Math.random() * skyboxImages.length)];
   }
 
-  // Cycle to the next skybox image
-  currentSkyboxIndex = (currentSkyboxIndex + 1) % skyboxImages.length;
+  // Set a random skybox image on page load
+  setSkyboxImage(getRandomSkyboxImage());
 
-  // Load the next skybox image into memory
-  const skyboxImageURL = skyboxImages[currentSkyboxIndex];
-  fetch(skyboxImageURL)
-    .then(response => response.blob())
-    .then(blob => {
-      // Create an object URL for the skybox image
-      const objectURL = URL.createObjectURL(blob);
-      // Set the next skybox image
-      modelViewer.skyboxImage = objectURL;
-      
-      // Reset the flag after a delay to allow next change
-      setTimeout(() => {
-        changeInProgress = false;
-      }, 1000); // Adjust the delay (in milliseconds) as needed
-    });
-}
+  // Get the button element
+  const changeSkyboxButton = document.getElementById('changeSkyboxButton');
 
-// Add click event listener to the button
-changeSkyboxButton.addEventListener('click', changeSkyboxImage);
-
-
-// Array of skybox image URLs
-const skyboxImages = [
-  "https://archiebattley.com/kingsley/img/hdri/eveningfield.jpg",
-  "https://archiebattley.com/kingsley/img/hdri/mountainlake.jpg",
-  "https://archiebattley.com/kingsley/img/hdri/university.jpg",
-  "https://archiebattley.com/kingsley/img/hdri/dirtroad.jpg",
-  "https://archiebattley.com/kingsley/img/hdri/eveningroad.jpg",
-  // Add more skybox image URLs here...
-];
-
-// Function to choose a random skybox image URL
-function getRandomSkyboxImage() {
-  return skyboxImages[Math.floor(Math.random() * skyboxImages.length)];
-}
-
-// Set a random skybox image on page load
-modelViewer.skyboxImage = getRandomSkyboxImage();
+  // Add click event listener to the button
+  changeSkyboxButton.addEventListener('click', function() {
+    setSkyboxImage(getRandomSkyboxImage());
+  });
 
 // Skybox Functionality End
 
