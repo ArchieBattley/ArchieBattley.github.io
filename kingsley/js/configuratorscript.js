@@ -56,35 +56,50 @@ const modelViewer = document.querySelector('model-viewer');
 
 // Skybox Functionality
 
-  // Function to set the skybox image dynamically
-  function setSkyboxImage(imageUrl) {
-    const modelViewer = document.querySelector("#configurator");
-    modelViewer.setAttribute('skybox-image', imageUrl);
-  }
+   // Variable to store the current skybox image URL
+   let currentSkyboxImageUrl = null;
 
-  // Function to choose a random skybox image URL
-  function getRandomSkyboxImage() {
-    const skyboxImages = [
-      "https://archiebattley.com/kingsley/img/hdri/eveningfield.jpg",
-      "https://archiebattley.com/kingsley/img/hdri/mountainlake.jpg",
-      "https://archiebattley.com/kingsley/img/hdri/university.jpg",
-      "https://archiebattley.com/kingsley/img/hdri/dirtroad.jpg",
-      "https://archiebattley.com/kingsley/img/hdri/eveningroad.jpg",
-      // Add more skybox image URLs here...
-    ];
-    return skyboxImages[Math.floor(Math.random() * skyboxImages.length)];
-  }
-
-  // Set a random skybox image on page load
-  setSkyboxImage(getRandomSkyboxImage());
-
-  // Get the button element
-  const changeSkyboxButton = document.getElementById('changeSkyboxButton');
-
-  // Add click event listener to the button
-  changeSkyboxButton.addEventListener('click', function() {
-    setSkyboxImage(getRandomSkyboxImage());
-  });
+   // Function to set the skybox image dynamically
+   function setSkyboxImage(imageUrl) {
+     const modelViewer = document.querySelector("#configurator");
+     modelViewer.setAttribute('skybox-image', imageUrl);
+     // Cleanup previous skybox image from memory
+     cleanupPreviousSkybox();
+     // Store the current skybox image URL
+     currentSkyboxImageUrl = imageUrl;
+   }
+ 
+   // Function to cleanup the previous skybox image from memory
+   function cleanupPreviousSkybox() {
+     if (currentSkyboxImageUrl) {
+       URL.revokeObjectURL(currentSkyboxImageUrl);
+       currentSkyboxImageUrl = null;
+     }
+   }
+ 
+   // Function to choose a random skybox image URL
+   function getRandomSkyboxImage() {
+     const skyboxImages = [
+       "https://archiebattley.com/kingsley/img/hdri/eveningfield.jpg",
+       "https://archiebattley.com/kingsley/img/hdri/mountainlake.jpg",
+       "https://archiebattley.com/kingsley/img/hdri/university.jpg",
+       "https://archiebattley.com/kingsley/img/hdri/dirtroad.jpg",
+       "https://archiebattley.com/kingsley/img/hdri/eveningroad.jpg",
+       // Add more skybox image URLs here...
+     ];
+     return skyboxImages[Math.floor(Math.random() * skyboxImages.length)];
+   }
+ 
+   // Set a random skybox image on page load
+   setSkyboxImage(getRandomSkyboxImage());
+ 
+   // Get the button element
+   const changeSkyboxButton = document.getElementById('changeSkyboxButton');
+ 
+   // Add click event listener to the button
+   changeSkyboxButton.addEventListener('click', function() {
+     setSkyboxImage(getRandomSkyboxImage());
+   });
 
 // Skybox Functionality End
 
