@@ -56,6 +56,31 @@ const modelViewer = document.querySelector('model-viewer');
 
 // Skybox Functionality
 
+// Function to handle button click to toggle active state and change icon
+const handleToggleButton = () => {
+  const button = document.getElementById('skyboxToggleButton');
+  
+  // Add event listener to the button
+  button.addEventListener('click', () => {
+    // Toggle the 'active' class on the button
+    button.classList.toggle('active');
+    
+    // Check if the button is active
+    if (button.classList.contains('active')) {
+      // If active, change the button icon to the 'x' icon
+      button.classList.remove('fa-mountain-sun');
+      button.classList.add('fa-times');
+    } else {
+      // If inactive, change the button icon back to the original icon
+      button.classList.remove('fa-times');
+      button.classList.add('fa-mountain-sun');
+    }
+  });
+}
+
+// Call the function to handle the button click
+handleToggleButton();
+
    // Variable to store the current skybox image URL
    let currentSkyboxImageUrl = null;
 
@@ -92,14 +117,6 @@ const modelViewer = document.querySelector('model-viewer');
  
    // Set a random skybox image on page load
    setSkyboxImage(getRandomSkyboxImage());
- 
-   // Get the button element
-   const changeSkyboxButton = document.getElementById('changeSkyboxButton');
- 
-   // Add click event listener to the button
-   changeSkyboxButton.addEventListener('click', function() {
-     setSkyboxImage(getRandomSkyboxImage());
-   });
 
 // Skybox Functionality End
 

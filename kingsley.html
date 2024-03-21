@@ -47,7 +47,7 @@
     <div class="text-center" slot="hotspot-0" data-position="-1.657174348831175m 0.704767189287746m -2.063101221949054m" data-normal="-1m 0m 0m" data-orbit="-19.53deg 88.61deg 20.56m" data-target="2.5m 0.60m -10m" data-visibility-attribute="visible">
       <button class="btn btn-icons fas fa-paint-roller" data-toggle="collapse" href="#WheelPaint" role="button" aria-expanded="false" aria-controls="WheelPaint"></button>
       <div class="collapse" id="WheelPaint">
-        <div class="annotation controls2" id="color-controls2">
+        <div class="annotation shadow-lg controls2" id="color-controls2">
           <p class="font-weight-bold text-dark text-center p-2 m-0" inert>Wheel<br> Colour</p>
           <button data-color="#919191" class="btn btn-squared gunmetalgrey"></button>
           <button data-color="#ffffff" class="btn btn-squared deepsilver"></button>
@@ -59,7 +59,7 @@
     <div class="text-center" slot="hotspot-1" data-position="1.4981056834778304m 1.1982358079826851m 4.24517041669373m" data-normal="0.14302189100836446m -0.5458146858435995m 0.8256095126691823m" data-orbit="49.4deg 87.76deg 10.29m" data-target="-0.25m 1.25m 3.5m" data-visibility-attribute="visible">
       <button class="btn btn-icons fas fa-spray-can" data-toggle="collapse" href="#BumperPaint" role="button" aria-expanded="false" aria-controls="BumperPaint"></button>
       <div class="collapse" id="BumperPaint">
-        <div class="annotation controls3" id="color-controls3">
+        <div class="annotation shadow-lg controls3" id="color-controls3">
           <p class="font-weight-bold text-dark text-center p-2 m-0" inert>Bumper<br> Colour</p>
           <button data-color="#ffffff" class="btn btn-squared deepsilver"></button>
           <button data-color="#000000" class="btn btn-squared darkestblack"></button>
@@ -76,25 +76,47 @@
   </model-viewer>
 
   <!-- Top navigation bar -->
-  <div class="kingsleytopnav">
-    <nav class="navbar navbar-default navbar-fixed-top navnowrap pl-1 pr-1">
-      <div class="navbar-header pl-2">
-        <img class="img-responsive" src="kingsley/img/svg/kingsleylogo.svg" width="150rem" height="auto">
-      </div>
-      <div class="navbar-nav pr-4">
-        <div class="row navnowrap">
-          <!-- Button to take screenshot -->
-          <div class="col p-2">
-            <button class="btn btn-icons-dark fas fa-camera" aria-hidden="false" id="takeScreenshotButton" data-toggle="tooltip" data-placement="bottom" title="Take a Screenshot"></button>
-          </div>
-          <!-- Button to change skybox -->
-          <div class="col p-2">
-            <button class="btn btn-icons-dark fas fa-mountain-sun" aria-hidden="false" id="changeSkyboxButton" data-toggle="tooltip" data-placement="bottom" title="Change the Background"></button>
+<div class="kingsleytopnav">
+  <nav class="navbar navbar-default navbar-fixed-top navnowrap pl-1 pr-1">
+    <div class="navbar-header pl-2">
+      <img class="img-responsive" src="kingsley/img/svg/kingsleylogo.svg" width="150rem" height="auto">
+    </div>
+    <div class="navbar-nav pr-4">
+      <div class="row navnowrap">
+        <!-- Skybox Button -->
+        <div class="col p-2">
+          <button id="skyboxToggleButton" class="btn btn-icons-dark fas fa-mountain-sun" data-toggle="collapse" href="#SkyboxSelection" role="button" aria-expanded="false" aria-controls="SkyboxSelection"></button>
+          <div class="collapse skyboxselection" id="SkyboxSelection">
+            <div class="annotation shadow-lg skybox-controls text-center ml-0 mr-0 mb-0" id="skybox-controls">
+              <p class="font-weight-bold text-dark text-center p-2 m-0" inert>Background</p>
+              <div class="pt-2 pb-2 pl-0 pr-0">
+                <button class="btn btn-squared eveningfield" onclick="setSkyboxImage('https://archiebattley.com/kingsley/img/hdri/eveningfield.jpg')">Evening Field</button>
+              </div>
+              <div class="pt-2 pb-2 pl-0 pr-0">
+                <button class="btn btn-squared mountainlake" onclick="setSkyboxImage('https://archiebattley.com/kingsley/img/hdri/mountainlake.jpg')">Mountain Lake</button>
+              </div>
+              <div class="pt-2 pb-2 pl-0 pr-0">
+                <button class="btn btn-squared university" onclick="setSkyboxImage('https://archiebattley.com/kingsley/img/hdri/university.jpg')">University</button>
+              </div>
+              <div class="pt-2 pb-2 pl-0 pr-0">
+                <button class="btn btn-squared dirtroad" onclick="setSkyboxImage('https://archiebattley.com/kingsley/img/hdri/dirtroad.jpg')">Dirt Road</button>
+              </div>
+              <div class="pt-2 pb-2 pl-0 pr-0">
+                <button class="btn btn-squared eveningroad" onclick="setSkyboxImage('https://archiebattley.com/kingsley/img/hdri/eveningroad.jpg')">Evening Road</button>
+              </div> 
+              <!-- Add more buttons for other skybox options -->
+            </div>
           </div>
         </div>
+        <!-- Skybox Button End-->
+        <!-- Button to take screenshot -->
+        <div class="col p-2">
+          <button class="btn btn-icons-dark fas fa-camera" aria-hidden="false" id="takeScreenshotButton" data-toggle="tooltip" data-placement="bottom" title="Take a Screenshot"></button>
+        </div>
       </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
+</div>
 
   <!-- Bottom navigation bar -->
   <nav class="navbar navbar-expand-lg fixed-bottom">

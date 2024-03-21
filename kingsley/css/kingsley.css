@@ -136,6 +136,12 @@ model-viewer {
   font-size: 1.6rem !important;
 }
 
+/* Button Focus Edits */
+.btn.focus, .btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(82, 82, 82, 0.25) !important;
+}
+
 /* Squared Buttons */
 .btn-squared {
   color: transparent;
@@ -169,6 +175,11 @@ model-viewer {
   box-shadow: 0 0 0 0.2rem rgba(82, 82, 82, 0.25);
 }
 
+.btn-squared:focus,
+.btn-squared.focus {
+  box-shadow: 0 0 0 0.2rem rgba(82, 82, 82, 0.25) !important;
+}
+
 /* Round Buttons */
 .btn-circle {
   color: transparent;
@@ -178,6 +189,44 @@ model-viewer {
   border-width: 0.2vh;
   border-radius: 100%;
   border-color: white;
+}
+
+/* Skybox Buttons */
+.eveningfield {
+  background-size: 200%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('../img/hdri/thumbs/eveningfield.jpg');
+}
+.mountainlake {
+  background-size: 200%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('../img/hdri/thumbs/mountainlake.jpg');
+}
+.university {
+  background-size: 200%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('../img/hdri/thumbs/university.jpg');
+}
+.dirtroad {
+  background-size: 200%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('../img/hdri/thumbs/dirtroad.jpg');
+}
+.eveningroad {
+  background-size: 200%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('../img/hdri/thumbs/eveningroad.jpg');
+}
+
+.skyboxselection {
+  position: fixed; 
+  z-index: 6; 
+  right: 1.2rem;
 }
 
 /* Button Colors */
@@ -262,28 +311,28 @@ model-viewer {
 
 /* Car Option Buttons */
   .rostylewheels {
-    background-size: 150%;
+    background-size: 110%;
     background-position: center;
     background-repeat: no-repeat;
     background-image: url('../img/options/wheels/1.jpg');
   }
 
   .lsewheels {
-    background-size: 120%;
+    background-size: 110%;
     background-position: center;
     background-repeat: no-repeat;
     background-image: url('../img/options/wheels/2.jpg');
   }
 
   .trispokewheels {
-    background-size: 120%;
+    background-size: 110%;
     background-position: center;
     background-repeat: no-repeat;
     background-image: url('../img/options/wheels/3.jpg');
   }
 
   .twrwheels {
-    background-size: 120%;
+    background-size: 110%;
     background-position: center;
     background-repeat: no-repeat;
     background-image: url('../img/options/wheels/4.jpg');
