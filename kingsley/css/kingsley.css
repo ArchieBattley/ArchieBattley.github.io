@@ -389,6 +389,37 @@ model-viewer {
     transition: transform 0.5s ease;
   }
 
+  .btn-additionalcolors{
+    color:black;
+    font-size: 1rem;
+    text-align: center;
+    border-width: 0.2vh;
+    border-radius: 100%;
+    border-color: transparent;
+    background-color: transparent;
+  }
+
+  .btn-additionalcolors:active, .btn-additionalcolors.active{
+    color:rgba(82, 82, 82, 0.25);
+    font-size: 1rem;
+    text-align: center;
+    border-width: 0.2vh;
+    border-radius: 100%;
+    border-color: transparent;
+    background-color: transparent;
+    box-shadow: 0 0 0 0.2rem rgba(82, 82, 82, 0.25);
+  }
+  
+  button input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+
 /* Hotspots */
   .hotspot {
     display: block;

@@ -185,7 +185,7 @@ document.querySelectorAll('.btn-icons').forEach(handleButtonClick);
 // Ensure that they don't interfere with the camera animations section.
 
 
-// Enables Configurator Functionality
+// Enables Configurator
 const modelViewerColor = document.querySelector("model-viewer#configurator");
 
 /// BODY COLOR SELECTION ///
@@ -217,21 +217,13 @@ document.addEventListener("DOMContentLoaded", function() {
   setTimeout(activateRandomButton, 1000);
 });
 
-// BODY COLORS
+// BODY COLORS //
+
 // Function to apply base color factor to the model
 function applyBaseColorFactor(color) {
   const material = modelViewerColor.model.materials[0]; // or whichever material you want to apply the color to
   material.pbrMetallicRoughness.setBaseColorFactor(color);
 }
-
-// Body Color Selector
-document.querySelector('#color-controls').addEventListener('click', (event) => {
-  if (event.target.classList.contains('btn')) { // Check if the clicked element is a button
-    const colorString = event.target.dataset.color;
-    const material = modelViewerColor.model.materials[0]; // added the index of the material that I see in the editor page
-    material.pbrMetallicRoughness.setBaseColorFactor(colorString);
-  }
-});
 
 document.addEventListener("DOMContentLoaded", function() {
   const colorControls = document.getElementById('color-controls');
@@ -247,17 +239,42 @@ document.addEventListener("DOMContentLoaded", function() {
     button.classList.add("active");
   }
 
+  // Event listener for the color picker button
+  const colorPickerButton = document.getElementById('colorpickerbutton');
+  colorPickerButton.addEventListener('click', function(event) {
+    setActiveButton(colorPickerButton);
+  });
+
   // Event listeners for all buttons inside #color-controls
   colorControls.querySelectorAll('.btn').forEach(button => {
     button.addEventListener("click", function(event) {
       setActiveButton(button);
       const color = button.getAttribute("data-color");
       applyBaseColorFactor(color); // Call the function to apply base color factor here if needed
+      colorPickerButton.classList.remove("active"); // Deactivate color picker button
       event.stopPropagation(); // Prevent click event from bubbling up
     });
   });
 });
 
+document.querySelector('#colorPicker').addEventListener('input', (event) => {
+  const colorString = event.target.value;
+  const material = modelViewerColor.model.materials[0];
+  material.pbrMetallicRoughness.setBaseColorFactor(hexToRGB(colorString));
+});
+
+function hexToRGB(hex) {
+  // Remove # if present
+  hex = hex.replace(/^#/, '');
+  
+  // Convert to RGB
+  const bigint = parseInt(hex, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  
+  return [r / 255, g / 255, b / 255];
+}
 
 // Wheel Color Selector
 document.querySelector('#color-controls2').addEventListener('click', (event) => {
@@ -272,6 +289,12 @@ document.querySelector('#color-controls2').addEventListener('click', (event) => 
     });
   }
 });
+
+// Wheel Additional Color Matched Selector 
+
+
+
+// Wheel Additional Color Matched Selector End
     
 // Bumper Color Selector
 document.querySelector('#color-controls3').addEventListener('click', (event) => {
