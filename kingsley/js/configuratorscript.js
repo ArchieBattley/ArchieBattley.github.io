@@ -95,51 +95,75 @@ const handleToggleButton = () => {
 // Call the function to handle the button click
 handleToggleButton();
 
-  // Variable to store the current skybox image URL
+// Variable to store the current skybox and environment image URLs
 let currentSkyboxImageUrl = null;
+let currentEnvironmentImageUrl = null;
 
-// Function to set the skybox image dynamically with query parameters
-function setSkyboxImage(imageUrl) {
-  // Generate a unique timestamp using Date.now()
-  const timestamp = Date.now();
+// Function to set the skybox and environment image dynamically with query parameters
+function setSkyboxAndEnvironmentImages(skyboxImageUrl, environmentImageUrl) {
+    // Generate a unique timestamp using Date.now()
+    const timestamp = Date.now();
 
-  // Append the timestamp as a query parameter to the image URL
-  const urlWithTimestamp = `${imageUrl}?timestamp=${timestamp}`;
+    // Append the timestamp as a query parameter to the URLs
+    const skyboxUrlWithTimestamp = `${skyboxImageUrl}?timestamp=${timestamp}`;
+    const environmentUrlWithTimestamp = `${environmentImageUrl}?timestamp=${timestamp}`;
 
-  // Cleanup previous skybox image from memory
-  cleanupPreviousSkybox();
+    // Cleanup previous skybox and environment images from memory
+    cleanupPreviousSkybox();
 
-  // Store the current skybox image URL
-  currentSkyboxImageUrl = urlWithTimestamp;
+    // Store the current skybox and environment image URLs
+    currentSkyboxImageUrl = skyboxUrlWithTimestamp;
+    currentEnvironmentImageUrl = environmentUrlWithTimestamp;
 
-  // Set the skybox image with the updated URL
-  const modelViewer = document.querySelector("#configurator"); // Assuming this is your model-viewer element
-  modelViewer.setAttribute('skybox-image', urlWithTimestamp);
+    // Set the skybox and environment images with the updated URLs
+    const modelViewer = document.querySelector("#configurator"); // Assuming this is your model-viewer element
+    modelViewer.setAttribute('skybox-image', skyboxUrlWithTimestamp);
+    modelViewer.setAttribute('environment-image', environmentUrlWithTimestamp);
 }
 
-// Function to cleanup the previous skybox image from memory
+// Function to cleanup the previous skybox and environment images from memory
 function cleanupPreviousSkybox() {
-  if (currentSkyboxImageUrl) {
-    URL.revokeObjectURL(currentSkyboxImageUrl);
-    currentSkyboxImageUrl = null;
-  }
+    if (currentSkyboxImageUrl) {
+        URL.revokeObjectURL(currentSkyboxImageUrl);
+        currentSkyboxImageUrl = null;
+    }
+    if (currentEnvironmentImageUrl) {
+        URL.revokeObjectURL(currentEnvironmentImageUrl);
+        currentEnvironmentImageUrl = null;
+    }
 }
 
-// Function to choose a random skybox image URL
-function getRandomSkyboxImage() {
-  const skyboxImages = [
-    "https://archiebattley.com/kingsley/img/hdri/eveningfield.jpg",
-    "https://archiebattley.com/kingsley/img/hdri/mountainlake.jpg",
-    "https://archiebattley.com/kingsley/img/hdri/university.jpg",
-    "https://archiebattley.com/kingsley/img/hdri/dirtroad.jpg",
-    "https://archiebattley.com/kingsley/img/hdri/eveningroad.jpg",
-    // Add more skybox image URLs here...
+// Function to choose a random skybox image URL along with its corresponding environment image URL
+function getRandomSkyboxAndEnvironmentImage() {
+  const skyboxEnvironmentPairs = [
+      {
+          skybox: "https://archiebattley.com/kingsley/img/hdri/eveningfield.jpg",
+          environment: "https://archiebattley.com/kingsley/img/hdri/hdr/eveningfield.jpg"
+      },
+      {
+          skybox: "https://archiebattley.com/kingsley/img/hdri/mountainlake.jpg",
+          environment: "https://archiebattley.com/kingsley/img/hdri/hdr/mountainlake.jpg"
+      },
+      {
+          skybox: "https://archiebattley.com/kingsley/img/hdri/university.jpg",
+          environment: "https://archiebattley.com/kingsley/img/hdri/hdr/university.jpg"
+      },
+      {
+          skybox: "https://archiebattley.com/kingsley/img/hdri/dirtroad.jpg",
+          environment: "https://archiebattley.com/kingsley/img/hdri/hdr/dirtroad.jpg"
+      },
+      {
+          skybox: "https://archiebattley.com/kingsley/img/hdri/eveningroad.jpg",
+          environment: "https://archiebattley.com/kingsley/img/hdri/hdr/eveningroad.jpg"
+      },
+      // Add more skybox and environment image URLs here...
   ];
-  return skyboxImages[Math.floor(Math.random() * skyboxImages.length)];
+  return skyboxEnvironmentPairs[Math.floor(Math.random() * skyboxEnvironmentPairs.length)];
 }
 
-// Set a random skybox image on page load
-setSkyboxImage(getRandomSkyboxImage());
+// Set a random skybox image and its corresponding environment image on page load
+const randomImages = getRandomSkyboxAndEnvironmentImage();
+setSkyboxAndEnvironmentImages(randomImages.skybox, randomImages.environment);
 
 // Skybox Functionality End
 

@@ -41,7 +41,7 @@
 
 <body class="kingsleybackground noselect" style="height: 100%; overflow: hidden;">
   <!-- Model Viewer Element -->
-  <model-viewer loading="eager" id="configurator" bounds="tight" enable-pan poster="kingsley/img/loader.gif" src="https://archiebattley.com/kingsley/models/KingsleyVersion3.glb" skybox-image="" skybox-height="9m" camera-controls="basic" touch-action="none" interaction-prompt="none" autoplay="false" interpolation-decay="100" shadow-intensity="2.8" exposure="1" shadow-softness="0.7" tone-mapping="commerce" camera-orbit="-36deg 88deg 20m" min-camera-orbit="auto auto 3m" max-camera-orbit="auto 90deg auto" camera-target="0m 1.5m 0m">
+  <model-viewer loading="eager" id="configurator" bounds="tight" enable-pan poster="kingsley/img/loader.gif" src="https://archiebattley.com/kingsley/models/KingsleyVersion3.glb" environment-image="" skybox-image="" skybox-height="9m" camera-controls="basic" touch-action="none" interaction-prompt="none" autoplay="false" interpolation-decay="100" shadow-intensity="2.8" exposure="1" shadow-softness="0.7" tone-mapping="commerce" camera-orbit="-36deg 88deg 20m" min-camera-orbit="auto auto 3m" max-camera-orbit="auto 90deg auto" camera-target="0m 1.5m 0m">
     <!-- Hotspot for Wheel Paint -->
     <div class="text-center" slot="hotspot-0" data-position="-1.657174348831175m 0.704767189287746m -2.063101221949054m" data-normal="-1m 0m 0m" data-orbit="-19.53deg 88.61deg 20.56m" data-target="2.5m 0.60m -10m" data-visibility-attribute="visible">
       <button class="btn btn-icons fas fa-paint-roller" data-toggle="collapse" href="#WheelPaint" role="button" aria-expanded="false" aria-controls="WheelPaint"></button>
@@ -91,20 +91,20 @@
             <div class="annotation shadow-lg skybox-controls text-center ml-0 mr-0 mb-0" id="skybox-controls">
               <p class="font-weight-bold text-dark text-center m-0 text-xsmall" inert>backdrop</p>
               <div class="pt-2 pb-1 pl-0 pr-0">
-                <button class="btn btn-squared eveningfield" onclick="setSkyboxImage('https://archiebattley.com/kingsley/img/hdri/eveningfield.jpg')">Evening<br>Field</button>
+                <button class="btn btn-squared eveningfield" onclick="setSkyboxAndEnvironmentImages('https://archiebattley.com/kingsley/img/hdri/eveningfield.jpg', 'https://archiebattley.com/kingsley/img/hdri/hdr/eveningfield.jpg')">Evening<br>Field</button>
               </div>
               <div class="pt-1 pb-1 pl-0 pr-0">
-                <button class="btn btn-squared mountainlake" onclick="setSkyboxImage('https://archiebattley.com/kingsley/img/hdri/mountainlake.jpg')">Mountain<br>Lake</button>
+                <button class="btn btn-squared mountainlake" onclick="setSkyboxAndEnvironmentImages('https://archiebattley.com/kingsley/img/hdri/mountainlake.jpg', 'https://archiebattley.com/kingsley/img/hdri/hdr/mountainlake.jpg')">Mountain<br>Lake</button>
               </div>
               <div class="pt-1 pb-1 pl-0 pr-0">
-                <button class="btn btn-squared university" onclick="setSkyboxImage('https://archiebattley.com/kingsley/img/hdri/university.jpg')">Uni-<br>versity</button>
+                <button class="btn btn-squared university" onclick="setSkyboxAndEnvironmentImages('https://archiebattley.com/kingsley/img/hdri/university.jpg', 'https://archiebattley.com/kingsley/img/hdri/hdr/university.jpg')">Uni-<br>versity</button>
               </div>
               <div class="pt-1 pb-1 pl-0 pr-0">
-                <button class="btn btn-squared dirtroad" onclick="setSkyboxImage('https://archiebattley.com/kingsley/img/hdri/dirtroad.jpg')">Dirt<br>Road</button>
+                <button class="btn btn-squared dirtroad" onclick="setSkyboxAndEnvironmentImages('https://archiebattley.com/kingsley/img/hdri/dirtroad.jpg', 'https://archiebattley.com/kingsley/img/hdri/hdr/dirtroad.jpg')">Dirt<br>Road</button>
               </div>
               <div class="pt-1 pb-0 pl-0 pr-0">
-                <button class="btn btn-squared eveningroad" onclick="setSkyboxImage('https://archiebattley.com/kingsley/img/hdri/eveningroad.jpg')">Evening<br>Road</button>
-              </div> 
+                <button class="btn btn-squared eveningroad" onclick="setSkyboxAndEnvironmentImages('https://archiebattley.com/kingsley/img/hdri/eveningroad.jpg', 'https://archiebattley.com/kingsley/img/hdri/hdr/eveningroad.jpg')">Evening Road</button>
+            </div>
               <!-- Add more buttons for other skybox options -->
             </div>
           </div>
