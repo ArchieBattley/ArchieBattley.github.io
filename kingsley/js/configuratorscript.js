@@ -51,6 +51,20 @@ document.addEventListener('gestureend', function(e) {
 
 // CONFIGURATOR 
 
+/// PERFORMANCE HACKS FOR MOBILE ///
+window.addEventListener('resize', function() {
+  var ssaoElement = document.getElementById('ssao');
+  var smaaElement = document.getElementById('smaa');
+  if (window.innerWidth <= 768) {
+      ssaoElement.setAttribute('blend-mode', 'skip');
+      smaaElement.setAttribute('blend-mode', 'skip');
+  } else {
+      ssaoElement.setAttribute('blend-mode', 'DEFAULT');
+      smaaElement.setAttribute('blend-mode', 'DEFAULT');
+  }
+});
+
+
 // Get the model viewer element
 const modelViewer = document.querySelector('model-viewer');
 

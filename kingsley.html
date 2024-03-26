@@ -69,12 +69,10 @@
     </div>
     <!-- Effects for Model Viewer -->
     <effect-composer render-mode="quality" id="customComposer">
-      <!--Disabled for Performance--
-      <ssao-effect blend-mode="DEFAULT" opacity="0.5" strength="10"></ssao-effect> -->
+      <ssao-effect id="ssao" blend-mode="DEFAULT" opacity="0.5" strength="10"></ssao-effect>
       <bloom-effect strength="0.5" radius="0.1" threshold="0.8"></bloom-effect>
       <color-grade-effect blend-mode="add" opacity="0.2" tonemapping="optimized_cineon" brightness="0" contrast="0.4" saturation="-0.1" hue="6"></color-grade-effect>
-      <!--Disabled for Performance--
-      <smaa-effect blend-mode="DEFAULT" opacity="1" quality="HIGH"></smaa-effect> -->
+      <smaa-effect id="smaa" blend-mode="DEFAULT" opacity="1" quality="HIGH"></smaa-effect>
     </effect-composer>
   </model-viewer>
 
