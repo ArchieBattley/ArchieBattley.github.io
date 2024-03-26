@@ -55,12 +55,15 @@ document.addEventListener('gestureend', function(e) {
 window.addEventListener('resize', function() {
   var ssaoElement = document.getElementById('ssao');
   var smaaElement = document.getElementById('smaa');
+  var bloomElement = document.getElementById('bloom');
   if (window.innerWidth <= 768) {
       ssaoElement.setAttribute('blend-mode', 'skip');
       smaaElement.setAttribute('blend-mode', 'skip');
+      bloomElement.setAttribute('strength', '0.01');
   } else {
       ssaoElement.setAttribute('blend-mode', 'DEFAULT');
       smaaElement.setAttribute('blend-mode', 'DEFAULT');
+      bloomElement.setAttribute('strength', '0.5');
   }
 });
 
