@@ -51,21 +51,28 @@ document.addEventListener('gestureend', function(e) {
 
 // CONFIGURATOR 
 
-/// PERFORMANCE HACKS FOR MOBILE ///
-window.addEventListener('resize', function() {
+///// PERFORMANCE HACKS /////
+function applyPerformanceHacks() {
   var ssaoElement = document.getElementById('ssao');
   var smaaElement = document.getElementById('smaa');
   var bloomElement = document.getElementById('bloom');
+  
   if (window.innerWidth <= 768) {
-      ssaoElement.setAttribute('blend-mode', 'skip');
-      smaaElement.setAttribute('blend-mode', 'skip');
-      bloomElement.setAttribute('strength', '0.01');
+    ssaoElement.setAttribute('blend-mode', 'skip');
+    smaaElement.setAttribute('blend-mode', 'skip');
+    bloomElement.setAttribute('blend-mode', 'skip');
   } else {
-      ssaoElement.setAttribute('blend-mode', 'DEFAULT');
-      smaaElement.setAttribute('blend-mode', 'DEFAULT');
-      bloomElement.setAttribute('strength', '0.5');
+    ssaoElement.setAttribute('blend-mode', 'DEFAULT');
+    smaaElement.setAttribute('blend-mode', 'DEFAULT');
+    bloomElement.setAttribute('blend-mode', 'ADD');
   }
-});
+}
+
+// Call the function on page load
+window.addEventListener('load', applyPerformanceHacks);
+
+// Call the function on page resize
+window.addEventListener('resize', applyPerformanceHacks);
 
 
 // Get the model viewer element
@@ -228,6 +235,12 @@ document.querySelectorAll('.btn-icons').forEach(handleButtonClick);
 
 // Enables Configurator
 const modelViewerColor = document.querySelector("model-viewer#configurator");
+
+// Wait for the model to load
+modelViewerColor.addEventListener("load", function() {
+  // Now you can safely access the model's properties
+  // Your existing code to handle color selection can go here
+});
 
 /// BODY COLOR SELECTION ///
 
