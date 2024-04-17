@@ -11,8 +11,17 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
   <title>Home - Archie Battley</title>
 
-  <!-- Google Model Viewer -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+ <!-- Google Model Viewer dependencies -->
+ <script async src="https://ga.jspm.io/npm:es-module-shims@1.7.1/dist/es-module-shims.js"></script>
+ <script type="importmap">
+   {
+     "imports": {
+       "three": "https://cdn.jsdelivr.net/npm/three@^0.160.0/build/three.module.min.js"
+     }
+   }
+ </script>
+ <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer-module.min.js"></script>
+ <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer-effects/dist/model-viewer-effects.min.js"></script>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -37,11 +46,33 @@
     
 <body>
   <div class="carbackground">
-    <model-viewer bounds="tight" enable-pan src="https://archiebattley.com/glb/agship.glb" camera-controls="" shadow-intensity="1.33" exposure="0.57" shadow-softness="1" camera-orbit="50deg 30deg 0m" camera-target="-1.5m -2m -1m">
+    <model-viewer loading="eager" id="orbit-demo" bounds="tight" enable-pan="" src="https://archiebattley.com/glb/agship.glb" camera-controls="basic" touch-action="none" interaction-prompt="none" autoplay="false"  interpolation-decay="1000" shadow-intensity="1.8" exposure="0.6" shadow-softness="0.7" tone-mapping="agx" camera-orbit="-30deg 70deg 4m" min-camera-orbit="auto auto 4m" max-camera-orbit="auto 90deg auto" camera-target="0m 1m 0m" ar-status="not-presenting">
       <div class="progress-bar hide" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
+      <effect-composer render-mode="quality" id="customComposer">
+        <ssao-effect id="ssao" blend-mode="DEFAULT" opacity="0.5" strength="10"></ssao-effect>
+        <bloom-effect id="bloom" strength="1" radius="0.6" threshold="1" blend-mode="ADD" opacity="0.5" smoothing="1"></bloom-effect>
+        <color-grade-effect blend-mode="ADD" opacity="0.08" tonemapping="REINHARD2" brightness="0" contrast="0.6" saturation="0.5" hue="6"></color-grade-effect>
+        <smaa-effect id="smaa" blend-mode="DEFAULT" opacity="1" quality="HIGH"></smaa-effect>
+      </effect-composer>
     </model-viewer>  
+    <script>
+      (() => {
+        const modelViewer = document.querySelector('#orbit-demo');
+        const orbitCycle = [
+          '45deg 55deg 4m',
+          '-60deg 110deg 2m',
+          modelViewer.cameraOrbit
+        ];
+      
+        setInterval(() => {
+          const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
+          modelViewer.cameraOrbit =
+              orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
+        }, 6000);
+      })();
+      </script>
   
   </div>
 
