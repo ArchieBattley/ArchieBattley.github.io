@@ -46,7 +46,7 @@
     
 <body>
   <div class="carbackground">
-    <model-viewer loading="eager" id="orbit-demo" bounds="tight" enable-pan="" src="https://archiebattley.com/glb/agship.glb" camera-controls="basic" touch-action="none" interaction-prompt="none" autoplay="false"  interpolation-decay="1000" shadow-intensity="1.8" exposure="0.6" shadow-softness="0.7" tone-mapping="agx" camera-orbit="-30deg 70deg 4m" min-camera-orbit="auto auto 4m" max-camera-orbit="auto 90deg auto" camera-target="0m 1m 0m" ar-status="not-presenting">
+    <model-viewer loading="eager" id="orbit-demo" bounds="tight" enable-pan="" src="https://archiebattley.com/glb/agship.glb" camera-controls="basic" touch-action="none" interaction-prompt="none" autoplay="false"  interpolation-decay="20" shadow-intensity="1.8" exposure="0.6" shadow-softness="0.7" tone-mapping="agx" camera-orbit="130deg 75deg 10m" min-camera-orbit="auto auto 4m" max-camera-orbit="auto 90deg auto" camera-target="0m 1.5m 0m" ar-status="not-presenting" auto-rotate="">
       <div class="progress-bar hide" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
@@ -61,8 +61,10 @@
       (() => {
         const modelViewer = document.querySelector('#orbit-demo');
         const orbitCycle = [
-          '45deg 55deg 4m',
-          '-60deg 110deg 2m',
+          '240.3deg 22.5deg 10.9m',
+          '345deg 85.76deg 9.618m',
+          '52.1deg 82.36deg 9.681m',
+          '130deg 75deg 10m',
           modelViewer.cameraOrbit
         ];
       
@@ -70,7 +72,7 @@
           const currentOrbitIndex = orbitCycle.indexOf(modelViewer.cameraOrbit);
           modelViewer.cameraOrbit =
               orbitCycle[(currentOrbitIndex + 1) % orbitCycle.length];
-        }, 6000);
+        }, 10000);
       })();
       </script>
   
@@ -172,6 +174,44 @@
 <!-- Featherlight Lightbox JavaScript -->
 <script src="js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
+<script>
+  // Prevent double tap zoom
+document.addEventListener('DOMContentLoaded', function() {
+    var lastTouchEnd = 0;
+    document.addEventListener('touchend', function(event) {
+        var now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
+}, false);
+
+// Prevent pinch to zoom
+document.addEventListener('gesturestart', function (e) {
+    e.preventDefault();
+});
+
+document.addEventListener('gesturestart', function(e) {
+    e.preventDefault();
+    // special hack to prevent zoom-to-tabs gesture in safari
+    document.body.style.zoom = 0.99;
+});
+
+document.addEventListener('gesturechange', function(e) {
+    e.preventDefault();
+    // special hack to prevent zoom-to-tabs gesture in safari
+    document.body.style.zoom = 0.99;
+});
+
+document.addEventListener('gestureend', function(e) {
+    e.preventDefault();
+    // special hack to prevent zoom-to-tabs gesture in safari
+    document.body.style.zoom = 0.99;
+});
+
+// PINCH TO ZOOM HACKS
+</script>
 
 </body>
 
