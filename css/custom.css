@@ -450,9 +450,15 @@ transition-delay:.2s;
 /* Vertical Text Center */
 
 .verticalcenter {
-  display: flex;
-    justify-content: center; /* align horizontal */
+    margin-left: 45%; 
+    margin-right: 45%; /* align horizontal */
     align-items: center; /* align vertical */
+}
+
+.verticalcenter2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Vertical Text Center Finish */
