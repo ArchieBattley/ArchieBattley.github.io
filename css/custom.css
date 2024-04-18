@@ -136,9 +136,15 @@ model-viewer{
     bottom: 100%;
     }
 
-.carforeground{
-z-index: 1;
+.carmidground{
+z-index: 0.5;
 position: relative;
+bottom: 70%;
+}
+
+.carforeground{
+  z-index: 2;
+  position: relative;
 bottom: 70%;
 }
 
