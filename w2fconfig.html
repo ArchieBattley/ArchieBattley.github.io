@@ -9,13 +9,13 @@
     <script src="https://kit.fontawesome.com/b5231a70fd.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family==Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap'" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap'" rel="stylesheet" />
 </head>
 <body class="noselect">
     
-<nav class="navbar navbar-expand-lg navbar-light fixed-top">
-<div class="container-fluid bg-light rounded m-3 p-2 ps-3 pe-3">
-    <a class="navbar-brand" href="#">Fixed navbar</a>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<div class="container-fluid w2f-footer-dark rounded m-3 p-2 ps-3 pe-3">
+    <a class="navbar-brand" href="#"><img src="/img/w2f/logos/w2flogo.svg" width="150" height="auto" alt=""></a>
     <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -42,26 +42,54 @@
 <!-- Fullwidth Centered Text Section Start -->
 <div class="container-fluid px-0">
     <div class="row g-0" style="background: #222; min-height: 60vh;">
+        <!-- Product Title & Description Section Start -->
         <div class="col-12 d-flex justify-content-center align-items-center" style="min-height: 220px;">
-            <div class="text-center text-white w-100">
-                <h1 class="fw-bold mb-3">Build Your Dream PC</h1>
-                <p class="lead mb-4">Customise every detail. Unleash your creativity. Performance meets style.</p>
-                <a href="#" class="btn btn-success btn-lg px-5" data-bs-toggle="offcanvas" data-bs-target="#configMenu" aria-controls="configMenu">Start Configuring</a>
+            <div class="container my-5">
+            <div class="row justify-content-center text-white">
+                <div class="col-lg-10 col-8">
+                <h1 class="fw-bold mb-3">Build Your Own PC - AM5</h1>
+                <div class="mb-4">
+                    <p>Configure your ideal AMD based high-performance PC, that's ready for any challenge. With full support for DDR5 memory, AMD AM5 CPUs, and PCIe 5.0 technology, this tool gives you complete flexibility in selecting the best components to match your unique needs.</p>
+                    <p class="mb-2 fw-bold">System Specs:</p>
+                    <ul>
+                    <li>CPU: AMD AM5</li>
+                    <li>SSD: M.2 and SATA</li>
+                    <li>GPU: Integrated to RTX 5090</li>
+                    <li>RAM: Up to 192Gb DDR5</li>
+                    <li>CASE: A wide selection</li>
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center mb-4">
+                    <i class="fas fa-shipping-fast fa-lg text-success me-2"></i>
+                    <h5 class="mb-0">Delivered to you in 10~15 days</h5>
+                </div>
+                <a class="btn btn-success px-4" href="#configuratorsec1">Configure</a>
+                </div>
+            </div>
             </div>
         </div>
+        <!-- Product Title & Description Section End -->
     </div>
 </div>
 <!-- Fullwidth Centered Text Section End -->
 
 <!-- Fullwidth Background Section Start -->
-<div class="container-fluid px-0">
-    <div class="row g-0 align-items-center" style="background: #f5f5f5;">
-        <div class="col-md-4 d-flex flex-column justify-content-center align-items-start p-5">
-            <h2 class="fw-bold mb-3">Experience the Future</h2>
-            <p class="mb-4">Discover the next generation of performance and design with our latest PC configurator. Build your dream system today.</p>
+<div class="container-fluid px-0 bg-light">
+    <div class="row g-0 align-items-center">
+        <div class="col-md-8 d-flex flex-column justify-content-center align-items-start p-5">
+            <h2 class="fw-bold mb-3">Product Info</h2>
+            <p class="mb-3"></p>
+            Design your perfect PC with our AMD PC configurator, offering complete control over every aspect of your system’s performance and aesthetics. Whether you’re a gamer seeking ultra-smooth 4K game play, a content creator working with high-resolution videos, or a professional handling demanding tasks, our configurator lets you select from AM5 based AMD processors, top-tier GPUs, and high-performance components to create a machine that’s powerful, reliable, and tailored to your specific needs.
+            </p>
+            <p class="mb-3">
+            With a broad range of premium parts and customizable options, you’ll be able to build a system that not only meets today’s demands but is also for tomorrow’s challenges. Start designing today and experience a seamless, personalized build that takes your gaming, productivity, and creativity to new heights!
+            </p>
+            <p class="mb-4">
+            With our care and attention to detail in building and testing, your system will turn up ready to plug and play, getting you into your games as quickly as possible.
+            </p>
             <a href="#" class="btn btn-success px-4">Get Started</a>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4 p-5">
             <img src="https://picsum.photos/1200/600" alt="Configurator Banner" class="img-fluid w-100 h-100" style="object-fit: cover; min-height: 300px;">
         </div>
     </div>
@@ -123,7 +151,7 @@
              data-bs-backdrop="false"
              tabindex="-1"
              id="configMenu"
-             aria-labelledby="configMenuLabel">
+             aria-labelledby="configMenuLabel" style="width: 50% !important;">
         <!-- Offcanvas header -->
         <div class="offcanvas-header p-3 d-block d-lg-flex text-center">
             <div class="row">
@@ -170,7 +198,7 @@
 
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="alert alert-selection configtitles py-2" role="alert">
+                                            <div class="alert alert-selection configtitles bg-white py-2" role="alert">
                                                 <div id="case-selection-title" class="text-dark text-small" insert="">NZXT H5 Flow - Black</div>
                                             </div>
                                         </div>
@@ -211,8 +239,8 @@
     </div>
     <!-- Configurator Offcanvas Menu End -->
    
-<footer class="bg-light border-top mt-5 py-4">
-    <div class="container">
+<footer class="w2f-footer-dark  text-white border-top py-4">
+    <div class="container pt-4">
         <div class="row text-center text-md-start">
             <!-- Orders -->
             <div class="col-md-2 mb-4 mb-md-0">

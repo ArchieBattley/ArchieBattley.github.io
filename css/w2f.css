@@ -1,7 +1,215 @@
+/* W2F STYLES */
 body {
     font-family: 'Red Hat Text', sans-serif;
+}
+
+.w2f-footer-dark {
+    background-color: #181818 !important;
+    color: white !important;
+}
+
+.w2f-footer-dark a {
+    color: white !important;
+}
+
+.w2f-footer-dark li {
+    color: white !important;
 }
 
 .configtitles {
         border: 1px solid rgb(128, 128, 128) !important;
 }
+
+
+/* OFFSCREEN PANEL NAVIGATION */
+.offcanvas-header .btn-close {
+    background-image: url(../img/w2f/icons/x-square.svg);
+}
+
+h5.offcanvas-title {
+  font-family: var(--secondaryfont);
+  font-size: .65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #aeaeae;
+  margin-bottom: 20px;
+}
+
+.close-offscreen-nav-panel {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  background-color: #f2f2f2;
+  padding: 15px;
+  border-radius: 5px;
+  width: 0.6em;
+  height: 0.6em;
+  color: #000;
+  opacity: 1;
+}
+
+
+  .close-offscreen-nav-panel:focus {
+    outline: 0px none #fff !important;
+    box-shadow: none !important;
+  }
+
+  .close-offscreen-nav-panel:focus, .offcanvas-header .btn-close:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+.offcanvas-body {
+  padding: 30px;
+}
+
+  .offcanvas-body ul {
+    list-style: none;
+    margin: 20px 0 25px 0px;
+  }
+  
+  .offcanvas-body ul {
+    list-style: none;
+  }
+
+.offcanvas-lg-links {
+  font-size: 1.2rem;
+}
+
+.offcanvas-body ul.offcanvas-lg-links li {
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.offcanvas-sm-links {
+  font-size: 1rem;
+}
+
+.offcanvas-body ul.offcanvas-sm-links li {
+  margin-bottom: 15px;
+  font-weight: 300;
+}
+
+.offcanvas-links {
+  font-family: var(--primaryfont);
+  font-size: .76rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.offcanvas-body ul.offcanvas-links li {
+  margin-bottom: 18px;
+  transition: all ease-in-out 0.3s;
+}
+
+  .offcanvas-body ul.offcanvas-links li:hover {
+    padding-left: 4px;
+  }
+
+hr.offcanvas-divider {
+  height: 0;
+  overflow: hidden;
+  opacity: 1;
+  border-top: 1px solid #dfdfdf;
+}
+
+.offcanvas-icon {
+  max-width: 40px;
+}
+
+.offcanvas-brand {
+  max-width: 125px;
+}
+
+.offcanvas {
+  transition: all ease-in-out 0.3s;
+}
+
+.offcanvas-body, .offcanvas-header {
+  opacity: 0;
+  transform: translateX(15px);
+  transition-duration: .24s;
+  transition-delay: 0s;
+}
+
+.offcanvas.show .offcanvas-body, .offcanvas.show .offcanvas-header {
+  opacity: 1;
+  transform: translateX(0);
+  transition-duration: .35s;
+  transition-delay: 0.01s;
+
+}
+
+.offcanvas a {
+  text-decoration: none;
+  color: #000;
+  outline: 0;
+}
+
+.offcanvas-links {
+    padding-left: 0px;
+}
+
+.list-unstyled li {
+  line-height: 20px;
+  color: #444;
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+
+
+/* END OFFSCREEN PANEL NAVIGATION */
+
+/* TABS */
+* Tabs */
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-link {
+  background-color: #fff;
+  color: #000;
+  font-size: 11px;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+  .nav-tabs .nav-link.active {
+    border-bottom: solid 1.5px #000;
+  }
+
+/* ACCORDIAN */
+
+/* Body */
+
+.accordion .accordion-item:first-child {
+  border-top: 0px;
+}
+
+.accordion-button {
+  font-weight: 600;
+}
+
+.config-menu .accordion-button:not(.collapsed) {
+  color: #000;
+  background-color: #f7f7f7;
+  box-shadow: none;
+}
+
+.config-menu .accordion-button:focus,
+.config-menu .accordion-button.focus {
+  box-shadow: none;
+}
+
+.accordion-body {
+  background-color: #f7f7f7;
+}
+
+  .accordion-body .alert {
+    font-weight: 500;
+  }
+  /* END ACCORDIAN */
