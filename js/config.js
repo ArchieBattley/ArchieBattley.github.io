@@ -1,36 +1,33 @@
+// AESTHETICS TAB
+
+
 // CASE SELECTION     
-     document.addEventListener('DOMContentLoaded', function() {
-                    const controls = document.getElementById('case-selection-controls');
-                    const title = document.getElementById('case-selection-title');
+document.addEventListener('DOMContentLoaded', function() {
+    const controls = document.getElementById('case-selection-controls');
+    const title = document.getElementById('case-selection-title');
+    const summaryTitle = document.getElementById('summary-case');
+    const summaryImg = document.getElementById('summary-case-img');
 
-                    controls.addEventListener('click', function(e) {
-                        const btn = e.target.closest('button[data-name]');
-                        if (!btn) return;
+    controls.addEventListener('click', function(e) {
+        const btn = e.target.closest('button[data-name]');
+        if (!btn) return;
 
-                        // Remove active from all buttons
-                        controls.querySelectorAll('button[data-name]').forEach(b => b.classList.remove('active'));
-                        // Add active to clicked button
-                        btn.classList.add('active');
-                        // Update title text
-                        title.textContent = btn.getAttribute('data-name');
-                    });
-                });
+        // Remove active from all buttons
+        controls.querySelectorAll('button[data-name]').forEach(b => b.classList.remove('active'));
+        // Add active to clicked button
+        btn.classList.add('active');
+        // Update title text
+        const name = btn.getAttribute('data-name');
+        title.textContent = name;
+        // Update summary title
+        if (summaryTitle) summaryTitle.textContent = name;
+        // Update summary image
+        const imgSrc = btn.getAttribute('data-image');
+        if (summaryImg && imgSrc) summaryImg.src = imgSrc;
+    });
+});
 
-                // COOLER SELECTION
-                document.addEventListener('DOMContentLoaded', function() {
-                    const controls = document.getElementById('cooler-selection-controls');
-                    const title = document.getElementById('cooler-selection-title');
 
-                    controls.addEventListener('click', function(e) {
-                        const btn = e.target.closest('button[data-name]');
-                        if (!btn) return;
-
-                        controls.querySelectorAll('button[data-name]').forEach(b => b.classList.remove('active'));
-                        btn.classList.add('active');
-                        title.textContent = btn.getAttribute('data-name');
-                    });
-                });
- 
  // Simple pagination for 12 cases, 8 per page
                                     document.addEventListener('DOMContentLoaded', function() {
                                         const controls = document.getElementById('case-selection-controls');
@@ -75,3 +72,79 @@
                                         });
                                         showPage(currentPage);
                                     });
+
+
+
+                // COOLER SELECTION
+                document.addEventListener('DOMContentLoaded', function() {
+                    const controls = document.getElementById('cooler-selection-controls');
+                    const title = document.getElementById('cooler-selection-title');
+                    const summaryTitle = document.getElementById('summary-cooler');
+
+                    controls.addEventListener('click', function(e) {
+                        const btn = e.target.closest('button[data-name]');
+                        if (!btn) return;
+
+                        controls.querySelectorAll('button[data-name]').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        title.textContent = btn.getAttribute('data-name');
+                        if (summaryTitle) summaryTitle.textContent = btn.getAttribute('data-name');
+                    });
+                });
+
+                // FAN SELECTION
+                document.addEventListener('DOMContentLoaded', function() {
+                    const controls = document.getElementById('fan-selection-controls');
+                    const title = document.getElementById('fan-selection-title');
+                    const summaryTitle = document.getElementById('summary-fans');
+
+                    controls.addEventListener('click', function(e) {
+                        const btn = e.target.closest('button[data-name]');
+                        if (!btn) return;
+
+                        controls.querySelectorAll('button[data-name]').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        const name = btn.getAttribute('data-name');
+                        title.textContent = name;
+                        if (summaryTitle) summaryTitle.textContent = name;
+                    });
+                });
+ 
+                // CABLE SELECTION
+                document.addEventListener('DOMContentLoaded', function() {
+                    const controls = document.getElementById('cable-selection-controls');
+                    const title = document.getElementById('cable-selection-title');
+                    const summaryTitle = document.getElementById('summary-cable');
+
+                    controls.addEventListener('click', function(e) {
+                        const btn = e.target.closest('button[data-name]');
+                        if (!btn) return;
+
+                        controls.querySelectorAll('button[data-name]').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        const name = btn.getAttribute('data-name');
+                        title.textContent = name;
+                        if (summaryTitle) summaryTitle.textContent = name;
+                    });
+                });
+ 
+
+// PERFORMANCE TAB      
+
+// PROCESSOR SELECTION
+document.addEventListener('DOMContentLoaded', function() {
+    const controls = document.getElementById('processor-selection-controls');
+    const title = document.getElementById('processor-selection-title');
+    const summaryTitle = document.getElementById('summary-processor');
+
+    controls.addEventListener('click', function(e) {
+        const btn = e.target.closest('button[data-name]');
+        if (!btn) return;
+
+        controls.querySelectorAll('button[data-name]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const name = btn.getAttribute('data-name');
+        title.textContent = name;
+        if (summaryTitle) summaryTitle.textContent = name;
+    });
+});

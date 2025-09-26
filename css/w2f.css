@@ -329,10 +329,16 @@ hr.offcanvas-divider {
   font-weight: 500;
 }
 
-#material-controls .btn-squared-v2 .btn-label {
-  color: #fff;
+.config-menu .list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #000000;
+    border-color: #525252;
+        border-bottom: solid 2px #f5891f;
+    font-weight: bold;
 }
 
-#material-controls .btn-squared-v2 .btn-label {
-  text-shadow: 1px 1px 10px #000000, 1px 1px 10px #000000;
+.config-menu .card-header {
+    border-bottom: solid 1.5px #f5891f;
+    background-color: black;
 }
