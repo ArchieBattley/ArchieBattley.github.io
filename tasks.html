@@ -1,0 +1,69 @@
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Prevent search engine indexing and following -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Archies Task List</title>
+  <!-- Google Fonts: Red Hat Text -->
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/tasks.css">
+  <!-- jQuery (required for jQuery Easing) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- jQuery Easing -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <div class="row align-items-center mb-2 g-2">
+          <div class="col-12 col-md-7 col-lg-8">
+            <h1 class="mb-0" style="font-weight:800;font-size:2.2em;letter-spacing:-1px;">Task List <span style="font-size:0.7em;font-weight:400;opacity:0.7;">– Stay Prioritised</span></h1>
+          </div>
+          <div class="col-12 col-md-5 col-lg-4 d-flex justify-content-md-end align-items-center gap-2 mt-2 mt-md-0">
+            <button id="save-tasks-btn" class="save-load-btn" type="button">Save Tasks</button>
+            <button id="load-tasks-btn" class="save-load-btn" type="button">Load Tasks</button>
+          </div>
+        </div>
+        <div class="legend">
+          <span class="chip legend-chip" data-priority="Top"><span class="dot" style="background:var(--red)"></span>Top</span>
+          <span class="chip legend-chip" data-priority="High"><span class="dot" style="background:var(--orange)"></span>High</span>
+          <span class="chip legend-chip" data-priority="Medium"><span class="dot" style="background:var(--yellow)"></span>Medium</span>
+          <span class="chip legend-chip" data-priority="Low"><span class="dot" style="background:var(--green)"></span>Low</span>
+          <span class="chip legend-chip" data-priority="Ongoing"><span class="dot" style="background:var(--blue)"></span>Ongoing</span>
+        </div>
+        <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+          <button id="add-section-btn" class="add-section" type="button">+ Add Section</button>
+        </div>
+      </header>
+      <main>
+        <div id="task-sections"></div>
+      </main>
+    </div>
+    <script>
+    $(function() {
+      $('.legend-chip').css('cursor', 'pointer').on('click', function() {
+        var prio = $(this).data('priority');
+        // Find the first section with this priority
+        var $section = $("#task-sections .section").filter(function() {
+          return $(this).find('.title span:last').text().trim() === prio;
+        }).first();
+        if ($section.length) {
+          // Scroll smoothly to the section
+          $('html, body').stop().animate({
+            scrollTop: $section.offset().top - 24 // offset for header
+          }, 700, 'easeInOutExpo');
+        }
+      });
+    });
+    </script>
+    <script src="/js/tasks.js"></script>
+  </body>
+</html>

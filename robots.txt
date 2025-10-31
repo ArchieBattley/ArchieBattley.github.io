@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /tasks.html
+Disallow: /w2fconfig.html
+Allow: /
+
+Sitemap: https://archiebattley.github.io/sitemap.xml
