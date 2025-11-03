@@ -9,7 +9,23 @@ const GOOGLE_SHEETS_CONFIG = {
   webAppUrl: 'https://script.google.com/macros/s/AKfycby9s4_CtlxXWkI_aiyhQhgvthlq2K8FHh2LnP1IVuVz-szYhtY86QocE3y4ma1gSEtwZw/exec'
 };
 
-// Save tasks to Google Sheets with a name
+// Track the currently loaded list name
+let currentListName = null;
+
+// Update the page title with the current list name
+function updatePageTitle(listName) {
+  currentListName = listName;
+  const titleElement = document.querySelector('h1 span');
+  if (titleElement) {
+    if (listName) {
+      titleElement.textContent = `– ${listName}`;
+    } else {
+      titleElement.textContent = '– Stay Prioritised';
+    }
+  }
+}
+
+// Save tasks to Google Sheets
 async function saveToGoogleSheets(data, listName) {
   try {
     const response = await fetch(GOOGLE_SHEETS_CONFIG.webAppUrl, {
@@ -30,43 +46,10 @@ async function saveToGoogleSheets(data, listName) {
   }
 }
 
-// Load a specific task list from Google Sheets
-async function loadFromGoogleSheets(listName) {
+// Load list of saved task lists
+async function getSavedLists() {
   return new Promise((resolve, reject) => {
-    const callbackName = 'googleSheetsCallback_' + Date.now();
-    const script = document.createElement('script');
-    const timeout = setTimeout(() => {
-      cleanup();
-      reject(new Error('Request timeout'));
-    }, 10000);
-    
-    function cleanup() {
-      clearTimeout(timeout);
-      delete window[callbackName];
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
-    }
-    
-    window[callbackName] = function(response) {
-      cleanup();
-      resolve(response.data);
-    };
-    
-    script.onerror = function() {
-      cleanup();
-      reject(new Error('Script load error'));
-    };
-    
-    script.src = `${GOOGLE_SHEETS_CONFIG.webAppUrl}?action=load&name=${encodeURIComponent(listName)}&callback=${callbackName}`;
-    document.head.appendChild(script);
-  });
-}
-
-// Get list of all saved task lists
-async function getTaskLists() {
-  return new Promise((resolve, reject) => {
-    const callbackName = 'googleSheetsCallback_' + Date.now();
+    const callbackName = 'googleSheetsListCallback_' + Date.now();
     const script = document.createElement('script');
     const timeout = setTimeout(() => {
       cleanup();
@@ -92,6 +75,43 @@ async function getTaskLists() {
     };
     
     script.src = `${GOOGLE_SHEETS_CONFIG.webAppUrl}?action=list&callback=${callbackName}`;
+    document.head.appendChild(script);
+  });
+}
+
+// Load tasks from Google Sheets
+async function loadFromGoogleSheets(listName) {
+  return new Promise((resolve, reject) => {
+    // Use JSONP to avoid CORS issues
+    const callbackName = 'googleSheetsCallback_' + Date.now();
+    const script = document.createElement('script');
+    const timeout = setTimeout(() => {
+      cleanup();
+      reject(new Error('Request timeout'));
+    }, 10000);
+    
+    function cleanup() {
+      clearTimeout(timeout);
+      delete window[callbackName];
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    }
+    
+    window[callbackName] = function(response) {
+      cleanup();
+      resolve(response.data);
+    };
+    
+    script.onerror = function() {
+      cleanup();
+      reject(new Error('Script load error'));
+    };
+    
+    const url = listName 
+      ? `${GOOGLE_SHEETS_CONFIG.webAppUrl}?action=load&name=${encodeURIComponent(listName)}&callback=${callbackName}`
+      : `${GOOGLE_SHEETS_CONFIG.webAppUrl}?action=load&callback=${callbackName}`;
+    script.src = url;
     document.head.appendChild(script);
   });
 }
@@ -364,95 +384,134 @@ function domToJson() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // Store current list name
-  let currentListName = localStorage.getItem('currentTaskListName') || '';
-  
-  // Auto-save to localStorage
-  let autoSaveTimeout;
-  function autoSaveToLocalStorage() {
-    clearTimeout(autoSaveTimeout);
-    autoSaveTimeout = setTimeout(() => {
-      const data = domToJson();
-      localStorage.setItem('cachedTaskList', JSON.stringify(data));
-      localStorage.setItem('cachedTaskListTime', new Date().toISOString());
-      console.log('Auto-saved to cache');
-    }, 1000); // Save 1 second after changes stop
-  }
-  
-  // Set up mutation observer to detect changes
-  function setupAutoSave() {
-    const container = document.getElementById('task-sections');
-    if (!container) return;
-    
-    const observer = new MutationObserver(() => {
-      autoSaveToLocalStorage();
-    });
-    
-    observer.observe(container, {
-      childList: true,
-      subtree: true,
-      characterData: true,
-      attributes: true
-    });
-    
-    // Also save on input events for contenteditable elements
-    container.addEventListener('input', autoSaveToLocalStorage);
-    container.addEventListener('change', autoSaveToLocalStorage);
-  }
-  
-  // Restore cached list on load
-  function restoreCachedList() {
-    const cachedData = localStorage.getItem('cachedTaskList');
-    const cachedTime = localStorage.getItem('cachedTaskListTime');
-    
-    if (cachedData) {
-      try {
-        const data = JSON.parse(cachedData);
-        renderTasks(data);
-        setupAutoSave();
-        
-        if (currentListName) {
-          updatePageTitle(currentListName);
-        }
-        
-        // Show a subtle notification
-        if (cachedTime) {
-          const timeAgo = new Date(cachedTime);
-          const msg = showMessage(`Restored from ${timeAgo.toLocaleString()}`, 'var(--panel)');
-          setTimeout(() => msg.remove(), 2000);
-        }
-      } catch (e) {
-        console.error('Failed to restore cached list:', e);
-      }
-    }
-  }
-
-  // Load tasks from Google Sheets - show list selector
+  // Load tasks from Google Sheets with list selection
   document.getElementById('load-tasks-btn').onclick = async () => {
     try {
-      // Fetch list of all task lists
-      const lists = await getTaskLists();
-      
-      // Show modal with list selection
-      showLoadListModal(lists, async (selectedName) => {
-        try {
-          const loadingMsg = showMessage('Loading from Google Sheets...');
-          const data = await loadFromGoogleSheets(selectedName);
-          renderTasks(data);
-          currentListName = selectedName;
-          localStorage.setItem('currentTaskListName', selectedName);
-          updatePageTitle(selectedName);
-          setupAutoSave(); // Enable auto-save after loading
-          
-          loadingMsg.textContent = `Loaded "${selectedName}"!`;
-          loadingMsg.style.background = 'var(--green)';
-          setTimeout(() => loadingMsg.remove(), 1800);
-        } catch (error) {
-          alert('Failed to load: ' + error.message);
-        }
+      // Show loading message
+      const loadingMsg = document.createElement('div');
+      loadingMsg.textContent = 'Fetching saved lists...';
+      loadingMsg.style.position = 'fixed';
+      loadingMsg.style.bottom = '32px';
+      loadingMsg.style.right = '32px';
+      loadingMsg.style.background = 'var(--panel)';
+      loadingMsg.style.color = 'var(--text)';
+      loadingMsg.style.padding = '14px 28px';
+      loadingMsg.style.borderRadius = '12px';
+      loadingMsg.style.boxShadow = '0 4px 16px #0007';
+      loadingMsg.style.fontWeight = '700';
+      loadingMsg.style.fontSize = '1.1em';
+      loadingMsg.style.zIndex = 20000;
+      document.body.appendChild(loadingMsg);
+
+      const lists = await getSavedLists();
+      loadingMsg.remove();
+
+      if (lists.length === 0) {
+        alert('No saved lists found. Save a list first!');
+        return;
+      }
+
+      // Show list selection dialog
+      const overlay = document.createElement('div');
+      overlay.id = 'list-selection-modal';
+      overlay.style.position = 'fixed';
+      overlay.style.top = 0;
+      overlay.style.left = 0;
+      overlay.style.width = '100vw';
+      overlay.style.height = '100vh';
+      overlay.style.background = 'rgba(0,0,0,0.45)';
+      overlay.style.display = 'flex';
+      overlay.style.alignItems = 'center';
+      overlay.style.justifyContent = 'center';
+      overlay.style.zIndex = 10000;
+
+      const listHtml = lists.map(list => {
+        const date = list.timestamp ? new Date(list.timestamp).toLocaleString() : 'Unknown';
+        return `
+          <button class="list-select-btn" data-listname="${list.name}" style="
+            display:block;
+            width:100%;
+            padding:14px 18px;
+            margin-bottom:10px;
+            background:var(--panel-2);
+            border:1px solid var(--border);
+            border-radius:8px;
+            color:var(--text);
+            text-align:left;
+            cursor:pointer;
+            transition:all 0.2s;
+            font-family: 'Red Hat Text', sans-serif;
+          ">
+            <div style="font-weight:700;font-size:1.1em;margin-bottom:4px;">${list.name}</div>
+            <div style="font-size:0.9em;color:var(--muted);">Last updated: ${date}</div>
+          </button>
+        `;
+      }).join('');
+
+      overlay.innerHTML = `
+        <div style="background:var(--panel);border-radius:22px;box-shadow:0 12px 48px #000b,0 1.5px 8px #0002;padding:38px 32px 28px;min-width:500px;max-width:95vw;max-height:80vh;overflow-y:auto;position:relative;">
+          <button type="button" id="close-list-modal" aria-label="Close" style="position:absolute;top:18px;right:18px;background:none;border:none;font-size:2rem;line-height:1;color:var(--muted);cursor:pointer;transition:color 0.2s;"><i class='fa-solid fa-xmark'></i></button>
+          <h2 style="font-size:1.5em;font-weight:800;margin-bottom:22px;color:var(--text);letter-spacing:-1px;">Select a List to Load</h2>
+          <div id="list-container">
+            ${listHtml}
+          </div>
+          <div style="margin-top:18px;text-align:center;">
+            <button type="button" id="cancel-list-select" class="btn btn-secondary" style="padding:8px 20px;border-radius:8px;font-weight:600;background:var(--panel-2);border:1px solid var(--border);color:var(--text);">Cancel</button>
+          </div>
+        </div>
+      `;
+
+      document.body.appendChild(overlay);
+
+      // Close button
+      overlay.querySelector('#close-list-modal').onclick = () => overlay.remove();
+      overlay.querySelector('#cancel-list-select').onclick = () => overlay.remove();
+
+      // Add hover effect
+      overlay.querySelectorAll('.list-select-btn').forEach(btn => {
+        btn.onmouseenter = () => {
+          btn.style.background = 'var(--hover-bg)';
+          btn.style.borderColor = 'var(--accent)';
+        };
+        btn.onmouseleave = () => {
+          btn.style.background = 'var(--panel-2)';
+          btn.style.borderColor = 'var(--border)';
+        };
+        btn.onclick = async () => {
+          const listName = btn.getAttribute('data-listname');
+          overlay.remove();
+
+          const loadingMsg2 = document.createElement('div');
+          loadingMsg2.textContent = `Loading ${listName}...`;
+          loadingMsg2.style.position = 'fixed';
+          loadingMsg2.style.bottom = '32px';
+          loadingMsg2.style.right = '32px';
+          loadingMsg2.style.background = 'var(--panel)';
+          loadingMsg2.style.color = 'var(--text)';
+          loadingMsg2.style.padding = '14px 28px';
+          loadingMsg2.style.borderRadius = '12px';
+          loadingMsg2.style.boxShadow = '0 4px 16px #0007';
+          loadingMsg2.style.fontWeight = '700';
+          loadingMsg2.style.fontSize = '1.1em';
+          loadingMsg2.style.zIndex = 20000;
+          document.body.appendChild(loadingMsg2);
+
+          try {
+            const data = await loadFromGoogleSheets(listName);
+            renderTasks(data);
+            updatePageTitle(listName);
+            loadingMsg2.textContent = `${listName} loaded successfully!`;
+            loadingMsg2.style.background = 'var(--green)';
+            setTimeout(() => loadingMsg2.remove(), 1800);
+          } catch (error) {
+            loadingMsg2.remove();
+            alert('Failed to load list: ' + error.message);
+          }
+        };
       });
+
     } catch (error) {
-      alert('Failed to fetch task lists: ' + error.message);
+      alert('Failed to fetch saved lists: ' + error.message);
     }
   };
 
@@ -471,8 +530,21 @@ document.addEventListener('DOMContentLoaded', async () => {
           console.log('Loaded JSON:', data);
           try {
             renderTasks(data);
-            setupAutoSave(); // Enable auto-save after loading from file
-            const msg = showMessage('Tasks loaded from file!', 'var(--green)');
+            updatePageTitle(null); // Clear list name when loading from file
+            const msg = document.createElement('div');
+            msg.textContent = 'Tasks loaded from file!';
+            msg.style.position = 'fixed';
+            msg.style.bottom = '32px';
+            msg.style.right = '32px';
+            msg.style.background = 'var(--green)';
+            msg.style.color = '#fff';
+            msg.style.padding = '14px 28px';
+            msg.style.borderRadius = '12px';
+            msg.style.boxShadow = '0 4px 16px #0007';
+            msg.style.fontWeight = '700';
+            msg.style.fontSize = '1.1em';
+            msg.style.zIndex = 20000;
+            document.body.appendChild(msg);
             setTimeout(() => msg.remove(), 1800);
           } catch (renderErr) {
             console.error('Error in renderTasks:', renderErr);
@@ -489,34 +561,108 @@ document.addEventListener('DOMContentLoaded', async () => {
     input.click();
   };
 
-  // Save tasks to Google Sheets - prompt for name
+  // Save tasks to Google Sheets with list name
   document.getElementById('save-tasks-btn').onclick = async () => {
     const data = domToJson();
     
-    // Show modal to get/confirm list name
-    showSaveListModal(currentListName, async (listName) => {
+    // Show save modal
+    if (document.getElementById('save-list-modal')) return;
+    const overlay = document.createElement('div');
+    overlay.id = 'save-list-modal';
+    overlay.style.position = 'fixed';
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.background = 'rgba(0,0,0,0.45)';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    overlay.style.zIndex = 10000;
+
+    overlay.innerHTML = `
+      <div style="background:var(--panel);border-radius:22px;box-shadow:0 12px 48px #000b,0 1.5px 8px #0002;padding:38px 32px 28px;min-width:450px;max-width:95vw;position:relative;">
+        <button type="button" id="close-save-modal" aria-label="Close" style="position:absolute;top:18px;right:18px;background:none;border:none;font-size:2rem;line-height:1;color:var(--muted);cursor:pointer;transition:color 0.2s;"><i class='fa-solid fa-xmark'></i></button>
+        <h2 style="font-size:1.5em;font-weight:800;margin-bottom:22px;color:var(--text);letter-spacing:-1px;">Save Task List</h2>
+        <form id="save-list-form" autocomplete="off">
+          <div class="mb-3">
+            <label for="list-name-input" class="form-label" style="font-weight:600;color:var(--text);">List Name</label>
+            <input id="list-name-input" class="form-control" type="text" style="font-size:1.1em;padding:12px 14px;border-radius:8px;background:var(--panel-2);border:1px solid var(--border);color:var(--text);" placeholder="Enter list name" value="${currentListName || ''}" required autofocus />
+            <div style="font-size:0.9em;color:var(--muted);margin-top:6px;">If this name already exists, it will be updated.</div>
+          </div>
+          <div style="display:flex;gap:14px;justify-content:flex-end;margin-top:24px;">
+            <button type="button" class="btn btn-secondary" id="cancel-save" style="padding:10px 22px;border-radius:8px;font-weight:600;background:var(--panel-2);border:1px solid var(--border);color:var(--text);">Cancel</button>
+            <button type="submit" class="btn btn-primary" style="background:var(--accent);border:none;padding:10px 28px;border-radius:8px;font-weight:700;font-size:1em;">Save to Sheets</button>
+          </div>
+        </form>
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    // Close button
+    overlay.querySelector('#close-save-modal').onclick = () => overlay.remove();
+    overlay.querySelector('#cancel-save').onclick = () => overlay.remove();
+
+    // Auto-focus and select the input
+    const input = overlay.querySelector('#list-name-input');
+    setTimeout(() => {
+      input.focus();
+      input.select();
+    }, 100);
+
+    // Form submit
+    overlay.querySelector('#save-list-form').onsubmit = async (e) => {
+      e.preventDefault();
+      const listName = input.value.trim();
+      if (!listName) return;
+
+      overlay.remove();
+
       try {
-        const savingMsg = showMessage('Saving to Google Sheets...');
+        const savingMsg = document.createElement('div');
+        savingMsg.textContent = `Saving "${listName}" to Google Sheets...`;
+        savingMsg.style.position = 'fixed';
+        savingMsg.style.bottom = '32px';
+        savingMsg.style.right = '32px';
+        savingMsg.style.background = 'var(--panel)';
+        savingMsg.style.color = 'var(--text)';
+        savingMsg.style.padding = '14px 28px';
+        savingMsg.style.borderRadius = '12px';
+        savingMsg.style.boxShadow = '0 4px 16px #0007';
+        savingMsg.style.fontWeight = '700';
+        savingMsg.style.fontSize = '1.1em';
+        savingMsg.style.zIndex = 20000;
+        document.body.appendChild(savingMsg);
+
         await saveToGoogleSheets(data, listName);
-        currentListName = listName;
-        localStorage.setItem('currentTaskListName', listName);
-        updatePageTitle(listName);
         
-        savingMsg.textContent = `Saved as "${listName}"!`;
+        updatePageTitle(listName); // Update page title with saved list name
+        savingMsg.textContent = `"${listName}" saved to Google Sheets!`;
         savingMsg.style.background = 'var(--green)';
         setTimeout(() => savingMsg.remove(), 1800);
       } catch (error) {
         alert('Failed to save to Google Sheets. Downloading local backup instead...');
+        // Fallback to local download
         downloadJson(data, 'tasks.json');
-        const msg = showMessage('Tasks exported as tasks.json');
+        const msg = document.createElement('div');
+        msg.textContent = 'Tasks exported as tasks.json';
+        msg.style.position = 'fixed';
+        msg.style.bottom = '32px';
+        msg.style.right = '32px';
+        msg.style.background = 'var(--panel)';
+        msg.style.color = 'var(--text)';
+        msg.style.padding = '14px 28px';
+        msg.style.borderRadius = '12px';
+        msg.style.boxShadow = '0 4px 16px #0007';
+        msg.style.fontWeight = '700';
+        msg.style.fontSize = '1.1em';
+        msg.style.zIndex = 20000;
+        document.body.appendChild(msg);
         setTimeout(() => msg.remove(), 1800);
       }
-    });
+    };
   };
-  
-  // Restore cached list on page load
-  restoreCachedList();
-  
   // Add section button handler (always works, appends to #task-sections)
   document.getElementById('add-section-btn').onclick = () => {
     // Show custom modal overlay for Add Section
@@ -614,162 +760,4 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Auto-load on first visit (optional: comment out if you want manual load only)
   // const data = await fetchTasksJson();
   // if (data) renderTasks(data);
-});
-
-// Helper: Show a message toast
-function showMessage(text, bgColor = 'var(--panel)') {
-  const msg = document.createElement('div');
-  msg.textContent = text;
-  msg.style.position = 'fixed';
-  msg.style.bottom = '32px';
-  msg.style.right = '32px';
-  msg.style.background = bgColor;
-  msg.style.color = bgColor === 'var(--panel)' ? 'var(--text)' : '#fff';
-  msg.style.padding = '14px 28px';
-  msg.style.borderRadius = '12px';
-  msg.style.boxShadow = '0 4px 16px #0007';
-  msg.style.fontWeight = '700';
-  msg.style.fontSize = '1.1em';
-  msg.style.zIndex = 20000;
-  document.body.appendChild(msg);
-  return msg;
-}
-
-// Helper: Update page title with current list name
-function updatePageTitle(listName) {
-  const titleEl = document.querySelector('h1');
-  if (titleEl && listName) {
-    const baseText = titleEl.innerHTML.split('<span')[0];
-    titleEl.innerHTML = `${baseText}<span style="font-size:0.7em;font-weight:400;opacity:0.7;"> – ${listName}</span>`;
-  }
-}
-
-// Helper: Show save list modal
-function showSaveListModal(defaultName, onSave) {
-  if (document.getElementById('save-list-modal')) return;
-  
-  const overlay = document.createElement('div');
-  overlay.id = 'save-list-modal';
-  overlay.style.position = 'fixed';
-  overlay.style.top = 0;
-  overlay.style.left = 0;
-  overlay.style.width = '100vw';
-  overlay.style.height = '100vh';
-  overlay.style.background = 'rgba(0,0,0,0.45)';
-  overlay.style.display = 'flex';
-  overlay.style.alignItems = 'center';
-  overlay.style.justifyContent = 'center';
-  overlay.style.zIndex = 10000;
-  
-  overlay.innerHTML = `
-    <div class="custom-modal-box">
-      <button type="button" id="close-save-modal" class="custom-modal-close"><i class="fa-solid fa-xmark"></i></button>
-      <h2 class="custom-modal-h2">Save Task List</h2>
-      <form id="save-list-form" autocomplete="off">
-        <div class="mb-3">
-          <label for="list-name-input" class="form-label" style="font-weight:600;color:var(--text);">List Name</label>
-          <input id="list-name-input" class="form-control" type="text" value="${defaultName || ''}" placeholder="e.g., My Tasks, Work Items, Personal" required style="background:var(--panel-2);color:var(--text);border:1px solid var(--border);font-size:1.1em;padding:10px 12px;border-radius:8px;" />
-          <small style="color:var(--muted);display:block;margin-top:6px;">This name will identify your task list in Google Sheets</small>
-        </div>
-        <div class="custom-modal-btnrow">
-          <button type="button" class="btn btn-secondary custom-modal-btn" id="cancel-save">Cancel</button>
-          <button type="submit" class="btn btn-primary custom-modal-btn" style="background:var(--green);border-color:var(--green);">Save</button>
-        </div>
-      </form>
-    </div>
-  `;
-  
-  document.body.appendChild(overlay);
-  
-  const input = overlay.querySelector('#list-name-input');
-  input.focus();
-  input.select();
-  
-  overlay.querySelector('#close-save-modal').onclick = () => overlay.remove();
-  overlay.querySelector('#cancel-save').onclick = () => overlay.remove();
-  
-  overlay.querySelector('#save-list-form').onsubmit = (e) => {
-    e.preventDefault();
-    const listName = input.value.trim();
-    if (listName) {
-      overlay.remove();
-      onSave(listName);
-    }
-  };
-}
-
-// Helper: Show load list modal
-function showLoadListModal(lists, onLoad) {
-  if (document.getElementById('load-list-modal')) return;
-  
-  const overlay = document.createElement('div');
-  overlay.id = 'load-list-modal';
-  overlay.style.position = 'fixed';
-  overlay.style.top = 0;
-  overlay.style.left = 0;
-  overlay.style.width = '100vw';
-  overlay.style.height = '100vh';
-  overlay.style.background = 'rgba(0,0,0,0.45)';
-  overlay.style.display = 'flex';
-  overlay.style.alignItems = 'center';
-  overlay.style.justifyContent = 'center';
-  overlay.style.zIndex = 10000;
-  
-  let listsHTML = '';
-  if (lists.length === 0) {
-    listsHTML = '<p style="color:var(--muted);text-align:center;padding:20px;">No saved task lists found.<br>Create one by clicking Save Tasks!</p>';
-  } else {
-    listsHTML = '<div style="max-height:400px;overflow-y:auto;">';
-    lists.forEach(list => {
-      const date = list.timestamp ? new Date(list.timestamp).toLocaleString() : 'Unknown';
-      listsHTML += `
-        <button type="button" class="list-item-btn" data-name="${list.name}" style="width:100%;text-align:left;background:var(--panel-2);border:1px solid var(--border);padding:14px 18px;border-radius:8px;margin-bottom:10px;cursor:pointer;transition:all 0.2s;color:var(--text);">
-          <div style="font-weight:700;font-size:1.1em;margin-bottom:4px;">${list.name}</div>
-          <div style="font-size:0.85em;color:var(--muted);">Last modified: ${date}</div>
-        </button>
-      `;
-    });
-    listsHTML += '</div>';
-  }
-  
-  overlay.innerHTML = `
-    <div class="custom-modal-box" style="min-width:500px;max-width:600px;">
-      <button type="button" id="close-load-modal" class="custom-modal-close"><i class="fa-solid fa-xmark"></i></button>
-      <h2 class="custom-modal-h2">Load Task List</h2>
-      ${listsHTML}
-      <div class="custom-modal-btnrow" style="margin-top:20px;">
-        <button type="button" class="btn btn-secondary custom-modal-btn" id="cancel-load">Cancel</button>
-      </div>
-    </div>
-  `;
-  
-  document.body.appendChild(overlay);
-  
-  overlay.querySelector('#close-load-modal').onclick = () => overlay.remove();
-  overlay.querySelector('#cancel-load').onclick = () => overlay.remove();
-  
-  // Add hover effect and click handlers
-  overlay.querySelectorAll('.list-item-btn').forEach(btn => {
-    btn.onmouseover = () => {
-      btn.style.background = 'var(--hover-bg)';
-      btn.style.borderColor = 'var(--accent)';
-    };
-    btn.onmouseout = () => {
-      btn.style.background = 'var(--panel-2)';
-      btn.style.borderColor = 'var(--border)';
-    };
-    btn.onclick = () => {
-      const name = btn.getAttribute('data-name');
-      overlay.remove();
-      onLoad(name);
-    };
-  });
-}
-
-// Add Ctrl+S keyboard shortcut to save
-document.addEventListener('keydown', (e) => {
-  if ((e.ctrlKey || e.metaKey) && e.key === 's') {
-    e.preventDefault(); // Prevent browser's default save dialog
-    document.getElementById('save-tasks-btn').click();
-  }
 });
