@@ -18,30 +18,43 @@ This guide will help you integrate your Task List with Google Sheets so tasks ar
 2. Delete any existing code and paste the following:
 
 ```javascript
-// Google Apps Script to handle Task List data with JSONP support
+// Google Apps Script to handle Multiple Task Lists with JSONP support
 
 function doGet(e) {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Tasks');
   const callback = e.parameter.callback;
+  const action = e.parameter.action;
   
   let output;
   
-  if (!sheet) {
-    output = {
-      data: { sections: [] }
-    };
-  } else {
-    const data = sheet.getRange('A1').getValue();
-    
-    if (!data) {
-      output = {
-        data: { sections: [] }
-      };
+  if (action === 'list') {
+    // Return list of all saved task lists
+    if (!sheet) {
+      output = { lists: [] };
     } else {
-      output = {
-        data: JSON.parse(data)
-      };
+      const data = sheet.getDataRange().getValues();
+      const lists = data.slice(1).map(row => ({
+        name: row[0],
+        timestamp: row[2]
+      })).filter(item => item.name);
+      output = { lists: lists };
     }
+  } else if (action === 'load') {
+    // Load a specific task list by name
+    const listName = e.parameter.name;
+    if (!sheet || !listName) {
+      output = { data: { sections: [] } };
+    } else {
+      const data = sheet.getDataRange().getValues();
+      const row = data.slice(1).find(r => r[0] === listName);
+      if (!row || !row[1]) {
+        output = { data: { sections: [] } };
+      } else {
+        output = { data: JSON.parse(row[1]) };
+      }
+    }
+  } else {
+    output = { error: 'Invalid action' };
   }
   
   // Support JSONP for CORS
@@ -57,22 +70,51 @@ function doGet(e) {
 function doPost(e) {
   try {
     const requestData = JSON.parse(e.postData.contents);
+    const listName = requestData.name;
+    const taskData = requestData.data;
+    
+    if (!listName) {
+      return ContentService.createTextOutput(JSON.stringify({
+        success: false,
+        error: 'List name is required'
+      })).setMimeType(ContentService.MimeType.JSON);
+    }
+    
     let sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Tasks');
     
     if (!sheet) {
       // Create the Tasks sheet if it doesn't exist
       sheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet('Tasks');
+      // Add headers
+      sheet.getRange('A1:C1').setValues([['List Name', 'Data', 'Last Modified']]);
+      sheet.getRange('A1:C1').setFontWeight('bold');
     }
     
-    sheet.getRange('A1').setValue(JSON.stringify(requestData.data));
-    
-    // Also save a backup with timestamp in column B
     const timestamp = new Date().toISOString();
-    sheet.getRange('B1').setValue(timestamp);
+    const data = sheet.getDataRange().getValues();
+    
+    // Find existing row with this list name
+    let rowIndex = -1;
+    for (let i = 1; i < data.length; i++) {
+      if (data[i][0] === listName) {
+        rowIndex = i + 1; // +1 because getRange is 1-indexed
+        break;
+      }
+    }
+    
+    if (rowIndex > 0) {
+      // Update existing row
+      sheet.getRange(rowIndex, 2).setValue(JSON.stringify(taskData));
+      sheet.getRange(rowIndex, 3).setValue(timestamp);
+    } else {
+      // Append new row
+      sheet.appendRow([listName, JSON.stringify(taskData), timestamp]);
+    }
     
     return ContentService.createTextOutput(JSON.stringify({
       success: true,
-      timestamp: timestamp
+      timestamp: timestamp,
+      name: listName
     })).setMimeType(ContentService.MimeType.JSON);
   } catch (error) {
     return ContentService.createTextOutput(JSON.stringify({
