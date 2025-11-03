@@ -1,5 +1,69 @@
 // Wired2Fire Task List – Prioritised (JavaScript extracted)
 
+// Google Sheets Configuration
+const GOOGLE_SHEETS_CONFIG = {
+  // Replace with your actual Google Sheet ID from the URL
+  // URL format: https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/edit
+  sheetId: '1AdNWF6lnSWquXMop9MYDDI4h-4NXT5HzISFg8MVHeT0',
+  // Replace with your Google Apps Script Web App URL
+  webAppUrl: 'https://script.google.com/macros/s/AKfycby9s4_CtlxXWkI_aiyhQhgvthlq2K8FHh2LnP1IVuVz-szYhtY86QocE3y4ma1gSEtwZw/exec'
+};
+
+// Save tasks to Google Sheets
+async function saveToGoogleSheets(data) {
+  try {
+    const response = await fetch(GOOGLE_SHEETS_CONFIG.webAppUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        action: 'save',
+        data: data
+      })
+    });
+    return true;
+  } catch (error) {
+    console.error('Error saving to Google Sheets:', error);
+    throw error;
+  }
+}
+
+// Load tasks from Google Sheets
+async function loadFromGoogleSheets() {
+  return new Promise((resolve, reject) => {
+    // Use JSONP to avoid CORS issues
+    const callbackName = 'googleSheetsCallback_' + Date.now();
+    const script = document.createElement('script');
+    const timeout = setTimeout(() => {
+      cleanup();
+      reject(new Error('Request timeout'));
+    }, 10000);
+    
+    function cleanup() {
+      clearTimeout(timeout);
+      delete window[callbackName];
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    }
+    
+    window[callbackName] = function(response) {
+      cleanup();
+      resolve(response.data);
+    };
+    
+    script.onerror = function() {
+      cleanup();
+      reject(new Error('Script load error'));
+    };
+    
+    script.src = `${GOOGLE_SHEETS_CONFIG.webAppUrl}?action=load&callback=${callbackName}`;
+    document.head.appendChild(script);
+  });
+}
+
 // Show a custom confirm modal overlay (global scope)
 function showConfirmModal({ message, onConfirm }) {
   if (document.getElementById('custom-confirm-modal')) return;
@@ -268,8 +332,52 @@ function domToJson() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // Load tasks from user-selected JSON file
-  document.getElementById('load-tasks-btn').onclick = () => {
+  // Load tasks from Google Sheets
+  document.getElementById('load-tasks-btn').onclick = async () => {
+    try {
+      const loadingMsg = document.createElement('div');
+      loadingMsg.textContent = 'Loading from Google Sheets...';
+      loadingMsg.style.position = 'fixed';
+      loadingMsg.style.bottom = '32px';
+      loadingMsg.style.right = '32px';
+      loadingMsg.style.background = 'var(--panel)';
+      loadingMsg.style.color = 'var(--text)';
+      loadingMsg.style.padding = '14px 28px';
+      loadingMsg.style.borderRadius = '12px';
+      loadingMsg.style.boxShadow = '0 4px 16px #0007';
+      loadingMsg.style.fontWeight = '700';
+      loadingMsg.style.fontSize = '1.1em';
+      loadingMsg.style.zIndex = 20000;
+      document.body.appendChild(loadingMsg);
+
+      const data = await loadFromGoogleSheets();
+      renderTasks(data);
+      
+      loadingMsg.textContent = 'Tasks loaded successfully!';
+      loadingMsg.style.background = 'var(--green)';
+      setTimeout(() => loadingMsg.remove(), 1800);
+    } catch (error) {
+      alert('Failed to load from Google Sheets: ' + error.message);
+      const msg = document.createElement('div');
+      msg.textContent = 'Google Sheets load failed';
+      msg.style.position = 'fixed';
+      msg.style.bottom = '32px';
+      msg.style.right = '32px';
+      msg.style.background = 'var(--red)';
+      msg.style.color = '#fff';
+      msg.style.padding = '14px 28px';
+      msg.style.borderRadius = '12px';
+      msg.style.boxShadow = '0 4px 16px #0007';
+      msg.style.fontWeight = '700';
+      msg.style.fontSize = '1.1em';
+      msg.style.zIndex = 20000;
+      document.body.appendChild(msg);
+      setTimeout(() => msg.remove(), 1800);
+    }
+  };
+
+  // Load tasks from local JSON file
+  document.getElementById('load-file-btn').onclick = () => {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = '.json,application/json';
@@ -283,6 +391,21 @@ document.addEventListener('DOMContentLoaded', async () => {
           console.log('Loaded JSON:', data);
           try {
             renderTasks(data);
+            const msg = document.createElement('div');
+            msg.textContent = 'Tasks loaded from file!';
+            msg.style.position = 'fixed';
+            msg.style.bottom = '32px';
+            msg.style.right = '32px';
+            msg.style.background = 'var(--green)';
+            msg.style.color = '#fff';
+            msg.style.padding = '14px 28px';
+            msg.style.borderRadius = '12px';
+            msg.style.boxShadow = '0 4px 16px #0007';
+            msg.style.fontWeight = '700';
+            msg.style.fontSize = '1.1em';
+            msg.style.zIndex = 20000;
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 1800);
           } catch (renderErr) {
             console.error('Error in renderTasks:', renderErr);
             alert('Error rendering tasks: ' + renderErr.message);
@@ -297,26 +420,52 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
     input.click();
   };
-  // Save tasks to JSON file on Save button click
-  document.getElementById('save-tasks-btn').onclick = () => {
+
+  // Save tasks to Google Sheets
+  document.getElementById('save-tasks-btn').onclick = async () => {
     const data = domToJson();
-    downloadJson(data, 'tasks.json');
-    // Show a quick visual feedback
-    const msg = document.createElement('div');
-    msg.textContent = 'Tasks exported as tasks.json';
-    msg.style.position = 'fixed';
-    msg.style.bottom = '32px';
-    msg.style.right = '32px';
-    msg.style.background = 'var(--panel)';
-    msg.style.color = 'var(--text)';
-    msg.style.padding = '14px 28px';
-    msg.style.borderRadius = '12px';
-    msg.style.boxShadow = '0 4px 16px #0007';
-    msg.style.fontWeight = '700';
-    msg.style.fontSize = '1.1em';
-    msg.style.zIndex = 20000;
-    document.body.appendChild(msg);
-    setTimeout(() => msg.remove(), 1800);
+    
+    try {
+      const savingMsg = document.createElement('div');
+      savingMsg.textContent = 'Saving to Google Sheets...';
+      savingMsg.style.position = 'fixed';
+      savingMsg.style.bottom = '32px';
+      savingMsg.style.right = '32px';
+      savingMsg.style.background = 'var(--panel)';
+      savingMsg.style.color = 'var(--text)';
+      savingMsg.style.padding = '14px 28px';
+      savingMsg.style.borderRadius = '12px';
+      savingMsg.style.boxShadow = '0 4px 16px #0007';
+      savingMsg.style.fontWeight = '700';
+      savingMsg.style.fontSize = '1.1em';
+      savingMsg.style.zIndex = 20000;
+      document.body.appendChild(savingMsg);
+
+      await saveToGoogleSheets(data);
+      
+      savingMsg.textContent = 'Tasks saved to Google Sheets!';
+      savingMsg.style.background = 'var(--green)';
+      setTimeout(() => savingMsg.remove(), 1800);
+    } catch (error) {
+      alert('Failed to save to Google Sheets. Downloading local backup instead...');
+      // Fallback to local download
+      downloadJson(data, 'tasks.json');
+      const msg = document.createElement('div');
+      msg.textContent = 'Tasks exported as tasks.json';
+      msg.style.position = 'fixed';
+      msg.style.bottom = '32px';
+      msg.style.right = '32px';
+      msg.style.background = 'var(--panel)';
+      msg.style.color = 'var(--text)';
+      msg.style.padding = '14px 28px';
+      msg.style.borderRadius = '12px';
+      msg.style.boxShadow = '0 4px 16px #0007';
+      msg.style.fontWeight = '700';
+      msg.style.fontSize = '1.1em';
+      msg.style.zIndex = 20000;
+      document.body.appendChild(msg);
+      setTimeout(() => msg.remove(), 1800);
+    }
   };
   // Add section button handler (always works, appends to #task-sections)
   document.getElementById('add-section-btn').onclick = () => {
