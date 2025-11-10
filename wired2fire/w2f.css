@@ -62,7 +62,7 @@ body {
 
 /* OFFSCREEN PANEL NAVIGATION */
 .offcanvas-header .btn-close {
-    background-image: url(../w2f/icons/x-square.svg);
+    background-image: url(w2f/icons/x-square.svg);
 }
 
 h5.offcanvas-title {
