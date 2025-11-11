@@ -273,7 +273,7 @@
     <!-- Hero Section -->
     <section class="hero-section d-flex align-items-center">
         <video id="bgVideo" muted playsinline>
-            <source src="w2f/videos/homepage.mp4" type="video/mp4">
+            <source src="w2f/videos/PCBuild.mp4" type="video/mp4">
         </video>
         <div class="container hero-content">
             <div class="row justify-content-center text-center">
@@ -712,25 +712,86 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Scroll-driven video playback
+        // Scroll-driven video playback with page lock
         const video = document.getElementById('bgVideo');
+        let scrollAccumulator = 0;
+        let isPageLocked = true;
+        let hasUnlocked = false;
+        const unlockAfterSeconds = 10; // Unlock page after video reaches 10 seconds
+        const startTime = 3;
         
-        window.addEventListener('scroll', () => {
-            // Get scroll position
-            const scrollPosition = window.scrollY;
-            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        // Handle wheel events to progress video
+        window.addEventListener('wheel', (e) => {
+            if (!video.duration) return;
             
-            // Calculate video time based on scroll (0 to video duration)
-            if (video.duration) {
+            // Check if we're at the top of the page
+            const scrollPosition = window.scrollY;
+            
+            if (isPageLocked && !hasUnlocked) {
+                e.preventDefault();
+                
+                // Accumulate scroll to progress video
+                scrollAccumulator += e.deltaY * 0.002;
+                
+                // Calculate new video time
+                const newTime = startTime + Math.min(scrollAccumulator, unlockAfterSeconds - startTime);
+                video.currentTime = Math.max(startTime, newTime);
+                
+                // Check if we've reached the unlock time
+                if (video.currentTime >= unlockAfterSeconds) {
+                    isPageLocked = false;
+                    hasUnlocked = true;
+                    document.body.style.overflow = '';
+                    console.log('Page unlocked! Video duration:', video.duration, 'seconds');
+                }
+            } else if (hasUnlocked && scrollPosition === 0 && e.deltaY < 0) {
+                // At top and scrolling up - re-lock the page and play video in reverse
+                e.preventDefault();
+                isPageLocked = true;
+                
+                // Decrease scroll accumulator (reverse)
+                scrollAccumulator += e.deltaY * 0.002;
+                scrollAccumulator = Math.max(0, scrollAccumulator);
+                
+                // Update video time
+                const newTime = startTime + scrollAccumulator;
+                video.currentTime = Math.max(startTime, Math.min(newTime, unlockAfterSeconds));
+                
+                // Lock the page overflow
+                document.body.style.overflow = 'hidden';
+                
+                // If we've gone back to the start, reset state
+                if (scrollAccumulator <= 0) {
+                    hasUnlocked = false;
+                    console.log('Back to start - page locked');
+                }
+            }
+        }, { passive: false });
+        
+        // Normal scroll handler for after unlock
+        window.addEventListener('scroll', () => {
+            if (!isPageLocked && video.duration) {
+                const scrollPosition = window.scrollY;
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
                 const scrollPercent = scrollPosition / maxScroll;
-                video.currentTime = video.duration * scrollPercent;
+                
+                // If scrolled back to top, prepare for re-locking
+                if (scrollPosition === 0) {
+                    video.currentTime = unlockAfterSeconds;
+                    scrollAccumulator = unlockAfterSeconds - startTime;
+                } else {
+                    // Continue from unlock point to end of video
+                    const remainingDuration = video.duration - unlockAfterSeconds;
+                    video.currentTime = unlockAfterSeconds + (remainingDuration * scrollPercent);
+                }
             }
         });
         
         // Ensure video metadata is loaded
         video.addEventListener('loadedmetadata', () => {
-            // Set initial frame
-            video.currentTime = 0;
+            video.currentTime = startTime;
+            document.body.style.overflow = 'hidden';
+            console.log('Video loaded. Duration:', video.duration, 'seconds');
         });
     </script>
 </body>
