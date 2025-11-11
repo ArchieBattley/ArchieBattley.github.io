@@ -167,6 +167,123 @@
             transform: scale(1.02);
         }
         
+        /* Scroll Indicator */
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        .mouse-icon {
+            width: 26px;
+            height: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 13px;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .mouse-wheel {
+            width: 4px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 2px;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scroll-wheel 1.5s infinite;
+        }
+        
+        .scroll-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+        
+        /* Category Section */
+        .category-section {
+            background: #fff;
+        }
+        
+        .category-card {
+            display: block;
+            text-decoration: none;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .category-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            transition: transform 0.5s ease;
+        }
+        
+        .category-card:hover .category-image {
+            transform: scale(1.1);
+        }
+        
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(245, 137, 31, 0.7) 0%, rgba(245, 137, 31, 0.5) 100%);
+            transition: opacity 0.3s ease;
+        }
+        
+        .category-card:hover .category-overlay {
+            background: linear-gradient(135deg, rgba(245, 137, 31, 0.8) 0%, rgba(245, 137, 31, 0.6) 100%);
+        }
+        
+        .category-title {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 700;
+            z-index: 10;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            margin: 0;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        @keyframes scroll-wheel {
+            0% {
+                opacity: 1;
+                top: 8px;
+            }
+            100% {
+                opacity: 0;
+                top: 20px;
+            }
+        }
+        
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 3rem;
@@ -287,11 +404,53 @@
                     <a href="configurator.html" class="btn btn-warning cta-button rounded-pill">
                         Start Building <i class="fas fa-arrow-right ms-2" aria-hidden="true"></i>
                     </a>
+                    
+                    <!-- Scroll Indicator -->
+                    <div class="scroll-indicator mt-5">
+                        <div class="mouse-icon">
+                            <div class="mouse-wheel"></div>
+                        </div>
+                        <p class="scroll-text mt-2">Scroll</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Category Section -->
+    <section class="category-section py-5">
+        <div class="container">
+            <div class="row g-0">
+                <!-- Gaming PCs -->
+                <div class="col-md-6 col-lg-3">
+                    <a href="https://wired2fire.co.uk/gaming-pcs/">
+                        <img src="https://wired2fire.co.uk/wp-content/uploads/2024/07/pexels-a-darmel-7862520-scaled.jpg.webp" alt="Gaming PCs" class="img-fluid w-100">
+                    </a>
+                </div>
+                
+                <!-- Flight Sim PCs -->
+                <div class="col-md-6 col-lg-3">
+                    <a href="https://wired2fire.co.uk/flight-sim-pcs/">
+                        <img src="https://wired2fire.co.uk/wp-content/uploads/2024/07/homepage_tile_flight_sim_v1.jpg" alt="Flight Sim PCs" class="img-fluid w-100">
+                    </a>
+                </div>
+                
+                <!-- Workstations -->
+                <div class="col-md-6 col-lg-3">
+                    <a href="https://wired2fire.co.uk/workstations/">
+                        <img src="https://wired2fire.co.uk/wp-content/uploads/2024/07/pexels-xexusdesigner-777001-scaled.jpg" alt="Workstations" class="img-fluid w-100">
+                    </a>
+                </div>
+                
+                <!-- Laptops -->
+                <div class="col-md-6 col-lg-3">
+                    <a href="https://wired2fire.co.uk/gaming-laptops/">
+                        <img src="https://wired2fire.co.uk/wp-content/uploads/2024/07/laptops-scaled.jpg.webp" alt="Laptops" class="img-fluid w-100">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Featured PCs Section -->
     <section class="feature-section" style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
@@ -717,8 +876,28 @@
         let scrollAccumulator = 0;
         let isPageLocked = true;
         let hasUnlocked = false;
-        const unlockAfterSeconds = 10; // Unlock page after video reaches 10 seconds
-        const startTime = 3;
+        const unlockAfterSeconds = 5; // Unlock page after video reaches 5 seconds
+        const startTime = 0;
+        let targetVideoTime = 0;
+        let currentVideoTime = 0;
+        
+        // Smooth interpolation for video time
+        function smoothVideoUpdate() {
+            // Lerp (linear interpolation) towards target time
+            const lerpSpeed = 0.15; // Adjust for smoothness (0.1 = slower, 0.3 = faster)
+            currentVideoTime += (targetVideoTime - currentVideoTime) * lerpSpeed;
+            
+            // Only update if there's a meaningful difference
+            if (Math.abs(currentVideoTime - video.currentTime) > 0.01) {
+                video.currentTime = currentVideoTime;
+            }
+            
+            // Continue animation
+            requestAnimationFrame(smoothVideoUpdate);
+        }
+        
+        // Start smooth update loop
+        smoothVideoUpdate();
         
         // Handle wheel events to progress video
         window.addEventListener('wheel', (e) => {
@@ -728,34 +907,38 @@
             const scrollPosition = window.scrollY;
             
             if (isPageLocked && !hasUnlocked) {
-                e.preventDefault();
-                
-                // Accumulate scroll to progress video
-                scrollAccumulator += e.deltaY * 0.002;
-                
-                // Calculate new video time
-                const newTime = startTime + Math.min(scrollAccumulator, unlockAfterSeconds - startTime);
-                video.currentTime = Math.max(startTime, newTime);
-                
-                // Check if we've reached the unlock time
-                if (video.currentTime >= unlockAfterSeconds) {
-                    isPageLocked = false;
-                    hasUnlocked = true;
-                    document.body.style.overflow = '';
-                    console.log('Page unlocked! Video duration:', video.duration, 'seconds');
+                // Only prevent scrolling DOWN, allow scrolling UP
+                if (e.deltaY > 0) {
+                    e.preventDefault();
+                    
+                    // Accumulate scroll to progress video
+                    scrollAccumulator += e.deltaY * 0.005; // Increased for smoother feel
+                    
+                    // Calculate new video time
+                    const newTime = startTime + Math.min(scrollAccumulator, unlockAfterSeconds - startTime);
+                    targetVideoTime = Math.max(startTime, newTime);
+                    
+                    // Check if we've reached the unlock time
+                    if (targetVideoTime >= unlockAfterSeconds) {
+                        isPageLocked = false;
+                        hasUnlocked = true;
+                        document.body.style.overflow = '';
+                        console.log('Page unlocked! Video duration:', video.duration, 'seconds');
+                    }
                 }
-            } else if (hasUnlocked && scrollPosition === 0 && e.deltaY < 0) {
+                // Allow scrolling up naturally (no e.preventDefault())
+            } else if (hasUnlocked && scrollPosition <= 10 && e.deltaY < 0) {
                 // At top and scrolling up - re-lock the page and play video in reverse
                 e.preventDefault();
                 isPageLocked = true;
                 
                 // Decrease scroll accumulator (reverse)
-                scrollAccumulator += e.deltaY * 0.002;
+                scrollAccumulator += e.deltaY * 0.005;
                 scrollAccumulator = Math.max(0, scrollAccumulator);
                 
                 // Update video time
                 const newTime = startTime + scrollAccumulator;
-                video.currentTime = Math.max(startTime, Math.min(newTime, unlockAfterSeconds));
+                targetVideoTime = Math.max(startTime, Math.min(newTime, unlockAfterSeconds));
                 
                 // Lock the page overflow
                 document.body.style.overflow = 'hidden';
@@ -765,32 +948,88 @@
                     hasUnlocked = false;
                     console.log('Back to start - page locked');
                 }
+            } else if (isPageLocked && hasUnlocked && e.deltaY > 0) {
+                // Page is locked but scrolling down - allow re-unlocking
+                e.preventDefault();
+                
+                // Increase scroll accumulator (forward)
+                scrollAccumulator += e.deltaY * 0.005;
+                
+                // Update video time
+                const newTime = startTime + scrollAccumulator;
+                targetVideoTime = Math.max(startTime, Math.min(newTime, unlockAfterSeconds));
+                
+                // Check if we've reached the unlock time again
+                if (targetVideoTime >= unlockAfterSeconds) {
+                    isPageLocked = false;
+                    document.body.style.overflow = '';
+                    console.log('Page re-unlocked!');
+                }
             }
         }, { passive: false });
         
-        // Normal scroll handler for after unlock
+        // Normal scroll handler for after unlock - throttled for performance
+        let scrollTimeout;
+        let lastScrollY = 0;
+        
         window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            
+            // Always update video based on scroll when unlocked
             if (!isPageLocked && video.duration) {
-                const scrollPosition = window.scrollY;
-                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-                const scrollPercent = scrollPosition / maxScroll;
-                
-                // If scrolled back to top, prepare for re-locking
-                if (scrollPosition === 0) {
-                    video.currentTime = unlockAfterSeconds;
-                    scrollAccumulator = unlockAfterSeconds - startTime;
-                } else {
-                    // Continue from unlock point to end of video
-                    const remainingDuration = video.duration - unlockAfterSeconds;
-                    video.currentTime = unlockAfterSeconds + (remainingDuration * scrollPercent);
+                if (scrollTimeout) {
+                    cancelAnimationFrame(scrollTimeout);
                 }
+                
+                scrollTimeout = requestAnimationFrame(() => {
+                    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                    const scrollPercent = Math.max(0, Math.min(1, scrollPosition / maxScroll));
+                    
+                    // If scrolled back to top, prepare for re-locking
+                    if (scrollPosition <= 10) { // Small threshold for top
+                        targetVideoTime = unlockAfterSeconds;
+                        scrollAccumulator = unlockAfterSeconds - startTime;
+                    } else {
+                        // Continue from unlock point to end of video
+                        const remainingDuration = video.duration - unlockAfterSeconds;
+                        targetVideoTime = unlockAfterSeconds + (remainingDuration * scrollPercent);
+                    }
+                    
+                    lastScrollY = scrollPosition;
+                });
             }
-        });
+        }, { passive: true });
         
         // Ensure video metadata is loaded
         video.addEventListener('loadedmetadata', () => {
-            video.currentTime = startTime;
-            document.body.style.overflow = 'hidden';
+            // Check current scroll position on page load
+            const scrollPosition = window.scrollY;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = Math.max(0, Math.min(1, scrollPosition / maxScroll));
+            
+            if (scrollPosition > 10) {
+                // Page is already scrolled - unlock immediately and set video to appropriate time
+                isPageLocked = false;
+                hasUnlocked = true;
+                document.body.style.overflow = '';
+                
+                // Set video time based on scroll position
+                const remainingDuration = video.duration - unlockAfterSeconds;
+                const videoTime = unlockAfterSeconds + (remainingDuration * scrollPercent);
+                video.currentTime = videoTime;
+                currentVideoTime = videoTime;
+                targetVideoTime = videoTime;
+                scrollAccumulator = unlockAfterSeconds - startTime;
+                
+                console.log('Page loaded scrolled - unlocked at scroll position:', scrollPosition);
+            } else {
+                // At top of page - start locked
+                video.currentTime = 0;
+                currentVideoTime = 0;
+                targetVideoTime = 0;
+                document.body.style.overflow = 'hidden';
+            }
+            
             console.log('Video loaded. Duration:', video.duration, 'seconds');
         });
     </script>
