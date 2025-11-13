@@ -1,0 +1,126 @@
+/* Dark Theme Overrides for Wired2Fire */
+
+body {
+    background-color: #0a0a0a !important;
+    color: #e0e0e0 !important;
+}
+
+/* Feature Section */
+.feature-section {
+  background-color: #0a0a0a !important;
+}
+
+.feature-card {
+  background: #1a1a1a !important;
+  border: 1px solid #2a2a2a !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+.feature-card:hover {
+  box-shadow: 0 10px 40px rgba(245, 137, 31, 0.2) !important;
+  border-color: #f5891f !important;
+}
+
+.feature-title {
+  color: #ffffff !important;
+}
+
+.feature-text {
+  color: #b0b0b0 !important;
+}
+
+/* Configurator Preview */
+.configurator-preview {
+  background: #0f0f0f !important;
+}
+
+/* Category Section */
+.category-section {
+  background: #0a0a0a !important;
+}
+
+/* Promo Carousel Section */
+.promo-carousel-section {
+  background: #0a0a0a !important;
+}
+
+/* PC Journey Tabs */
+#pcJourneyTabs {
+  border-bottom: 2px solid #2a2a2a !important;
+}
+
+#pcJourneyTabs .nav-link {
+  color: #888 !important;
+}
+
+/* Section Titles and Subtitles */
+.section-title {
+  color: #ffffff !important;
+}
+
+.section-subtitle {
+  color: #b0b0b0 !important;
+}
+
+/* Product Cards */
+.card-body a.text-dark {
+  color: #e0e0e0 !important;
+}
+
+.card-body .border-bottom {
+  border-color: #2a2a2a !important;
+}
+
+.card-body .text-muted {
+  color: #888 !important;
+}
+
+.card-body small {
+  color: #b0b0b0 !important;
+}
+
+/* Text Color Overrides */
+.text-dark {
+  color: #e0e0e0 !important;
+  font-weight: 500 !important;
+}
+
+.text-muted {
+  color: #999 !important;
+  font-weight: 400 !important;
+}
+
+p.text-dark {
+  color: #e0e0e0 !important;
+  font-weight: 500 !important;
+}
+
+p.text-muted {
+  color: #999 !important;
+  font-weight: 400 !important;
+}
+
+h2.text-dark {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.feature-text {
+  color: #b0b0b0 !important;
+  font-weight: 400 !important;
+}
+
+.section-subtitle {
+  color: #b0b0b0 !important;
+  font-weight: 500 !important;
+}
+
+/* Featured PC Section Gradient Override */
+.feature-section[style*="linear-gradient"] {
+  background: #0a0a0a !important;
+}
+
+/* Product Info Section Override */
+section.feature-section[style*="linear-gradient"] {
+  background: #0a0a0a !important;
+}
