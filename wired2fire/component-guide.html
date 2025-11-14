@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Wired2Fire Component Guide | UI Design System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="w2f.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/b5231a70fd.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 80px;
+        }
+        .component-section {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        .component-header {
+            border-bottom: 3px solid #f5891f;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        .component-header h2 {
+            color: #1a1a1a;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .component-header p {
+            color: #666;
+            margin-bottom: 0;
+        }
+        .code-block {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            overflow-x: auto;
+        }
+        .code-block pre {
+            margin: 0;
+            color: #fff;
+        }
+        .example-box {
+            border: 2px dashed #e0e0e0;
+            padding: 2rem;
+            border-radius: 8px;
+            background: #fafafa;
+            margin-bottom: 1.5rem;
+        }
+        .color-swatch {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        .color-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            display: block;
+        }
+        .spacing-example {
+            background: #f5891f;
+            color: white;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .nav-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+        .nav-sidebar .nav-link {
+            color: #666;
+            padding: 0.5rem 1rem;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .nav-sidebar .nav-link:hover,
+        .nav-sidebar .nav-link.active {
+            color: #f5891f;
+            border-left-color: #f5891f;
+            background-color: #fff;
+        }
+        .guide-header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+        }
+        .variable-table {
+            width: 100%;
+            margin-top: 1rem;
+        }
+        .variable-table th {
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem;
+            font-weight: 600;
+        }
+        .variable-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Guide Header -->
+<div class="guide-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <img src="w2f/img/logos/w2flogo.svg" width="200" height="auto" alt="Wired2Fire" class="mb-4">
+                <h1 class="display-4 fw-bold mb-3">Component & Element Guide</h1>
+                <p class="lead mb-0">UI Design System for Wired2Fire Web Development</p>
+                <p class="text-muted">Reference guide for developers implementing mockups to live pages</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <!-- Sidebar Navigation -->
+        <div class="col-lg-3">
+            <nav class="nav-sidebar">
+                <nav class="nav flex-column">
+                    <a class="nav-link active" href="#colors">Brand Colors</a>
+                    <a class="nav-link" href="#typography">Typography</a>
+                    <a class="nav-link" href="#buttons">Buttons</a>
+                    <a class="nav-link" href="#cards">Product Cards</a>
+                    <a class="nav-link" href="#badges">Badges</a>
+                    <a class="nav-link" href="#accordions">Accordions</a>
+                    <a class="nav-link" href="#tabs">Tabs</a>
+                    <a class="nav-link" href="#navigation">Navigation</a>
+                    <a class="nav-link" href="#sections">Hero Sections</a>
+                    <a class="nav-link" href="#grids">Grid Layouts</a>
+                    <a class="nav-link" href="#spacing">Spacing System</a>
+                    <a class="nav-link" href="#page-scoping">Page Scoping</a>
+                </nav>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-lg-9">
+
+            <!-- BRAND COLORS -->
+            <section id="colors" class="component-section">
+                <div class="component-header">
+                    <h2>Brand Colors</h2>
+                    <p>Core color palette for Wired2Fire branding and UI elements</p>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="color-swatch" style="background: #f5891f;"></div>
+                        <span class="color-label">Primary Orange<br>#f5891f</span>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="color-swatch" style="background: #ff9933;"></div>
+                        <span class="color-label">Hover Orange<br>#ff9933</span>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="color-swatch" style="background: #ffbd72;"></div>
+                        <span class="color-label">Light Orange<br>#ffbd72</span>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="color-swatch" style="background: #1a1a1a;"></div>
+                        <span class="color-label">Dark Primary<br>#1a1a1a</span>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="color-swatch" style="background: #2d2d2d;"></div>
+                        <span class="color-label">Dark Secondary<br>#2d2d2d</span>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="color-swatch" style="background: #666;"></div>
+                        <span class="color-label">Text Gray<br>#666</span>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="color-swatch" style="background: #f8f9fa;"></div>
+                        <span class="color-label">Background Gray<br>#f8f9fa</span>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="color-swatch" style="background: #fff; border: 1px solid #ddd;"></div>
+                        <span class="color-label">White<br>#fff</span>
+                    </div>
+                </div>
+
+                <div class="code-block">
+                    <pre>/* CSS Variables - Add to root */
+:root {
+  --w2f-primary: #f5891f;
+  --w2f-primary-hover: #ff9933;
+  --w2f-primary-light: #ffbd72;
+  --w2f-dark-primary: #1a1a1a;
+  --w2f-dark-secondary: #2d2d2d;
+  --w2f-text-gray: #666;
+  --w2f-bg-gray: #f8f9fa;
+}</pre>
+                </div>
+            </section>
+
+            <!-- TYPOGRAPHY -->
+            <section id="typography" class="component-section">
+                <div class="component-header">
+                    <h2>Typography</h2>
+                    <p>Font family, sizes, and text styles</p>
+                </div>
+
+                <h4 class="mb-3">Font Family</h4>
+                <p><strong>Primary Font:</strong> Red Hat Text (Google Fonts)</p>
+                
+                <div class="code-block">
+                    <pre>&lt;link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet" /&gt;
+
+body {
+  font-family: 'Red Hat Text', sans-serif;
+}</pre>
+                </div>
+
+                <h4 class="mt-4 mb-3">Heading Styles</h4>
+                <div class="example-box">
+                    <h1 class="mb-3">Heading 1 - Hero Title (3.5rem - 5rem)</h1>
+                    <h2 class="mb-3">Heading 2 - Section Title (2.5rem)</h2>
+                    <h3 class="mb-3">Heading 3 - Subsection (2rem)</h3>
+                    <h4 class="mb-3">Heading 4 - Card Title (1.5rem)</h4>
+                    <p class="lead">Lead Paragraph - Intro text (1.2rem)</p>
+                    <p>Body Text - Standard paragraph (1rem, line-height: 1.7-1.8)</p>
+                </div>
+
+                <div class="code-block">
+                    <pre>/* Hero Titles */
+h1 { font-size: 3.5rem; font-weight: 700; }
+
+/* Section Headers */
+h2 { font-size: 2.5rem; font-weight: 700; }
+
+/* Card/Component Titles */
+h4 { font-size: 1.5rem; font-weight: 600-700; }
+
+/* Body Text */
+p { font-size: 1.1rem; line-height: 1.7-1.8; color: #666; }</pre>
+                </div>
+            </section>
+
+            <!-- BUTTONS -->
+            <section id="buttons" class="component-section">
+                <div class="component-header">
+                    <h2>Buttons</h2>
+                    <p>Primary CTA buttons and button variants</p>
+                </div>
+
+                <h4 class="mb-3">Primary Button (Success/Orange)</h4>
+                <div class="example-box">
+                    <button class="btn btn-success">Standard Button</button>
+                    <button class="btn btn-success btn-lg px-5 mt-3">Large CTA Button</button>
+                    <button class="btn btn-success" disabled>Disabled Button</button>
+                </div>
+
+                <div class="code-block">
+                    <pre>&lt;button class="btn btn-success"&gt;Button Text&lt;/button&gt;
+&lt;button class="btn btn-success btn-lg px-5"&gt;Large CTA&lt;/button&gt;
+
+/* CSS */
+.btn-success {
+  background-color: #f5891f !important;
+  border-color: #f5891f !important;
+  color: white !important;
+}
+
+.btn-success:hover {
+  background-color: #ffbd72 !important;
+  border-color: #d97706 !important;
+  color: black !important;
+}</pre>
+                </div>
+
+                <h4 class="mt-4 mb-3">Configure Button (Product Cards)</h4>
+                <div class="example-box">
+                    <a href="#" class="btn btn-configure">Configure This PC</a>
+                    <a href="#" class="btn btn-configure mt-3">View All Gaming PCs</a>
+                </div>
+
+                <div class="code-block">
+                    <pre>&lt;a href="#" class="btn btn-configure"&gt;Configure This PC&lt;/a&gt;
+
+/* CSS */
+.btn-configure {
+  background: #f5891f;
+  color: white;
+  border: none;
+  padding: 0.85rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-configure:hover {
+  background: #ff9933;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(245, 137, 31, 0.3);
+}</pre>
+                </div>
+
+                <h4 class="mt-4 mb-3">Squared Button V2 (Configurator)</h4>
+                <div class="example-box">
+                    <button class="btn btn-squared-v2">
+                        <img src="w2f/img/config/cases/1.webp" class="img-fluid rounded w-100" style="max-width: 120px;">
+                        <span class="btn-label">Case Option</span>
+                    </button>
+                    <button class="btn btn-squared-v2 active ms-3">
+                        <img src="w2f/img/config/cases/2.webp" class="img-fluid rounded w-100" style="max-width: 120px;">
+                        <span class="btn-label">Active Case</span>
+                    </button>
+                </div>
+
+                <div class="code-block">
+                    <pre>&lt;button class="btn btn-squared-v2 active"&gt;
+  &lt;img src="image.jpg" class="img-fluid rounded w-100"&gt;
+  &lt;span class="btn-label"&gt;Label Text&lt;/span&gt;
+&lt;/button&gt;
+
+/* CSS - Already in w2f.css */
+.btn-squared-v2 {
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px #00000005, 4px 4px 18px #00000026;
+  border: solid 1.5px #fff !important;
+}
+
+.btn-squared-v2.active {
+  border-color: #d97706 !important;
+  box-shadow: 0 0 0 1px #d97706 inset;
+}</pre>
+                </div>
+            </section>
+
+            <!-- PRODUCT CARDS -->
+            <section id="cards" class="component-section">
+                <div class="component-header">
+                    <h2>Product Cards</h2>
+                    <p>Standard product card layout for gaming PCs</p>
+                </div>
+
+                <div class="example-box">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card product-card d-flex flex-column h-100">
+                                <div class="card-body d-flex flex-column">
+                                    <div class="product-badge badge-next-day">Next Day</div>
+                                    <a href="#" class="text-decoration-none">
+                                        <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/Hero-1.png" alt="Gaming PC" class="card-img-top" style="max-height: 250px; object-fit: contain;">
+                                    </a>
+                                    <div class="d-flex flex-column h-100">
+                                        <h4 class="fw-semibold mb-2 product-title">
+                                            <a href="#" class="text-dark text-decoration-none">Example Gaming PC</a>
+                                        </h4>
+                                        <p class="mb-1 fs-4 fw-bold" style="color: #f5891f;">£1,999.99 <small class="text-muted fs-6">(inc VAT)</small></p>
+                                        <div class="mb-3">
+                                            <div class="product-spec-item">
+                                                <span class="spec-label">CPU</span>
+                                                <span class="spec-value">AMD Ryzen 7</span>
+                                            </div>
+                                            <div class="product-spec-item">
+                                                <span class="spec-label">GPU</span>
+                                                <span class="spec-value">RTX 5070 Ti</span>
+                                            </div>
+                                            <div class="product-spec-item">
+                                                <span class="spec-label">RAM</span>
+                                                <span class="spec-value">32GB DDR5</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-auto">
+                                            <a href="#" class="btn btn-configure w-100">Configure</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-block">
+                    <pre>&lt;div class="col-lg-3 col-md-6"&gt;
+  &lt;div class="card product-card d-flex flex-column h-100"&gt;
+    &lt;div class="card-body d-flex flex-column"&gt;
+      &lt;div class="product-badge badge-next-day"&gt;Next Day&lt;/div&gt;
+      &lt;a href="#"&gt;
+        &lt;img src="image.jpg" class="card-img-top" style="max-height: 250px; object-fit: contain;"&gt;
+      &lt;/a&gt;
+      &lt;div class="d-flex flex-column h-100"&gt;
+        &lt;h4 class="product-title"&gt;Product Name&lt;/h4&gt;
+        &lt;p class="mb-1 fs-4 fw-bold" style="color: #f5891f;"&gt;
+          £1,999.99 &lt;small class="text-muted fs-6"&gt;(inc VAT)&lt;/small&gt;
+        &lt;/p&gt;
+        &lt;div class="mb-3"&gt;
+          &lt;div class="product-spec-item"&gt;
+            &lt;span class="spec-label"&gt;CPU&lt;/span&gt;
+            &lt;span class="spec-value"&gt;AMD Ryzen 7&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="mt-auto"&gt;
+          &lt;a href="#" class="btn btn-configure w-100"&gt;Configure&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+            </section>
+
+            <!-- BADGES -->
+            <section id="badges" class="component-section">
+                <div class="component-header">
+                    <h2>Badges</h2>
+                    <p>Product badges for special categories and features</p>
+                </div>
+
+                <div class="example-box">
+                    <div class="position-relative d-inline-block me-3 mb-3">
+                        <div class="product-badge">Standard</div>
+                    </div>
+                    <div class="position-relative d-inline-block me-3 mb-3">
+                        <div class="product-badge badge-next-day">Next Day</div>
+                    </div>
+                    <div class="position-relative d-inline-block me-3 mb-3">
+                        <div class="product-badge badge-hot-deal">Hot Deal</div>
+                    </div>
+                    <div class="position-relative d-inline-block me-3 mb-3">
+                        <div class="product-badge badge-sim-ready">Sim Ready</div>
+                    </div>
+                    <div class="position-relative d-inline-block me-3 mb-3">
+                        <div class="product-badge badge-compact">Compact</div>
+                    </div>
+                </div>
+
+                <div class="code-block">
+                    <pre>&lt;div class="product-badge"&gt;Standard&lt;/div&gt;
+&lt;div class="product-badge badge-next-day"&gt;Next Day&lt;/div&gt;
+&lt;div class="product-badge badge-hot-deal"&gt;Hot Deal&lt;/div&gt;
+&lt;div class="product-badge badge-sim-ready"&gt;Sim Ready&lt;/div&gt;
+&lt;div class="product-badge badge-compact"&gt;Compact&lt;/div&gt;
+
+/* CSS - Use with .gaming-pcs-page scope */
+.product-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #f5891f;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.product-badge.badge-next-day { background: #28a745; }
+.product-badge.badge-hot-deal { background: #dc3545; }
+.product-badge.badge-sim-ready { background: #007bff; }
+.product-badge.badge-compact { background: #6f42c1; }</pre>
+                </div>
+            </section>
+
+            <!-- ACCORDIONS -->
+            <section id="accordions" class="component-section">
+                <div class="component-header">
+                    <h2>Accordions</h2>
+                    <p>FAQ and collapsible content sections</p>
+                </div>
+
+                <div class="example-box">
+                    <div class="accordion" id="exampleAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    What's included with every Wired2Fire PC?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#exampleAccordion">
+                                <div class="accordion-body">
+                                    Every system includes Windows 11, 5-year warranty, professional cable management, and expert assembly.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    How long does delivery take?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#exampleAccordion">
+                                <div class="accordion-body">
+                                    Standard builds: 10-15 working days. Next Day systems ship within 24 hours when ordered before 1PM.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-block">
+                    <pre>&lt;div class="accordion" id="accordionId"&gt;
+  &lt;div class="accordion-item"&gt;
+    &lt;h2 class="accordion-header"&gt;
+      &lt;button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne"&gt;
+        Question Text
+      &lt;/button&gt;
+    &lt;/h2&gt;
+    &lt;div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionId"&gt;
+      &lt;div class="accordion-body"&gt;
+        Answer content here
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+/* Styling automatically applied from w2f.css */
+/* For config menu accordions, add .config-menu class to parent */</pre>
+                </div>
+
+                <h4 class="mt-4 mb-3">Config Menu Accordion (Different Style)</h4>
+                <div class="example-box">
+                    <div class="accordion config-menu" id="configAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#configOne">
+                                    Processor Selection
+                                </button>
+                            </h2>
+                            <div id="configOne" class="accordion-collapse collapse show" data-bs-parent="#configAccordion">
+                                <div class="accordion-body">
+                                    Processor options would go here
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-block">
+                    <pre>&lt;div class="accordion config-menu" id="configAccordion"&gt;
+  &lt;!-- Accordion items --&gt;
+&lt;/div&gt;
+
+/* Config menu has orange bottom border when active */</pre>
+                </div>
+            </section>
+
+            <!-- TABS -->
+            <section id="tabs" class="component-section">
+                <div class="component-header">
+                    <h2>Tabs</h2>
+                    <p>Tab navigation for content sections</p>
+                </div>
+
+                <h4 class="mb-3">Standard Tabs</h4>
+                <div class="example-box">
+                    <ul class="nav nav-tabs" id="standardTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="tab1" data-bs-toggle="tab" data-bs-target="#content1" type="button">Tab 1</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="tab2" data-bs-toggle="tab" data-bs-target="#content2" type="button">Tab 2</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="content1">
+                            <p class="mt-3">Content for tab 1</p>
+                        </div>
+                        <div class="tab-pane fade" id="content2">
+                            <p class="mt-3">Content for tab 2</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mt-4 mb-3">PC Journey Tabs (Homepage Style)</h4>
+                <div class="example-box">
+                    <ul class="nav nav-tabs" id="pcJourneyTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#journey1" type="button">Gaming PCs</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#journey2" type="button">Workstations</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="code-block">
+                    <pre>&lt;!-- Standard tabs use default Bootstrap + w2f.css styling --&gt;
+
+&lt;!-- For homepage PC Journey tabs: --&gt;
+&lt;ul class="nav nav-tabs" id="pcJourneyTabs"&gt;
+  &lt;li class="nav-item"&gt;
+    &lt;button class="nav-link active" data-bs-toggle="tab"&gt;Tab Name&lt;/button&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</pre>
+                </div>
+            </section>
+
+            <!-- NAVIGATION -->
+            <section id="navigation" class="component-section">
+                <div class="component-header">
+                    <h2>Navigation</h2>
+                    <p>Header navigation with dropdown menus</p>
+                </div>
+
+                <div class="code-block">
+                    <pre>&lt;nav class="navbar navbar-expand-lg navbar-dark fixed-top"&gt;
+  &lt;div class="container-fluid w2f-footer-dark rounded m-3 p-2 ps-3 pe-3"&gt;
+    &lt;a class="navbar-brand" href="#"&gt;
+      &lt;img src="w2f/img/logos/w2flogo.svg" width="150" alt="Wired2Fire"&gt;
+    &lt;/a&gt;
+    &lt;button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"&gt;
+      &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="navbar-collapse collapse" id="navbarCollapse"&gt;
+      &lt;ul class="navbar-nav me-auto"&gt;
+        &lt;li class="nav-item dropdown"&gt;
+          &lt;a class="nav-link dropdown-toggle fw-bold" data-bs-toggle="dropdown"&gt;
+            Gaming PCs
+          &lt;/a&gt;
+          &lt;ul class="dropdown-menu bg-dark"&gt;
+            &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;View All&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+/* Key classes:
+- .w2f-footer-dark - Dark background container
+- .fw-bold - Bold navigation links
+- .bg-dark - Dark dropdown menus
+*/</pre>
+                </div>
+            </section>
+
+            <!-- HERO SECTIONS -->
+            <section id="sections" class="component-section">
+                <div class="component-header">
+                    <h2>Hero Sections</h2>
+                    <p>Page header sections with background images or gradients</p>
+                </div>
+
+                <h4 class="mb-3">Category Hero (Gaming PCs Style)</h4>
+                <div class="code-block">
+                    <pre>&lt;section class="category-hero" style="background-image: url('image.jpg'); background-size: cover; background-position: center; min-height: 500px; position: relative;"&gt;
+  &lt;div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5);"&gt;&lt;/div&gt;
+  &lt;div class="container position-relative h-100" style="z-index: 2;"&gt;
+    &lt;div class="row justify-content-center text-center align-items-center" style="min-height: 500px;"&gt;
+      &lt;div class="col-lg-10"&gt;
+        &lt;h1 style="font-size: 4.5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8);"&gt;Gaming PCs&lt;/h1&gt;
+        &lt;p class="lead" style="font-size: 1.5rem; text-shadow: 1px 1px 5px rgba(0,0,0,0.8);"&gt;
+          Description text
+        &lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+                </div>
+
+                <h4 class="mt-4 mb-3">Configurator Hero (Fixed Background)</h4>
+                <div class="code-block">
+                    <pre>&lt;div class="configpage-hero" style="min-height: 80vh;"&gt;
+  &lt;style&gt;
+  .configpage-hero {
+    background-color: black;
+    position: relative;
+  }
+  .configpage-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('image.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.4;
+    z-index: 0;
+  }
+  .configpage-hero &gt; * {
+    position: relative;
+    z-index: 1;
+  }
+  &lt;/style&gt;
+  &lt;!-- Content goes here --&gt;
+&lt;/div&gt;
+
+/* Or use .configurator-page scope with external CSS */</pre>
+                </div>
+            </section>
+
+            <!-- GRID LAYOUTS -->
+            <section id="grids" class="component-section">
+                <div class="component-header">
+                    <h2>Grid Layouts</h2>
+                    <p>Bootstrap grid system for product layouts</p>
+                </div>
+
+                <h4 class="mb-3">4-Column Product Grid</h4>
+                <div class="code-block">
+                    <pre>&lt;div class="row g-4"&gt;
+  &lt;div class="col-lg-3 col-md-6"&gt;
+    &lt;!-- Product card --&gt;
+  &lt;/div&gt;
+  &lt;div class="col-lg-3 col-md-6"&gt;
+    &lt;!-- Product card --&gt;
+  &lt;/div&gt;
+  &lt;div class="col-lg-3 col-md-6"&gt;
+    &lt;!-- Product card --&gt;
+  &lt;/div&gt;
+  &lt;div class="col-lg-3 col-md-6"&gt;
+    &lt;!-- Product card --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+/* Breakdown:
+- g-4: Gap spacing between columns
+- col-lg-3: 4 columns on large screens (3/12 = 25%)
+- col-md-6: 2 columns on medium screens (6/12 = 50%)
+- Stacks to 1 column on mobile
+*/</pre>
+                </div>
+
+                <h4 class="mt-4 mb-3">Content + Image Layout</h4>
+                <div class="code-block">
+                    <pre>&lt;section class="content-image-section"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="row align-items-center"&gt;
+      &lt;div class="col-lg-6 mb-4 mb-lg-0"&gt;
+        &lt;img src="image.jpg" alt="..." class="img-fluid"&gt;
+      &lt;/div&gt;
+      &lt;div class="col-lg-6"&gt;
+        &lt;div class="content-accent-bar"&gt;&lt;/div&gt;
+        &lt;h2&gt;Heading&lt;/h2&gt;
+        &lt;p&gt;Content...&lt;/p&gt;
+        &lt;a href="#" class="btn btn-configure mt-3"&gt;CTA&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+/* For reversed layout, use order-lg-2 and order-lg-1 */</pre>
+                </div>
+            </section>
+
+            <!-- SPACING SYSTEM -->
+            <section id="spacing" class="component-section">
+                <div class="component-header">
+                    <h2>Spacing System</h2>
+                    <p>Bootstrap spacing utilities and section padding</p>
+                </div>
+
+                <h4 class="mb-3">Section Padding</h4>
+                <table class="variable-table">
+                    <thead>
+                        <tr>
+                            <th>Section Type</th>
+                            <th>Padding</th>
+                            <th>Class/Style</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Standard Section</td>
+                            <td>4rem (top/bottom)</td>
+                            <td>padding: 4rem 0;</td>
+                        </tr>
+                        <tr>
+                            <td>Feature Section</td>
+                            <td>8rem (top/bottom)</td>
+                            <td>padding: 8rem 0;</td>
+                        </tr>
+                        <tr>
+                            <td>Hero Section</td>
+                            <td>6rem 0 4rem</td>
+                            <td>padding: 6rem 0 4rem;</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 class="mt-4 mb-3">Bootstrap Spacing Classes</h4>
+                <div class="code-block">
+                    <pre>/* Margin */
+m-0, m-1, m-2, m-3, m-4, m-5
+mt-3 (margin-top), mb-4 (margin-bottom)
+mx-auto (horizontal centering)
+
+/* Padding */
+p-0, p-1, p-2, p-3, p-4, p-5
+pt-5 (padding-top), pb-5 (padding-bottom)
+
+/* Gap (for flexbox/grid) */
+g-4 (gap: 1.5rem)
+
+/* Scale: 
+0 = 0
+1 = 0.25rem
+2 = 0.5rem
+3 = 1rem
+4 = 1.5rem
+5 = 3rem
+*/</pre>
+                </div>
+            </section>
+
+            <!-- PAGE SCOPING -->
+            <section id="page-scoping" class="component-section">
+                <div class="component-header">
+                    <h2>Page Scoping</h2>
+                    <p>How to apply page-specific styles without conflicts</p>
+                </div>
+
+                <h4 class="mb-3">Implementation Pattern</h4>
+                <p>To keep styles organized and prevent conflicts between pages, use page-scoped CSS with a class on the body element:</p>
+
+                <div class="code-block">
+                    <pre>&lt;!-- In HTML file --&gt;
+&lt;body class="gaming-pcs-page"&gt;
+  &lt;!-- Page content --&gt;
+&lt;/body&gt;
+
+/* In w2f.css */
+/* GAMING PCS PAGE STYLES */
+.gaming-pcs-page .category-hero {
+  /* Styles only apply to gaming-pcs-page */
+}
+
+.gaming-pcs-page .product-card {
+  /* Styles only apply to gaming-pcs-page */
+}
+
+.gaming-pcs-page .trust-section {
+  /* Styles only apply to gaming-pcs-page */
+}</pre>
+                </div>
+
+                <h4 class="mt-4 mb-3">Existing Page Scopes</h4>
+                <table class="variable-table">
+                    <thead>
+                        <tr>
+                            <th>Page</th>
+                            <th>Body Class</th>
+                            <th>CSS Section</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gaming PCs</td>
+                            <td>.gaming-pcs-page</td>
+                            <td>/* GAMING PCS PAGE STYLES */</td>
+                        </tr>
+                        <tr>
+                            <td>Configurator</td>
+                            <td>.configurator-page</td>
+                            <td>/* CONFIGURATOR PAGE STYLES */</td>
+                        </tr>
+                        <tr>
+                            <td>Homepage</td>
+                            <td>(none - uses global styles)</td>
+                            <td>/* HOMEPAGE STYLES */</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 class="mt-4 mb-3">Adding a New Page</h4>
+                <div class="code-block">
+                    <pre>1. Add page class to body tag:
+   &lt;body class="flight-sim-page"&gt;
+
+2. Create section in w2f.css:
+   /* FLIGHT SIM PAGE STYLES */
+   
+   .flight-sim-page .hero-section {
+     /* Page-specific styles */
+   }
+   
+   .flight-sim-page .product-grid {
+     /* Page-specific styles */
+   }
+
+3. Reuse global components when possible
+4. Only override when necessary for page-specific design</pre>
+                </div>
+            </section>
+
+            <!-- CSS ARCHITECTURE -->
+            <section id="architecture" class="component-section">
+                <div class="component-header">
+                    <h2>CSS Architecture Summary</h2>
+                    <p>How the stylesheet is organized</p>
+                </div>
+
+                <div class="code-block">
+                    <pre>/* w2f.css Structure */
+
+/* W2F STYLES - Global brand styles */
+- Body font
+- .w2f-footer-dark
+- .configtitles
+- Nav links & dropdowns
+- Button overrides (.btn-success)
+
+/* OFFSCREEN PANEL NAVIGATION */
+- Offcanvas menu styles
+
+/* TABS */
+- Standard tabs
+- PC Journey tabs (homepage)
+
+/* ACCORDION */
+- Standard accordion
+- Config menu accordion
+
+/* CONFIGURATOR STYLES */
+- Page system
+- .btn-squared-v2
+- .config-menu overrides
+
+/* HOMEPAGE STYLES */
+- Hero section
+- Feature section
+- Category section
+- Promo carousel
+- Animations
+
+/* GAMING PCS PAGE STYLES */
+- .gaming-pcs-page scoped
+- All gaming PCs page components
+
+/* CONFIGURATOR PAGE STYLES */
+- .configurator-page scoped
+- Hero and info sections
+
+/* Add new page sections below */
+/* FLIGHT SIM PAGE STYLES */
+/* WORKSTATION PAGE STYLES */
+etc.</pre>
+                </div>
+
+                <h4 class="mt-4 mb-3">Best Practices</h4>
+                <ul>
+                    <li><strong>Use page scoping</strong> for page-specific styles to prevent conflicts</li>
+                    <li><strong>Reuse global components</strong> like buttons, accordions, tabs when possible</li>
+                    <li><strong>Keep inline styles minimal</strong> - only for unique one-off values like background images</li>
+                    <li><strong>Follow naming conventions</strong> - Use descriptive class names like .product-card, .trust-section</li>
+                    <li><strong>Group related styles</strong> - Keep all accordion styles together, all button styles together</li>
+                    <li><strong>Comment your sections</strong> - Use /* SECTION NAME */ headers for clarity</li>
+                    <li><strong>Test responsiveness</strong> - Check mobile, tablet, desktop breakpoints</li>
+                </ul>
+            </section>
+
+            <!-- QUICK REFERENCE -->
+            <section id="quick-ref" class="component-section">
+                <div class="component-header">
+                    <h2>Quick Reference</h2>
+                    <p>Common classes and patterns at a glance</p>
+                </div>
+
+                <table class="variable-table">
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>Class/Pattern</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Primary Button</td>
+                            <td>.btn .btn-success</td>
+                            <td>Orange brand button</td>
+                        </tr>
+                        <tr>
+                            <td>Product Card</td>
+                            <td>.card .product-card</td>
+                            <td>Use with page scope</td>
+                        </tr>
+                        <tr>
+                            <td>Product Badge</td>
+                            <td>.product-badge .badge-{type}</td>
+                            <td>Types: next-day, hot-deal, sim-ready, compact</td>
+                        </tr>
+                        <tr>
+                            <td>Accordion</td>
+                            <td>.accordion .accordion-item</td>
+                            <td>Add .config-menu for alt style</td>
+                        </tr>
+                        <tr>
+                            <td>Hero Section</td>
+                            <td>.category-hero or .configpage-hero</td>
+                            <td>Full-width with background</td>
+                        </tr>
+                        <tr>
+                            <td>Trust Icons</td>
+                            <td>.trust-section .trust-item</td>
+                            <td>4-column trust badges</td>
+                        </tr>
+                        <tr>
+                            <td>Accent Bar</td>
+                            <td>.content-accent-bar</td>
+                            <td>Orange 4px decorative element</td>
+                        </tr>
+                        <tr>
+                            <td>Dark Background</td>
+                            <td>.w2f-footer-dark</td>
+                            <td>Dark nav/footer container</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="w2f-footer-dark text-white border-top py-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <img src="w2f/img/logos/w2flogo.svg" width="150" height="auto" alt="Wired2Fire" class="mb-3">
+                <p class="mb-2">Wired2Fire Component Guide v1.0</p>
+                <p class="text-muted mb-0">For internal development use only</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Smooth scroll for sidebar navigation
+    document.querySelectorAll('.nav-sidebar a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+                
+                // Update active state
+                document.querySelectorAll('.nav-sidebar a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+            }
+        });
+    });
+
+    // Update active nav on scroll
+    window.addEventListener('scroll', () => {
+        let current = '';
+        document.querySelectorAll('.component-section').forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (scrollY >= sectionTop - 150) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        document.querySelectorAll('.nav-sidebar a').forEach(a => {
+            a.classList.remove('active');
+            if (a.getAttribute('href') === '#' + current) {
+                a.classList.add('active');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
