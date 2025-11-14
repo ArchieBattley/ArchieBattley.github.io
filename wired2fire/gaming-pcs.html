@@ -214,6 +214,7 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            z-index: 2;
         }
         
         .product-info {
@@ -420,34 +421,77 @@
             </button>
             <div class="navbar-collapse collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle fw-bold" href="https://wired2fire.co.uk/gaming-pcs/" id="gamingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Gaming PCs
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                            <li><a class="dropdown-item" href="gaming-pcs.html">All Gaming PCs</a></li>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="gamingDropdown">
+                            <li><a class="dropdown-item" href="https://wired2fire.co.uk/gaming-pcs/">View All Gaming PCs</a></li>
+                            <li><a class="dropdown-item" href="https://wired2fire.co.uk/nvidia-50-series-systems/">NVIDIA 50 Series PCs</a></li>
+                            <li><a class="dropdown-item" href="https://wired2fire.co.uk/amd-gaming-pcs/">AMD Gaming PCs</a></li>
+                            <li><a class="dropdown-item" href="https://wired2fire.co.uk/intel-gaming-pcs/">Intel Gaming PCs</a></li>
+                            <li><a class="dropdown-item" href="/mini-pcs/">Mini PCs</a></li>
+                            <li><a class="dropdown-item" href="https://wired2fire.co.uk/wtf-next-day/">Next Day Gaming PCs</a></li>
                             <li><a class="dropdown-item" href="configurator.html">Build your own PC</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Pre-built Gaming PCs</a></li>
-                            <li><a class="dropdown-item" href="#">AMD Gaming PCs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold" href="https://wired2fire.co.uk/flight-sim-pcs/" id="flightDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Flight Sim PCs
+                        </a>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="flightDropdown">
+                            <li><a class="dropdown-item" href="https://wired2fire.co.uk/flight-sim-pcs/">View All Flight Sim PCs</a></li>
+                            <li><a class="dropdown-item" href="/product-category/flight-simulator-pcs/microsoft-flight-simulator-pcs/">Microsoft Flight Sim PCs</a></li>
+                            <li><a class="dropdown-item" href="/product-category/flight-simulator-pcs/prepar3d-x-plane-flight-simulator-pcs/">X-Plane &amp; Prepar3D PCs</a></li>
+                            <li><a class="dropdown-item" href="/product-category/flight-simulator-pcs/dcs-flight-simulator-pcs/">DCS World PCs</a></li>
+                            <li><a class="dropdown-item" href="/product-category/flight-simulation-peripherals/">Flight Sim Peripherals</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold" href="https://wired2fire.co.uk/workstations/" id="workstationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Workstation PCs
+                        </a>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="workstationDropdown">
+                            <li><a class="dropdown-item" href="https://wired2fire.co.uk/workstations/">View All Workstations</a></li>
+                            <li><a class="dropdown-item" href="https://wired2fire.co.uk/content-creation-pcs/">Content Creation PCs</a></li>
+                            <li><a class="dropdown-item" href="https://wired2fire.co.uk/home-office-pcs/">Home Office PCs</a></li>
+                            <li><a class="dropdown-item" href="https://wired2fire.co.uk/game-dev-pcs/">Game Development PCs</a></li>
+                            <li><a class="dropdown-item" href="https://wired2fire.co.uk/building-the-worlds-fastest-pc/">Meet the BFG</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold" href="/mini-pcs/" id="miniDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mini PCs
+                        </a>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="miniDropdown">
+                            <li><a class="dropdown-item" href="/mini-pcs/">Gaming Mini PCs</a></li>
+                            <li><a class="dropdown-item" href="/mini-office-pcs/">Office Mini PCs</a></li>
+                            <li><a class="dropdown-item" href="https://wired2fire.co.uk/product/wired2fire-hal-9000-compact-pc/">Award Winning Mini PCs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fw-bold" href="https://wired2fire.co.uk/gaming-laptops/" id="laptopDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Laptops
+                        </a>
+                        <ul class="dropdown-menu bg-dark" aria-labelledby="laptopDropdown">
+                            <li><a class="dropdown-item" href="https://wired2fire.co.uk/gaming-laptops/">View All Laptops</a></li>
+                            <li><a class="dropdown-item" href="https://wired2fire.co.uk/gaming-laptops/">Gaming Laptops</a></li>
+                            <li><a class="dropdown-item" href="https://wired2fire.co.uk/gaming-laptops/">Take a look at our laptop range</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sim Racing PCs</a>
+                        <a class="nav-link fw-bold" href="https://wired2fire.co.uk/gpu-store/">GPU Store</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Workstations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Support</a>
+                        <a class="nav-link fw-bold" href="/B2B/">B2B</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav d-flex">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+                        <a class="nav-link fw-bold" href="https://wired2fire.co.uk/blog/">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
+                        <a class="nav-link fw-bold" href="https://wired2fire.co.uk/contact-us/">Contact Us</a>
                     </li>
                 </ul>
             </div>
@@ -455,12 +499,13 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="category-hero">
-        <div class="container position-relative">
-            <div class="row justify-content-center text-center">
+    <section class="category-hero" style="background-image: url('w2f/img/Updated Gaming PCs Banner.jpg'); background-size: cover; background-position: center; min-height: 500px; position: relative;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5);"></div>
+        <div class="container position-relative h-100" style="z-index: 2;">
+            <div class="row justify-content-center text-center align-items-center" style="min-height: 500px;">
                 <div class="col-lg-10">
-                    <h1>Gaming PCs</h1>
-                    <p class="lead">
+                    <h1 style="font-size: 4.5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8);">Gaming PCs</h1>
+                    <p class="lead" style="font-size: 1.5rem; text-shadow: 1px 1px 5px rgba(0,0,0,0.8);">
                         Unleash your full potential with award-winning custom gaming computers. From entry-level rigs to elite battle stations, every Wired2Fire PC delivers exceptional performance, expert craftsmanship, and industry-leading support.
                     </p>
                 </div>
@@ -468,104 +513,55 @@
         </div>
     </section>
 
-    <!-- Featured Categories -->
-    <section class="featured-categories">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <a href="#entry-level" class="text-decoration-none">
-                        <div class="category-card-large" style="background-image: url('https://wired2fire.co.uk/wp-content/uploads/2025/08/MaxTang-8845-hero-700x701.webp');">
-                            <div class="category-card-content">
-                                <span class="category-badge">Best for Beginners</span>
-                                <h3>Entry Level</h3>
-                                <p>Perfect for casual gaming and esports titles. Great performance without breaking the bank.</p>
-                                <span class="category-cta">
-                                    Explore Entry PCs <i class="fas fa-arrow-right ms-2"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <a href="#high-performance" class="text-decoration-none">
-                        <div class="category-card-large" style="background-image: url('https://wired2fire.co.uk/wp-content/uploads/2025/09/SimX-Strike-Eagle-Hero-1-1-1024x1024.webp');">
-                            <div class="category-card-content">
-                                <span class="category-badge">Most Popular</span>
-                                <h3>High Performance</h3>
-                                <p>Exceptional 1440p gaming with cutting-edge components for enthusiasts.</p>
-                                <span class="category-cta">
-                                    Explore Performance PCs <i class="fas fa-arrow-right ms-2"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="col-lg-4 col-md-6">
-                    <a href="#elite" class="text-decoration-none">
-                        <div class="category-card-large" style="background-image: url('https://wired2fire.co.uk/wp-content/uploads/2025/09/SimX-Valk-Hero-1-1024x1024.webp');">
-                            <div class="category-card-content">
-                                <span class="category-badge">Ultimate Power</span>
-                                <h3>Elite Systems</h3>
-                                <p>Uncompromising 4K gaming and professional workloads. The best of the best.</p>
-                                <span class="category-cta">
-                                    Explore Elite PCs <i class="fas fa-arrow-right ms-2"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Top Gaming PCs -->
+    <!-- Our Gaming PCs -->
     <section class="product-grid">
         <div class="container">
             <div class="section-header">
-                <h2>Top Gaming PCs</h2>
+                <h2>Our Gaming PCs</h2>
                 <p>Hand-picked systems that deliver exceptional performance and value. Built by experts, backed by our 5-year warranty.</p>
             </div>
             
             <div class="row g-4">
                 <!-- Product 1 -->
                 <div class="col-lg-3 col-md-6">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <span class="product-badge">Next Day</span>
-                            <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/SimX-Valk-Hero-1-1024x1024.webp" alt="R7 Powerhouse Gaming PC">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title">R7 Powerhouse Next Day</h3>
+                    <div class="card feature-card d-flex flex-column h-100">
+                        <div class="card-body d-flex flex-column">
+                            <a href="https://wired2fire.co.uk/product/r7-powerhouse-next-day/" class="text-decoration-none">
+                                <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/Hero-1.png" alt="R7 Powerhouse Gaming PC" class="card-img-top" style="max-height: 250px; object-fit: contain;">
+                            </a>
                             
-                            <div class="product-specs">
-                                <div class="product-spec-item">
-                                    <span class="spec-label">CPU</span>
-                                    <span class="spec-value">AMD Ryzen 7 9700X</span>
+                            <div class="d-flex flex-column h-100">
+                                <h4 class="fw-semibold mb-2">
+                                    <a href="https://wired2fire.co.uk/product/r7-powerhouse-next-day/" class="text-decoration-none text-dark">R7 Powerhouse Next Day</a>
+                                </h4>
+                                
+                                <p class="mb-1 fs-4 fw-bold" style="color: #f5891f;">£2,329.99 <small class="text-muted fs-6">(inc VAT)</small></p>
+                                <p class="mb-3 text-muted"><small><strong>*Order by 1PM for Next Day Delivery</strong></small></p>
+                                
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>CPU</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>AMD Ryzen 7 9700X</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>Graphics Card</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>RTX 5070 Ti</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>Storage</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>2TB NVMe</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2">
+                                        <div class="text-uppercase fw-semibold"><small>RAM</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>32GB DDR5</small></div>
+                                    </div>
                                 </div>
-                                <div class="product-spec-item">
-                                    <span class="spec-label">GPU</span>
-                                    <span class="spec-value">RTX 5070 Ti</span>
+                                
+                                <div class="mt-auto">
+                                    <a href="https://wired2fire.co.uk/product/r7-powerhouse-next-day/" class="btn btn-success w-100 fw-semibold">
+                                        <i class="fa-solid fa-sliders me-2" aria-hidden="true"></i>Configure Now
+                                    </a>
                                 </div>
-                                <div class="product-spec-item">
-                                    <span class="spec-label">RAM</span>
-                                    <span class="spec-value">32GB DDR5</span>
-                                </div>
-                                <div class="product-spec-item">
-                                    <span class="spec-label">Storage</span>
-                                    <span class="spec-value">2TB NVMe</span>
-                                </div>
-                            </div>
-                            
-                            <div class="product-price">
-                                £2,329.99 <small>(inc VAT)</small>
-                            </div>
-                            
-                            <div class="product-actions">
-                                <a href="https://wired2fire.co.uk/product/r7-powerhouse-next-day/" class="btn-configure">
-                                    <i class="fa-solid fa-sliders me-2"></i>Configure Now
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -573,41 +569,43 @@
 
                 <!-- Product 2 -->
                 <div class="col-lg-3 col-md-6">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <span class="product-badge">Hot Deal</span>
-                            <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/Kraken-Hero-1-1024x1024.webp" alt="R7X3D 9070 XT Beast">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title">R7X3D 9070 XT Beast</h3>
+                    <div class="card feature-card d-flex flex-column h-100">
+                        <div class="card-body d-flex flex-column">
+                            <a href="https://wired2fire.co.uk/product/r7x3d-9070-xt-red-beast/" class="text-decoration-none">
+                                <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/PSD-Case-NESO-P1-Pro-Black-Side-1-1022x1024.webp" alt="R7X3D 9070 XT Beast" class="card-img-top" style="max-height: 250px; object-fit: contain;">
+                            </a>
                             
-                            <div class="product-specs">
-                                <div class="product-spec-item">
-                                    <span class="spec-label">CPU</span>
-                                    <span class="spec-value">AMD R7 9800X3D</span>
+                            <div class="d-flex flex-column h-100">
+                                <h4 class="fw-semibold mb-2">
+                                    <a href="https://wired2fire.co.uk/product/r7x3d-9070-xt-red-beast/" class="text-decoration-none text-dark">R7X3D 9070 XT Beast</a>
+                                </h4>
+                                
+                                <p class="mb-3 fs-4 fw-bold" style="color: #f5891f;">£2,149.99 <small class="text-muted fs-6">(inc VAT)</small></p>
+                                
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>CPU</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>AMD R7 9800X3D</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>Graphics Card</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>AMD RX 9070 XT</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>Storage</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>2TB NVMe</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2">
+                                        <div class="text-uppercase fw-semibold"><small>RAM</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>32GB DDR5</small></div>
+                                    </div>
                                 </div>
-                                <div class="product-spec-item">
-                                    <span class="spec-label">GPU</span>
-                                    <span class="spec-value">AMD RX 9070 XT</span>
+                                
+                                <div class="mt-auto">
+                                    <a href="https://wired2fire.co.uk/product/r7x3d-9070-xt-red-beast/" class="btn btn-success w-100 fw-semibold">
+                                        <i class="fa-solid fa-sliders me-2" aria-hidden="true"></i>Configure Now
+                                    </a>
                                 </div>
-                                <div class="product-spec-item">
-                                    <span class="spec-label">RAM</span>
-                                    <span class="spec-value">32GB DDR5</span>
-                                </div>
-                                <div class="product-spec-item">
-                                    <span class="spec-label">Storage</span>
-                                    <span class="spec-value">2TB NVMe</span>
-                                </div>
-                            </div>
-                            
-                            <div class="product-price">
-                                £2,149.99 <small>(inc VAT)</small>
-                            </div>
-                            
-                            <div class="product-actions">
-                                <a href="https://wired2fire.co.uk/product/r7x3d-9070-xt-red-beast/" class="btn-configure">
-                                    <i class="fa-solid fa-sliders me-2"></i>Configure Now
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -615,41 +613,43 @@
 
                 <!-- Product 3 -->
                 <div class="col-lg-3 col-md-6">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <span class="product-badge">Sim Ready</span>
-                            <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/SimX-Strike-Eagle-Hero-1-1-1024x1024.webp" alt="Sim-X Valkyrie">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title">Sim-X Valkyrie R7X3D 5070Ti</h3>
+                    <div class="card feature-card d-flex flex-column h-100">
+                        <div class="card-body d-flex flex-column">
+                            <a href="https://wired2fire.co.uk/product/sim-x-valkyrie-r7x3d-5070ti/" class="text-decoration-none">
+                                <img src="w2f/img/H55070Ti.webp" alt="Sim-X Valkyrie" class="card-img-top" style="max-height: 250px; object-fit: contain;">
+                            </a>
                             
-                            <div class="product-specs">
-                                <div class="product-spec-item">
-                                    <span class="spec-label">CPU</span>
-                                    <span class="spec-value">AMD R7 9800X3D</span>
+                            <div class="d-flex flex-column h-100">
+                                <h4 class="fw-semibold mb-2">
+                                    <a href="https://wired2fire.co.uk/product/sim-x-valkyrie-r7x3d-5070ti/" class="text-decoration-none text-dark">Sim-X Valkyrie R7X3D 5070Ti</a>
+                                </h4>
+                                
+                                <p class="mb-3 fs-4 fw-bold" style="color: #f5891f;">£2,207.99 <small class="text-muted fs-6">(inc VAT)</small></p>
+                                
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>CPU</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>AMD R7 9800X3D</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>Graphics Card</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>RTX 5070 Ti</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>Storage</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>2TB M.2</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2">
+                                        <div class="text-uppercase fw-semibold"><small>RAM</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>32GB DDR5</small></div>
+                                    </div>
                                 </div>
-                                <div class="product-spec-item">
-                                    <span class="spec-label">GPU</span>
-                                    <span class="spec-value">RTX 5070 Ti</span>
+                                
+                                <div class="mt-auto">
+                                    <a href="https://wired2fire.co.uk/product/sim-x-valkyrie-r7x3d-5070ti/" class="btn btn-success w-100 fw-semibold">
+                                        <i class="fa-solid fa-sliders me-2" aria-hidden="true"></i>Configure Now
+                                    </a>
                                 </div>
-                                <div class="product-spec-item">
-                                    <span class="spec-label">RAM</span>
-                                    <span class="spec-value">32GB DDR5</span>
-                                </div>
-                                <div class="product-spec-item">
-                                    <span class="spec-label">Storage</span>
-                                    <span class="spec-value">2TB M.2</span>
-                                </div>
-                            </div>
-                            
-                            <div class="product-price">
-                                £2,207.99 <small>(inc VAT)</small>
-                            </div>
-                            
-                            <div class="product-actions">
-                                <a href="https://wired2fire.co.uk/product/sim-x-valkyrie-r7x3d-5070ti/" class="btn-configure">
-                                    <i class="fa-solid fa-sliders me-2"></i>Configure Now
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -657,112 +657,218 @@
 
                 <!-- Product 4 -->
                 <div class="col-lg-3 col-md-6">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <span class="product-badge">Compact</span>
-                            <img src="https://wired2fire.co.uk/wp-content/uploads/2025/08/MaxTang-8845-hero-700x701.webp" alt="WTF Mini PC">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-title">WTF AMD R8845 Mini PC</h3>
+                    <div class="card feature-card d-flex flex-column h-100">
+                        <div class="card-body d-flex flex-column">
+                            <a href="https://wired2fire.co.uk/product/wtf-amd-r8845-mini-pc/" class="text-decoration-none">
+                                <img src="https://wired2fire.co.uk/wp-content/uploads/2025/08/MaxTang-8845-hero-700x701.webp" alt="WTF Mini PC" class="card-img-top" style="max-height: 250px; object-fit: contain;">
+                            </a>
                             
-                            <div class="product-specs">
-                                <div class="product-spec-item">
-                                    <span class="spec-label">CPU</span>
-                                    <span class="spec-value">AMD 8845HS</span>
+                            <div class="d-flex flex-column h-100">
+                                <h4 class="fw-semibold mb-2">
+                                    <a href="https://wired2fire.co.uk/product/wtf-amd-r8845-mini-pc/" class="text-decoration-none text-dark">WTF AMD R8845 Mini PC</a>
+                                </h4>
+                                
+                                <p class="mb-3 fs-4 fw-bold" style="color: #f5891f;">£600.00 <small class="text-muted fs-6">(inc VAT)</small></p>
+                                
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>CPU</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>AMD 8845HS</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>Graphics</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>Radeon 780M</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>RAM</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>32GB DDR5</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2">
+                                        <div class="text-uppercase fw-semibold"><small>Storage</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>2TB NVMe</small></div>
+                                    </div>
                                 </div>
-                                <div class="product-spec-item">
-                                    <span class="spec-label">GPU</span>
-                                    <span class="spec-value">Radeon 780M</span>
+                                
+                                <div class="mt-auto">
+                                    <a href="https://wired2fire.co.uk/product/wtf-amd-r8845-mini-pc/" class="btn btn-success w-100 fw-semibold">
+                                        <i class="fa-solid fa-cart-shopping me-2" aria-hidden="true"></i>Buy Now
+                                    </a>
                                 </div>
-                                <div class="product-spec-item">
-                                    <span class="spec-label">RAM</span>
-                                    <span class="spec-value">32GB DDR5</span>
-                                </div>
-                                <div class="product-spec-item">
-                                    <span class="spec-label">Storage</span>
-                                    <span class="spec-value">2TB NVMe</span>
-                                </div>
-                            </div>
-                            
-                            <div class="product-price">
-                                £600.00 <small>(inc VAT)</small>
-                            </div>
-                            
-                            <div class="product-actions">
-                                <a href="https://wired2fire.co.uk/product/wtf-amd-r8845-mini-pc/" class="btn-configure">
-                                    <i class="fa-solid fa-cart-shopping me-2"></i>Buy Now
-                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Specialized Categories -->
-    <section class="product-grid" style="background: white;">
-        <div class="container">
-            <div class="section-header">
-                <h2>Specialized Gaming PCs</h2>
-                <p>Purpose-built systems optimized for specific gaming genres and professional applications.</p>
-            </div>
-            
-            <div class="row g-4 mb-5">
+                
                 <div class="col-lg-3 col-md-6">
-                    <a href="#" class="text-decoration-none">
-                        <div class="category-card-large" style="height: 300px; background-image: url('https://wired2fire.co.uk/wp-content/uploads/2025/09/SimX-Strike-Eagle-Hero-1-1-1024x1024.webp');">
-                            <div class="category-card-content">
-                                <h3 style="font-size: 1.5rem;">Sim Racing PCs</h3>
-                                <p style="font-size: 0.9rem;">Built for iRacing, ACC, and F1 24</p>
-                                <span class="category-cta" style="font-size: 0.9rem;">
-                                    View Racing PCs <i class="fas fa-arrow-right ms-2"></i>
-                                </span>
+                    <div class="card feature-card d-flex flex-column h-100">
+                        <div class="card-body d-flex flex-column">
+                            <a href="https://wired2fire.co.uk/product/r5-rtx-5060ti-powerhouse/" class="text-decoration-none">
+                                <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/PSD-Case-FD-Pop-Air-Hero-1-1-1022x1024.webp" alt="R5 RTX 5060Ti Powerhouse" class="card-img-top" style="max-height: 250px; object-fit: contain;">
+                            </a>
+                            
+                            <div class="d-flex flex-column h-100">
+                                <h4 class="fw-semibold mb-2">
+                                    <a href="https://wired2fire.co.uk/product/r5-rtx-5060ti-powerhouse/" class="text-decoration-none text-dark">R5 RTX 5060Ti Powerhouse</a>
+                                </h4>
+                                
+                                <p class="mb-3 fs-4 fw-bold" style="color: #f5891f;">£1,273.00 <small class="text-muted fs-6">(inc VAT)</small></p>
+                                
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>CPU</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>AMD Ryzen 9600X</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>Graphics Card</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>RTX 5060 Ti 16GB</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>Storage</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>1TB M.2</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2">
+                                        <div class="text-uppercase fw-semibold"><small>RAM</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>32GB DDR5</small></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-auto">
+                                    <a href="https://wired2fire.co.uk/product/r5-rtx-5060ti-powerhouse/" class="btn btn-success w-100 fw-semibold">
+                                        <i class="fa-solid fa-sliders me-2" aria-hidden="true"></i>Configure Now
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <a href="#" class="text-decoration-none">
-                        <div class="category-card-large" style="height: 300px; background-image: url('https://wired2fire.co.uk/wp-content/uploads/2025/09/SimX-Valk-Hero-1-1024x1024.webp');">
-                            <div class="category-card-content">
-                                <h3 style="font-size: 1.5rem;">Flight Sim PCs</h3>
-                                <p style="font-size: 0.9rem;">Optimized for MSFS 2024 and DCS</p>
-                                <span class="category-cta" style="font-size: 0.9rem;">
-                                    View Flight PCs <i class="fas fa-arrow-right ms-2"></i>
-                                </span>
+                    <div class="card feature-card d-flex flex-column h-100">
+                        <div class="card-body d-flex flex-column">
+                            <a href="https://wired2fire.co.uk/product/predator-high-performance-pc/" class="text-decoration-none">
+                                <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/AthenaHero.webp" alt="Predator AMD Gaming PC" class="card-img-top" style="max-height: 250px; object-fit: contain;">
+                            </a>
+                            
+                            <div class="d-flex flex-column h-100">
+                                <h4 class="fw-semibold mb-2">
+                                    <a href="https://wired2fire.co.uk/product/predator-high-performance-pc/" class="text-decoration-none text-dark">Predator AMD Gaming PC</a>
+                                </h4>
+                                
+                                <p class="mb-3 fs-4 fw-bold" style="color: #f5891f;">£1,091.00 <small class="text-muted fs-6">(inc VAT)</small></p>
+                                
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>CPU</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>AMD Ryzen 5800X</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>Graphics Card</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>RTX 5060 Ti 8GB</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>Storage</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>1TB M.2</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2">
+                                        <div class="text-uppercase fw-semibold"><small>RAM</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>32GB DDR4</small></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-auto">
+                                    <a href="https://wired2fire.co.uk/product/predator-high-performance-pc/" class="btn btn-success w-100 fw-semibold">
+                                        <i class="fa-solid fa-sliders me-2" aria-hidden="true"></i>Configure Now
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <a href="#" class="text-decoration-none">
-                        <div class="category-card-large" style="height: 300px; background-image: url('https://wired2fire.co.uk/wp-content/uploads/2025/09/Kraken-Hero-1-1024x1024.webp');">
-                            <div class="category-card-content">
-                                <h3 style="font-size: 1.5rem;">AMD Gaming PCs</h3>
-                                <p style="font-size: 0.9rem;">Powered by Ryzen & Radeon</p>
-                                <span class="category-cta" style="font-size: 0.9rem;">
-                                    View AMD PCs <i class="fas fa-arrow-right ms-2"></i>
-                                </span>
+                    <div class="card feature-card d-flex flex-column h-100">
+                        <div class="card-body d-flex flex-column">
+                            <a href="https://wired2fire.co.uk/product/reactor-supercharged-gaming-amd-pc/" class="text-decoration-none">
+                                <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/Antec-CX500M-HSF-Hero-1-1022x1024.webp" alt="Reactor Supercharged AMD PC" class="card-img-top" style="max-height: 250px; object-fit: contain;">
+                            </a>
+                            
+                            <div class="d-flex flex-column h-100">
+                                <h4 class="fw-semibold mb-2">
+                                    <a href="https://wired2fire.co.uk/product/reactor-supercharged-gaming-amd-pc/" class="text-decoration-none text-dark">Reactor Supercharged AMD PC</a>
+                                </h4>
+                                
+                                <p class="mb-3 fs-4 fw-bold" style="color: #f5891f;">£801.00 <small class="text-muted fs-6">(inc VAT)</small></p>
+                                
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>CPU</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>AMD Ryzen 5600</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>Graphics Card</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>Radeon RX 7600</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>Storage</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>1TB M.2</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2">
+                                        <div class="text-uppercase fw-semibold"><small>RAM</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>16GB DDR4</small></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-auto">
+                                    <a href="https://wired2fire.co.uk/product/reactor-supercharged-gaming-amd-pc/" class="btn btn-success w-100 fw-semibold">
+                                        <i class="fa-solid fa-sliders me-2" aria-hidden="true"></i>Configure Now
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <a href="#" class="text-decoration-none">
-                        <div class="category-card-large" style="height: 300px; background-image: url('https://wired2fire.co.uk/wp-content/uploads/2025/08/MaxTang-8845-hero-700x701.webp');">
-                            <div class="category-card-content">
-                                <h3 style="font-size: 1.5rem;">Mini PCs</h3>
-                                <p style="font-size: 0.9rem;">Compact powerhouses</p>
-                                <span class="category-cta" style="font-size: 0.9rem;">
-                                    View Mini PCs <i class="fas fa-arrow-right ms-2"></i>
-                                </span>
+                    <div class="card feature-card d-flex flex-column h-100">
+                        <div class="card-body d-flex flex-column">
+                            <a href="https://wired2fire.co.uk/product/build-your-own-pc-amd/" class="text-decoration-none">
+                                <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/BYOC-Thumb-AMD-1-1022x1024.webp" alt="Build Your Own PC – AM5" class="card-img-top" style="max-height: 250px; object-fit: contain;">
+                            </a>
+                            
+                            <div class="d-flex flex-column h-100">
+                                <h4 class="fw-semibold mb-2">
+                                    <a href="https://wired2fire.co.uk/product/build-your-own-pc-amd/" class="text-decoration-none text-dark">Build Your Own PC – AM5</a>
+                                </h4>
+                                
+                                <p class="mb-3 fs-4 fw-bold" style="color: #f5891f;">From: £277.00 <small class="text-muted fs-6">(inc VAT)</small></p>
+                                
+                                <div class="mb-3">
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>CPU</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>AMD AM5</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>Graphics Card</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>Integrated to RTX 5090</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2 border-bottom">
+                                        <div class="text-uppercase fw-semibold"><small>Storage</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>M.2 and SATA</small></div>
+                                    </div>
+                                    <div class="d-flex justify-content-between p-2">
+                                        <div class="text-uppercase fw-semibold"><small>RAM</small></div>
+                                        <div class="text-uppercase text-end fw-semibold"><small>Up to 192GB DDR5</small></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-auto">
+                                    <a href="https://wired2fire.co.uk/product/build-your-own-pc-amd/" class="btn btn-success w-100 fw-semibold">
+                                        <i class="fa-solid fa-sliders me-2" aria-hidden="true"></i>Configure Now
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -818,6 +924,146 @@
                         </div>
                         <h4>UK Support</h4>
                         <p>Expert customer service and technical support when you need it</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialized Categories -->
+    <section class="product-grid" style="background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Specialized Gaming PCs</h2>
+                <p>Purpose-built systems optimized for specific gaming genres and professional applications.</p>
+            </div>
+            
+            <div class="row g-4 mb-5">
+                <div class="col-lg-3 col-md-6">
+                    <a href="#" class="text-decoration-none">
+                        <div class="category-card-large" style="height: 300px; background-image: url('w2f/img/categories/simracingpcs.jpg');">
+                            <div class="category-card-content">
+                                <h3 style="font-size: 1.5rem;">Sim Racing PCs</h3>
+                                <p style="font-size: 0.9rem;">Built for iRacing, ACC, and F1 24</p>
+                                <span class="category-cta" style="font-size: 0.9rem;">
+                                    View Racing PCs <i class="fas fa-arrow-right ms-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <a href="#" class="text-decoration-none">
+                        <div class="category-card-large" style="height: 300px; background-image: url('https://wired2fire.co.uk/wp-content/uploads/2024/07/homepage_tile_flight_sim_v1.jpg');">
+                            <div class="category-card-content">
+                                <h3 style="font-size: 1.5rem;">Flight Sim PCs</h3>
+                                <p style="font-size: 0.9rem;">Optimized for MSFS 2024 and DCS</p>
+                                <span class="category-cta" style="font-size: 0.9rem;">
+                                    View Flight PCs <i class="fas fa-arrow-right ms-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <a href="#" class="text-decoration-none">
+                        <div class="category-card-large" style="height: 300px; background-image: url('w2f/img/gaming_amd_banner_v1.webp');">
+                            <div class="category-card-content">
+                                <h3 style="font-size: 1.5rem;">AMD Gaming PCs</h3>
+                                <p style="font-size: 0.9rem;">Powered by Ryzen & Radeon</p>
+                                <span class="category-cta" style="font-size: 0.9rem;">
+                                    View AMD PCs <i class="fas fa-arrow-right ms-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <a href="#" class="text-decoration-none">
+                        <div class="category-card-large" style="height: 300px; background-image: url('w2f/img/categories/minipcs.jpg');">
+                            <div class="category-card-content">
+                                <h3 style="font-size: 1.5rem;">Mini PCs</h3>
+                                <p style="font-size: 0.9rem;">Compact powerhouses</p>
+                                <span class="category-cta" style="font-size: 0.9rem;">
+                                    View Mini PCs <i class="fas fa-arrow-right ms-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="background: #f8f9fa; padding: 5rem 0;">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; color: #1a1a1a;">Frequently Asked Questions</h2>
+                    <p style="font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto;">
+                        Everything you need to know about our gaming PCs
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion config-menu" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faqOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="font-weight: 600; color: #1a1a1a;">
+                                    What makes Wired2Fire gaming PCs different from off-the-shelf options?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="faqOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="background-color: #fff;">
+                                    Every Wired2Fire gaming PC is custom-built to your exact specifications by our expert technicians. Unlike mass-produced systems, we use premium components, ensure perfect cable management, and conduct extensive testing before shipping. You also get our 5-year warranty and lifetime UK-based support - something you won't find with off-the-shelf PCs.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faqTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="font-weight: 600; color: #1a1a1a;">
+                                    How long does it take to build and deliver my gaming PC?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="faqTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="background-color: #fff;">
+                                    Standard build time is 5-7 working days, with next-day delivery via DPD once your PC is ready. For customers who need their system faster, we offer a next-day build service for an additional fee. You'll receive tracking information and a timed delivery slot so you know exactly when to expect your new gaming PC.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faqThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="font-weight: 600; color: #1a1a1a;">
+                                    Can I upgrade my gaming PC in the future?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="faqThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="background-color: #fff;">
+                                    Absolutely! We build all our gaming PCs with upgradeability in mind. Whether you want to add more RAM, upgrade your graphics card, or expand storage, our systems are designed to grow with your needs. Our support team is always available to advise on compatible upgrades and can even perform the upgrades for you if needed.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faqFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="font-weight: 600; color: #1a1a1a;">
+                                    What's included with my gaming PC purchase?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="faqFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body" style="background-color: #fff;">
+                                    Your gaming PC comes fully assembled, tested, and ready to use with Windows 11 pre-installed (no bloatware). You'll receive all driver discs, component manuals, and any accessories included with your chosen components. Free delivery is included, along with our 5-year warranty covering 2 years parts and return, plus 3 additional years of labour coverage. Lifetime phone support is also included at no extra cost.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
