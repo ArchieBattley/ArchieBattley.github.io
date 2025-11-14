@@ -14,403 +14,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet" />
-    
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        
-        /* Hero Section */
-        .category-hero {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            padding: 6rem 0 4rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .category-hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(245, 137, 31, 0.15) 0%, transparent 70%);
-        }
-        
-        .category-hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .category-hero .lead {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        /* Featured Categories */
-        .featured-categories {
-            padding: 4rem 0;
-            background: white;
-        }
-        
-        .category-card-large {
-            position: relative;
-            height: 400px;
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .category-card-large:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-        }
-        
-        .category-card-large::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.7) 100%);
-            transition: all 0.4s ease;
-        }
-        
-        .category-card-large:hover::before {
-            background: linear-gradient(to bottom, rgba(245, 137, 31, 0.6) 0%, rgba(0, 0, 0, 0.8) 100%);
-        }
-        
-        .category-card-content {
-            position: relative;
-            z-index: 2;
-            padding: 2rem;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            color: white;
-        }
-        
-        .category-badge {
-            background: rgba(245, 137, 31, 0.9);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-        
-        .category-card-large h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        .category-card-large p {
-            font-size: 1rem;
-            opacity: 0.95;
-            margin-bottom: 1.5rem;
-        }
-        
-        .category-cta {
-            display: inline-flex;
-            align-items: center;
-            color: white;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .category-cta:hover {
-            color: #f5891f;
-            transform: translateX(5px);
-        }
-        
-        /* Product Grid */
-        .product-grid {
-            padding: 4rem 0;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-        
-        .section-header p {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid #e0e0e0;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .product-card:hover {
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transform: translateY(-5px);
-            border-color: #f5891f;
-        }
-        
-        .product-image {
-            position: relative;
-            padding-top: 100%;
-            background: #fafafa;
-            overflow: hidden;
-        }
-        
-        .product-image img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 85%;
-            max-height: 85%;
-            object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-        
-        .product-card:hover .product-image img {
-            transform: translate(-50%, -50%) scale(1.05);
-        }
-        
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: #f5891f;
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            z-index: 2;
-        }
-        
-        .product-info {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .product-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: #1a1a1a;
-            line-height: 1.4;
-        }
-        
-        .product-specs {
-            margin-bottom: 1rem;
-            font-size: 0.85rem;
-            color: #666;
-        }
-        
-        .product-spec-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.4rem 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .product-spec-item:last-child {
-            border-bottom: none;
-        }
-        
-        .spec-label {
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 0.5px;
-        }
-        
-        .spec-value {
-            text-align: right;
-            font-weight: 500;
-        }
-        
-        .product-price {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #f5891f;
-            margin-bottom: 1rem;
-        }
-        
-        .product-price small {
-            font-size: 0.9rem;
-            color: #999;
-            font-weight: 400;
-        }
-        
-        .product-actions {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 0.75rem;
-            margin-top: auto;
-        }
-        
-        .btn-configure {
-            background: #f5891f;
-            color: white;
-            border: none;
-            padding: 0.85rem;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-            display: inline-block;
-        }
-        
-        .btn-configure:hover {
-            background: #ff9933;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(245, 137, 31, 0.3);
-        }
-        
-        /* Category Collections */
-        .category-collection {
-            padding: 3rem 0;
-            background: white;
-            border-radius: 16px;
-            margin-bottom: 3rem;
-        }
-        
-        .collection-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-            padding: 0 1rem;
-        }
-        
-        .collection-logo {
-            max-width: 300px;
-            height: auto;
-            margin-bottom: 1rem;
-        }
-        
-        .collection-header h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-        
-        .collection-tagline {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* Performance Tiers */
-        .tier-selector {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-        
-        .tier-badge {
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            background: #f0f0f0;
-            color: #666;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-        
-        .tier-badge:hover {
-            background: #e0e0e0;
-        }
-        
-        .tier-badge.active {
-            background: #f5891f;
-            color: white;
-            border-color: #d97706;
-        }
-        
-        /* Trust Section */
-        .trust-section {
-            padding: 4rem 0;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: white;
-        }
-        
-        .trust-item {
-            text-align: center;
-            padding: 2rem 1rem;
-        }
-        
-        .trust-icon {
-            font-size: 3rem;
-            color: #f5891f;
-            margin-bottom: 1rem;
-        }
-        
-        .trust-item h4 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
-        
-        .trust-item p {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 0;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .category-hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .category-card-large {
-                height: 300px;
-            }
-            
-            .section-header h2 {
-                font-size: 2rem;
-            }
-        }
-    </style>
 </head>
-<body>
+<body class="gaming-pcs-page" style="background-color: #f8f9fa;">
     
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -524,15 +129,16 @@
             <div class="row g-4">
                 <!-- Product 1 -->
                 <div class="col-lg-3 col-md-6">
-                    <div class="card feature-card d-flex flex-column h-100">
+                    <div class="card product-card d-flex flex-column h-100">
                         <div class="card-body d-flex flex-column">
+                            <div class="product-badge">Next Day</div>
                             <a href="https://wired2fire.co.uk/product/r7-powerhouse-next-day/" class="text-decoration-none">
                                 <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/Hero-1.png" alt="R7 Powerhouse Gaming PC" class="card-img-top" style="max-height: 250px; object-fit: contain;">
                             </a>
                             
                             <div class="d-flex flex-column h-100">
-                                <h4 class="fw-semibold mb-2">
-                                    <a href="https://wired2fire.co.uk/product/r7-powerhouse-next-day/" class="text-decoration-none text-dark">R7 Powerhouse Next Day</a>
+                                <h4 class="fw-semibold mb-2 product-title">
+                                    <a href="https://wired2fire.co.uk/product/r7-powerhouse-next-day/" class="text-decoration-none" style="color: #ffffff;">R7 Powerhouse Next Day</a>
                                 </h4>
                                 
                                 <p class="mb-1 fs-4 fw-bold" style="color: #f5891f;">£2,329.99 <small class="text-muted fs-6">(inc VAT)</small></p>
@@ -569,15 +175,16 @@
 
                 <!-- Product 2 -->
                 <div class="col-lg-3 col-md-6">
-                    <div class="card feature-card d-flex flex-column h-100">
+                    <div class="card product-card d-flex flex-column h-100">
                         <div class="card-body d-flex flex-column">
+                            <div class="product-badge">Hot Deal</div>
                             <a href="https://wired2fire.co.uk/product/r7x3d-9070-xt-red-beast/" class="text-decoration-none">
                                 <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/PSD-Case-NESO-P1-Pro-Black-Side-1-1022x1024.webp" alt="R7X3D 9070 XT Beast" class="card-img-top" style="max-height: 250px; object-fit: contain;">
                             </a>
                             
                             <div class="d-flex flex-column h-100">
-                                <h4 class="fw-semibold mb-2">
-                                    <a href="https://wired2fire.co.uk/product/r7x3d-9070-xt-red-beast/" class="text-decoration-none text-dark">R7X3D 9070 XT Beast</a>
+                                <h4 class="fw-semibold mb-2 product-title">
+                                    <a href="https://wired2fire.co.uk/product/r7x3d-9070-xt-red-beast/" class="text-decoration-none" style="color: #ffffff;">R7X3D 9070 XT Beast</a>
                                 </h4>
                                 
                                 <p class="mb-3 fs-4 fw-bold" style="color: #f5891f;">£2,149.99 <small class="text-muted fs-6">(inc VAT)</small></p>
@@ -613,15 +220,16 @@
 
                 <!-- Product 3 -->
                 <div class="col-lg-3 col-md-6">
-                    <div class="card feature-card d-flex flex-column h-100">
+                    <div class="card product-card d-flex flex-column h-100">
                         <div class="card-body d-flex flex-column">
+                            <div class="product-badge">Sim Ready</div>
                             <a href="https://wired2fire.co.uk/product/sim-x-valkyrie-r7x3d-5070ti/" class="text-decoration-none">
                                 <img src="w2f/img/H55070Ti.webp" alt="Sim-X Valkyrie" class="card-img-top" style="max-height: 250px; object-fit: contain;">
                             </a>
                             
                             <div class="d-flex flex-column h-100">
-                                <h4 class="fw-semibold mb-2">
-                                    <a href="https://wired2fire.co.uk/product/sim-x-valkyrie-r7x3d-5070ti/" class="text-decoration-none text-dark">Sim-X Valkyrie R7X3D 5070Ti</a>
+                                <h4 class="fw-semibold mb-2 product-title">
+                                    <a href="https://wired2fire.co.uk/product/sim-x-valkyrie-r7x3d-5070ti/" class="text-decoration-none" style="color: #ffffff;">Sim-X Valkyrie R7X3D 5070Ti</a>
                                 </h4>
                                 
                                 <p class="mb-3 fs-4 fw-bold" style="color: #f5891f;">£2,207.99 <small class="text-muted fs-6">(inc VAT)</small></p>
@@ -657,15 +265,16 @@
 
                 <!-- Product 4 -->
                 <div class="col-lg-3 col-md-6">
-                    <div class="card feature-card d-flex flex-column h-100">
+                    <div class="card product-card d-flex flex-column h-100">
                         <div class="card-body d-flex flex-column">
+                            <div class="product-badge">Compact</div>
                             <a href="https://wired2fire.co.uk/product/wtf-amd-r8845-mini-pc/" class="text-decoration-none">
                                 <img src="https://wired2fire.co.uk/wp-content/uploads/2025/08/MaxTang-8845-hero-700x701.webp" alt="WTF Mini PC" class="card-img-top" style="max-height: 250px; object-fit: contain;">
                             </a>
                             
                             <div class="d-flex flex-column h-100">
-                                <h4 class="fw-semibold mb-2">
-                                    <a href="https://wired2fire.co.uk/product/wtf-amd-r8845-mini-pc/" class="text-decoration-none text-dark">WTF AMD R8845 Mini PC</a>
+                                <h4 class="fw-semibold mb-2 product-title">
+                                    <a href="https://wired2fire.co.uk/product/wtf-amd-r8845-mini-pc/" class="text-decoration-none" style="color: #ffffff;">WTF AMD R8845 Mini PC</a>
                                 </h4>
                                 
                                 <p class="mb-3 fs-4 fw-bold" style="color: #f5891f;">£600.00 <small class="text-muted fs-6">(inc VAT)</small></p>
@@ -700,15 +309,15 @@
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <div class="card feature-card d-flex flex-column h-100">
+                    <div class="card product-card d-flex flex-column h-100">
                         <div class="card-body d-flex flex-column">
                             <a href="https://wired2fire.co.uk/product/r5-rtx-5060ti-powerhouse/" class="text-decoration-none">
                                 <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/PSD-Case-FD-Pop-Air-Hero-1-1-1022x1024.webp" alt="R5 RTX 5060Ti Powerhouse" class="card-img-top" style="max-height: 250px; object-fit: contain;">
                             </a>
                             
                             <div class="d-flex flex-column h-100">
-                                <h4 class="fw-semibold mb-2">
-                                    <a href="https://wired2fire.co.uk/product/r5-rtx-5060ti-powerhouse/" class="text-decoration-none text-dark">R5 RTX 5060Ti Powerhouse</a>
+                                <h4 class="fw-semibold mb-2 product-title">
+                                    <a href="https://wired2fire.co.uk/product/r5-rtx-5060ti-powerhouse/" class="text-decoration-none" style="color: #ffffff;">R5 RTX 5060Ti Powerhouse</a>
                                 </h4>
                                 
                                 <p class="mb-3 fs-4 fw-bold" style="color: #f5891f;">£1,273.00 <small class="text-muted fs-6">(inc VAT)</small></p>
@@ -743,15 +352,15 @@
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <div class="card feature-card d-flex flex-column h-100">
+                    <div class="card product-card d-flex flex-column h-100">
                         <div class="card-body d-flex flex-column">
                             <a href="https://wired2fire.co.uk/product/predator-high-performance-pc/" class="text-decoration-none">
                                 <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/AthenaHero.webp" alt="Predator AMD Gaming PC" class="card-img-top" style="max-height: 250px; object-fit: contain;">
                             </a>
                             
                             <div class="d-flex flex-column h-100">
-                                <h4 class="fw-semibold mb-2">
-                                    <a href="https://wired2fire.co.uk/product/predator-high-performance-pc/" class="text-decoration-none text-dark">Predator AMD Gaming PC</a>
+                                <h4 class="fw-semibold mb-2 product-title">
+                                    <a href="https://wired2fire.co.uk/product/predator-high-performance-pc/" class="text-decoration-none" style="color: #ffffff;">Predator AMD Gaming PC</a>
                                 </h4>
                                 
                                 <p class="mb-3 fs-4 fw-bold" style="color: #f5891f;">£1,091.00 <small class="text-muted fs-6">(inc VAT)</small></p>
@@ -786,15 +395,15 @@
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <div class="card feature-card d-flex flex-column h-100">
+                    <div class="card product-card d-flex flex-column h-100">
                         <div class="card-body d-flex flex-column">
                             <a href="https://wired2fire.co.uk/product/reactor-supercharged-gaming-amd-pc/" class="text-decoration-none">
                                 <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/Antec-CX500M-HSF-Hero-1-1022x1024.webp" alt="Reactor Supercharged AMD PC" class="card-img-top" style="max-height: 250px; object-fit: contain;">
                             </a>
                             
                             <div class="d-flex flex-column h-100">
-                                <h4 class="fw-semibold mb-2">
-                                    <a href="https://wired2fire.co.uk/product/reactor-supercharged-gaming-amd-pc/" class="text-decoration-none text-dark">Reactor Supercharged AMD PC</a>
+                                <h4 class="fw-semibold mb-2 product-title">
+                                    <a href="https://wired2fire.co.uk/product/reactor-supercharged-gaming-amd-pc/" class="text-decoration-none" style="color: #ffffff;">Reactor Supercharged AMD PC</a>
                                 </h4>
                                 
                                 <p class="mb-3 fs-4 fw-bold" style="color: #f5891f;">£801.00 <small class="text-muted fs-6">(inc VAT)</small></p>
@@ -829,15 +438,15 @@
                 </div>
                 
                 <div class="col-lg-3 col-md-6">
-                    <div class="card feature-card d-flex flex-column h-100">
+                    <div class="card product-card d-flex flex-column h-100">
                         <div class="card-body d-flex flex-column">
                             <a href="https://wired2fire.co.uk/product/build-your-own-pc-amd/" class="text-decoration-none">
                                 <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/BYOC-Thumb-AMD-1-1022x1024.webp" alt="Build Your Own PC – AM5" class="card-img-top" style="max-height: 250px; object-fit: contain;">
                             </a>
                             
                             <div class="d-flex flex-column h-100">
-                                <h4 class="fw-semibold mb-2">
-                                    <a href="https://wired2fire.co.uk/product/build-your-own-pc-amd/" class="text-decoration-none text-dark">Build Your Own PC – AM5</a>
+                                <h4 class="fw-semibold mb-2 product-title">
+                                    <a href="https://wired2fire.co.uk/product/build-your-own-pc-amd/" class="text-decoration-none" style="color: #ffffff;">Build Your Own PC – AM5</a>
                                 </h4>
                                 
                                 <p class="mb-3 fs-4 fw-bold" style="color: #f5891f;">From: £277.00 <small class="text-muted fs-6">(inc VAT)</small></p>
@@ -930,12 +539,48 @@
         </div>
     </section>
 
+    <!-- Content Image Section 1: High-Performance Gaming -->
+    <section class="content-image-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/Hero-1.png" alt="High-Performance Gaming PC" class="img-fluid">
+                </div>
+                <div class="col-lg-6">
+                    <div class="content-accent-bar"></div>
+                    <h2>High-Performance Gaming PCs</h2>
+                    <p>Experience gaming without limits. Wired2Fire high-performance gaming PCs deliver lightning-fast frame rates, stunning visuals, and seamless multitasking.</p>
+                    <p>Every system is engineered with the latest NVIDIA or AMD graphics, high-speed memory, and whisper-quiet cooling, giving you the power to conquer competitive arenas and explore expansive worlds alike. Performance isn't just a feature; it's an experience.</p>
+                    <a href="https://wired2fire.co.uk/gaming-pcs/" class="btn btn-configure mt-3">View All Gaming PCs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Image Section 2: Custom Built Excellence -->
+    <section class="content-image-section" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                    <img src="https://wired2fire.co.uk/wp-content/uploads/2025/09/PSD-Case-NESO-P1-Pro-Black-Side-1-1022x1024.webp" alt="Custom Gaming PC Build" class="img-fluid">
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="content-accent-bar"></div>
+                    <h2>Custom Gaming Rigs</h2>
+                    <p>Your game, your rules. Wired2Fire custom gaming PCs let you tailor every element of your system for peak performance and personal style.</p>
+                    <p>With ultra-fast graphics, whisper-quiet cooling, and high-speed memory, our bespoke PCs bring every game to life in breathtaking detail. Step into a rig built to perform as beautifully as it looks, and turn every gaming session into a statement of power and precision.</p>
+                    <a href="configurator.html" class="btn btn-configure mt-3">Build Your Own PC</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Specialized Categories -->
-    <section class="product-grid" style="background: white;">
+    <section class="product-grid trust-section">
         <div class="container">
             <div class="section-header">
-                <h2>Specialized Gaming PCs</h2>
-                <p>Purpose-built systems optimized for specific gaming genres and professional applications.</p>
+                <h2 style="color: #ffffff;">Specialized Gaming PCs</h2>
+                <p style="color: #b0b0b0;">Purpose-built systems optimized for specific gaming genres and professional applications.</p>
             </div>
             
             <div class="row g-4 mb-5">
@@ -999,12 +644,12 @@
     </section>
 
     <!-- FAQ Section -->
-    <section style="background: #f8f9fa; padding: 5rem 0;">
+    <section class="feature-section">
         <div class="container">
             <div class="row text-center mb-5">
                 <div class="col-12">
-                    <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; color: #1a1a1a;">Frequently Asked Questions</h2>
-                    <p style="font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto;">
+                    <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Frequently Asked Questions</h2>
+                    <p style="font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto;">
                         Everything you need to know about our gaming PCs
                     </p>
                 </div>
@@ -1015,12 +660,12 @@
                     <div class="accordion config-menu" id="faqAccordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="faqOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="font-weight: 600; color: #1a1a1a;">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="font-weight: 600;">
                                     What makes Wired2Fire gaming PCs different from off-the-shelf options?
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="faqOne" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body" style="background-color: #fff;">
+                                <div class="accordion-body">
                                     Every Wired2Fire gaming PC is custom-built to your exact specifications by our expert technicians. Unlike mass-produced systems, we use premium components, ensure perfect cable management, and conduct extensive testing before shipping. You also get our 5-year warranty and lifetime UK-based support - something you won't find with off-the-shelf PCs.
                                 </div>
                             </div>
@@ -1028,12 +673,12 @@
                         
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="faqTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="font-weight: 600; color: #1a1a1a;">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="font-weight: 600;">
                                     How long does it take to build and deliver my gaming PC?
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="faqTwo" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body" style="background-color: #fff;">
+                                <div class="accordion-body">
                                     Standard build time is 5-7 working days, with next-day delivery via DPD once your PC is ready. For customers who need their system faster, we offer a next-day build service for an additional fee. You'll receive tracking information and a timed delivery slot so you know exactly when to expect your new gaming PC.
                                 </div>
                             </div>
@@ -1041,12 +686,12 @@
                         
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="faqThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="font-weight: 600; color: #1a1a1a;">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="font-weight: 600;">
                                     Can I upgrade my gaming PC in the future?
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="faqThree" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body" style="background-color: #fff;">
+                                <div class="accordion-body">
                                     Absolutely! We build all our gaming PCs with upgradeability in mind. Whether you want to add more RAM, upgrade your graphics card, or expand storage, our systems are designed to grow with your needs. Our support team is always available to advise on compatible upgrades and can even perform the upgrades for you if needed.
                                 </div>
                             </div>
@@ -1054,12 +699,12 @@
                         
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="faqFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="font-weight: 600; color: #1a1a1a;">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="font-weight: 600;">
                                     What's included with my gaming PC purchase?
                                 </button>
                             </h2>
                             <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="faqFour" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body" style="background-color: #fff;">
+                                <div class="accordion-body">
                                     Your gaming PC comes fully assembled, tested, and ready to use with Windows 11 pre-installed (no bloatware). You'll receive all driver discs, component manuals, and any accessories included with your chosen components. Free delivery is included, along with our 5-year warranty covering 2 years parts and return, plus 3 additional years of labour coverage. Lifetime phone support is also included at no extra cost.
                                 </div>
                             </div>
