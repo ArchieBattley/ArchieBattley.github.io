@@ -1202,6 +1202,14 @@ hr.offcanvas-divider {
   margin-bottom: 1.5rem;
 }
 
+.airliners-page .content-accent-bar {
+  width: 80px;
+  height: 4px;
+  background: #b61212;
+  margin-bottom: 1.5rem;
+}
+
+
 /* Performance Tiers */
 .gaming-pcs-page .tier-selector {
   display: flex;
@@ -1272,6 +1280,102 @@ hr.offcanvas-divider {
   }
   
   .gaming-pcs-page .section-header h2 {
+    font-size: 2rem;
+  }
+}
+
+/* AIRLINERS LIVE PAGE STYLES */
+
+/* Hero Section */
+.airliners-page .category-hero {
+  color: white;
+}
+
+/* Product Grid */
+.airliners-page .product-grid {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.airliners-page .section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.airliners-page .section-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.airliners-page .section-header p {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Content Image Section */
+.airliners-page .content-image-section {
+  background: #fff;
+  padding: 4rem 0;
+}
+
+.airliners-page .content-image-section img {
+  border-radius: 12px;
+}
+
+.airliners-page .content-image-section h2 {
+  color: #1a1a1a;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.airliners-page .content-image-section p {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Trust Section */
+.airliners-page .trust-section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: white;
+}
+
+.airliners-page .trust-item {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.airliners-page .trust-icon {
+  font-size: 3rem;
+  color: #f5891f;
+  margin-bottom: 1rem;
+}
+
+.airliners-page .trust-item h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.airliners-page .trust-item p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .airliners-page .category-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .airliners-page .section-header h2 {
     font-size: 2rem;
   }
 }
