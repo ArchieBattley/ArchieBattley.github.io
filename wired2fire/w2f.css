@@ -1202,14 +1202,6 @@ hr.offcanvas-divider {
   margin-bottom: 1.5rem;
 }
 
-.airliners-page .content-accent-bar {
-  width: 80px;
-  height: 4px;
-  background: #b61212;
-  margin-bottom: 1.5rem;
-}
-
-
 /* Performance Tiers */
 .gaming-pcs-page .tier-selector {
   display: flex;
@@ -1354,7 +1346,7 @@ hr.offcanvas-divider {
 
 .airliners-page .trust-icon {
   font-size: 3rem;
-  color: #f5891f;
+  color: #ffffff;
   margin-bottom: 1rem;
 }
 
@@ -1379,6 +1371,70 @@ hr.offcanvas-divider {
     font-size: 2rem;
   }
 }
+
+
+.airliners-page .content-accent-bar {
+  width: 80px;
+  height: 4px;
+  background: #b61212;
+  margin-bottom: 1.5rem;
+}
+
+.airliners-page .product-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #b61212;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+
+.airliners-page .text-success {
+    color: #b61212 !important;
+}
+
+.airliners-page .btn-success {
+  background: #b61212 !important;
+  border-color: #b61212 !important;
+  color: white !important;
+}
+
+.airliners-page .btn-success:hover {
+  background: #8a0e0e !important;
+  border-color: #8a0e0e !important;
+  color: white !important;
+}
+
+.airliners-page .btn-success:focus,
+.airliners-page .btn-success:active {
+  background: #8a0e0e !important;
+  border-color: #8a0e0e !important;
+  color: white !important;
+  box-shadow: 0 0 0 0.25rem rgba(182, 18, 18, 0.5) !important;
+}
+
+.airliners-page .cta-button {
+  padding: 1.2rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  background-color: #b61212;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.airliners-page .cta-button:hover {
+  background-color: #ce1616;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(245, 31, 31, 0.4);
+}
+
 
 /* CONFIGURATOR PAGE STYLES */
 
