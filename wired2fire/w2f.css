@@ -1436,6 +1436,140 @@ hr.offcanvas-divider {
 }
 
 
+/* MAX FEWTRELL PAGE STYLES */
+
+/* Product Grid */
+.maxfewtrell-page .product-grid {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.maxfewtrell-page .section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.maxfewtrell-page .section-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.maxfewtrell-page .section-header p {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Content Image Section */
+.maxfewtrell-page .content-image-section {
+  background: #fff;
+  padding: 4rem 0;
+}
+
+.maxfewtrell-page .content-image-section img {
+  border-radius: 12px;
+}
+
+.maxfewtrell-page .content-image-section h2 {
+  color: #1a1a1a;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.maxfewtrell-page .content-image-section p {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Trust Section */
+.maxfewtrell-page .trust-section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: white;
+}
+
+.maxfewtrell-page .trust-item {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.maxfewtrell-page .trust-icon {
+  font-size: 3rem;
+  color: #9333ea;
+  margin-bottom: 1rem;
+}
+
+.maxfewtrell-page .trust-item h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.maxfewtrell-page .trust-item p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0;
+}
+
+.maxfewtrell-page .content-accent-bar {
+  width: 80px;
+  height: 4px;
+  background: #9333ea;
+  margin-bottom: 1.5rem;
+}
+
+.maxfewtrell-page .product-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+
+.maxfewtrell-page .cta-button {
+  padding: 1.2rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.maxfewtrell-page .cta-button:hover {
+  background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(147, 51, 234, 0.4);
+}
+
+/* Background Class */
+.background-maxfewtrell {
+  background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .maxfewtrell-page .category-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .maxfewtrell-page .section-header h2 {
+    font-size: 2rem;
+  }
+}
+
 /* CONFIGURATOR PAGE STYLES */
 
 .configurator-page {

@@ -1,6 +1,8 @@
 User-agent: *
 Disallow: /tasks.html
-Disallow: /w2fconfig.html
+Disallow: /wired2fire/
+Noindex: /tasks.html
+Noindex: /wired2fire/
 Allow: /
 
 Sitemap: https://archiebattley.github.io/sitemap.xml
