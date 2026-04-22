@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Happy Birthday Henry</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fdbf00;
+}
+
+/* CARD */
+.card {
+  width: min(420px, 90vw);
+  aspect-ratio: 2 / 3;
+  perspective: 1600px;
+  position: relative;
+  user-select: none;
+}
+
+/* 3D STACK */
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/* INSIDE (background page) */
+.inside {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.inside img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* FRONT (flipping page) */
+.front {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  transform-origin: left center;
+  transform-style: preserve-3d;
+
+  cursor: grab;
+  will-change: transform;
+}
+
+.front:active {
+  cursor: grabbing;
+}
+
+/* FRONT IMAGE */
+.front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  backface-visibility: hidden;
+}
+
+/* BACK FACE = solid white paper */
+.back {
+  position: absolute;
+  inset: 0;
+  background: white;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+
+/* REMOVE ALL ROUNDING */
+.front,
+.inside,
+.back {
+  border-radius: 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="card-inner">
+
+    <!-- INSIDE -->
+    <div class="inside">
+      <img src="/img/fun/henry/2.jpg" />
+    </div>
+
+    <!-- FRONT -->
+    <div class="front" id="front">
+      <img src="/img/fun/henry/1.jpg" />
+      <div class="back"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const front = document.getElementById("front");
+
+let dragging = false;
+let startX = 0;
+
+let progress = 0;
+let target = 0;
+
+function clamp(v, min, max) {
+  return Math.max(min, Math.min(max, v));
+}
+
+/* SMOOTH ANIMATION LOOP */
+function animate() {
+  progress += (target - progress) * 0.12;
+
+  const rotateY = -160 * progress;
+
+  /* 🔥 FIX: remove tilt when fully open to prevent gap */
+  const tilt = progress > 0.98 ? 0 : -2 * progress;
+
+  front.style.transform =
+    `rotateY(${rotateY}deg)
+     rotateZ(${tilt}deg)`;
+
+  requestAnimationFrame(animate);
+}
+animate();
+
+/* DRAG CONTROL */
+front.addEventListener("pointerdown", (e) => {
+  dragging = true;
+  startX = e.clientX;
+});
+
+window.addEventListener("pointermove", (e) => {
+  if (!dragging) return;
+
+  const dx = e.clientX - startX;
+
+  target = clamp(dx / 320, 0, 1);
+});
+
+window.addEventListener("pointerup", () => {
+  dragging = false;
+
+  target = target > 0.45 ? 1 : 0;
+});
+</script>
+
+</body>
+</html>
