@@ -14,6 +14,7 @@ body {
   justify-content: center;
   align-items: center;
   background: #fdbf00;
+  overflow: hidden;
 }
 
 /* CARD */
@@ -87,6 +88,38 @@ body {
 .back {
   border-radius: 0;
 }
+
+/* INSTRUCTION TEXT */
+.instruction {
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.arrow {
+  font-size: 24px;
+  animation: slideLeft 1.5s ease-in-out infinite;
+}
+
+@keyframes slideLeft {
+  0%, 100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-15px);
+    opacity: 0.5;
+  }
+}
 </style>
 </head>
 
@@ -106,6 +139,12 @@ body {
       <div class="back"></div>
     </div>
 
+  </div>
+  
+  <!-- INSTRUCTION -->
+  <div class="instruction" id="instruction">
+    <span class="arrow">←</span>
+    <span>Swipe to open</span>
   </div>
 </div>
 
@@ -148,7 +187,7 @@ front.addEventListener("pointerdown", (e) => {
 window.addEventListener("pointermove", (e) => {
   if (!dragging) return;
 
-  const dx = e.clientX - startX;
+  const dx = startX - e.clientX; // REVERSED: swipe LEFT to open
 
   target = clamp(dx / 320, 0, 1);
 });
@@ -157,6 +196,11 @@ window.addEventListener("pointerup", () => {
   dragging = false;
 
   target = target > 0.45 ? 1 : 0;
+  
+  // Hide instruction once card is opened
+  if (target === 1) {
+    document.getElementById("instruction").style.opacity = "0";
+  }
 });
 </script>
 
