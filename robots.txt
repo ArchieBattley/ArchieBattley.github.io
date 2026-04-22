@@ -1,8 +1,10 @@
 User-agent: *
 Disallow: /tasks.html
 Disallow: /wired2fire/
+Disallow: /happy-birthday-henry.html
 Noindex: /tasks.html
 Noindex: /wired2fire/
+Noindex: /happy-birthday-henry.html
 Allow: /
 
 Sitemap: https://archiebattley.github.io/sitemap.xml
